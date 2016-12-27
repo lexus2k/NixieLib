@@ -1,7 +1,12 @@
-#include <nixie_tube.h>
+#include <nixie_display.h>
 #include <nixie_k155id1.h>
 #include <nixie_library.h>
 
+/*
+ * In this example both Nixie Tubes are controlled through single K155ID1 chip.
+ * To correctly control tubes digits, we need to turn on tubes in different time 
+ * by enabling and disabling power on Anod tubes.
+ */
 
 /*
  * Assume that I1, I2, I3 and I4 input pins of K155ID1 are connected to
@@ -18,20 +23,27 @@ K155ID1             g_driver(driverPins);
 const byte          in14driverMap[10]  = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 
 /*
- * Create display object, consisting of single Nixie Tube
+ * anodPins array contains pins, which are used to control power voltage on Nixie Tube Anods.
+ * Lets assume, these pins are 3, 4
  */
-NixieTube           g_tube(&g_driver, in14driverMap);
+const byte          anodPins[]    =  { 3,   4 };
+
+/*
+ * Create display object, consisting of 2 Nixie Tubes
+ */
+NixieDisplay        g_display(g_driver, anodPins, in14driverMap, 2);
 
 void setup()
 {
     Serial.begin(9600);
-    g_tube.init();
+    g_display.init();
     /* Start with zero-digit. Zero index means the single tube we have */
-    g_tube = 0;
+    g_display[0] = 0;
+    g_display[1] = 0;
     /* Activate tube object by calling anodOn() method.
      * Call this method if pin to control tube anod is not used.
      */
-    g_tube.anodOn();
+    g_display.turnOn();
 }
 
 void loop()
@@ -41,13 +53,13 @@ void loop()
     NixieLibrary::update();
     if (millis() - timestamp > 1000)
     {
-        /* enumerate all digits one by one every 1000 mseconds */
-        if (g_tube <=8)
-            g_tube = g_tube + 1;
+        /* enumerate all digits one by one every 1000 mseconds on first tube only */
+        if (g_display[0] <=8)
+            g_display[0] = g_display[0] + 1;
         else
-            g_tube = 0;
-        Serial.println(g_tube.value());
+            g_display[0] = 0;
+        Serial.println(g_display[0].value());
         timestamp = millis();
     }
-    g_tube.update();
+    g_display.render();
 }
