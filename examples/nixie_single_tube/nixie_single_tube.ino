@@ -39,7 +39,7 @@ void loop()
     if (millis() - timestamp > 1000)
     {
         /* enumerate all digits one by one every 1000 mseconds */
-        if (g_tube >=8)
+        if (g_tube <=8)
             g_tube = g_tube + 1;
         else
             g_tube = 0;
