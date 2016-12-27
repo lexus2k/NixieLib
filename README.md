@@ -8,7 +8,8 @@ and Atmega328p controllers. If you have questions, please contact via
 email.
 
 For more information about this library please visit
-https://github.com/lexus2k/nixielib
+https://github.com/lexus2k/nixielib.
+If you found any problem, please report to Issues section.
 
 == License ==
 
