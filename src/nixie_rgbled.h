@@ -80,6 +80,9 @@ private:
     SNixieColor   m_color = { 0, 0, 0 };
 };
 
+/**
+ * NOT IMPLEMENTED.
+ */
 class NixieSoftRgbLed
 {
   
