@@ -17,6 +17,7 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+#include "nixie_library.h"
 #include "nixie_buttons.h"
 
 #define BUTTONS_THRESHOLD         30 /// in sample units 0 - 1024
@@ -30,15 +31,15 @@
 /**
  *  In milliseconds
  */
-void NixieAnalogButtons::update(uint16_t ts)
+void NixieAnalogButtons::update()
 {
     /* Do not sample too often */
     m_wasButtonDown = m_isButtonDown;
-    if ((0 == m_checkBounce) && (ts - m_lastEventTimestampMs < BUTTONS_SAMPLING_PERIOD))
+    if ((0 == m_checkBounce) && (g_nixieMs - m_lastEventTimestampMs < BUTTONS_SAMPLING_PERIOD))
     {
         return;
     }
-    if ((m_checkBounce != 0) && (ts - m_lastEventTimestampMs < DEBOUNCE_SAMPLING_PERIOD))
+    if ((m_checkBounce != 0) && (g_nixieMs - m_lastEventTimestampMs < DEBOUNCE_SAMPLING_PERIOD))
     {
         return;
     }
@@ -50,7 +51,7 @@ void NixieAnalogButtons::update(uint16_t ts)
            debounce cycles for newly pressed button */
         m_checkBounce = 1;
     }
-    m_lastEventTimestampMs = ts;
+    m_lastEventTimestampMs = g_nixieMs;
     m_lastReadAdc = value;
     if (m_checkBounce < DEBOUNCE_CYCLES)
     {
@@ -63,16 +64,16 @@ void NixieAnalogButtons::update(uint16_t ts)
     {
         found = (value < m_buttons[n] + ANALOG_BUTTONS_THRESHOLD) && 
                 (value > m_buttons[n] - ANALOG_BUTTONS_THRESHOLD);
-        if (found && (ts - m_upTimestampMs >= MIN_DELAY_AFTER_UP))
+        if (found && (g_nixieMs - m_upTimestampMs >= MIN_DELAY_AFTER_UP))
         {
             // Change only, if new button is pressed and no much time passed since last hit
-            if (((m_id != n) && (ts - m_downTimestampMs < MAX_WAIT_DOUBLE_PRESS_TIMEOUT)) ||
+            if (((m_id != n) && (g_nixieMs - m_downTimestampMs < MAX_WAIT_DOUBLE_PRESS_TIMEOUT)) ||
                 // or if button is being pressed
                 (m_isButtonDown == false))
             {
                 m_id = n;
                 m_isButtonDown = true;
-                m_downTimestampMs = ts; 
+                m_downTimestampMs = g_nixieMs; 
                 if (m_downHandler != nullptr)
                 {
                     m_downHandler(m_id);
@@ -100,7 +101,7 @@ void NixieAnalogButtons::update(uint16_t ts)
             {
                 m_upHandler(m_id); 
             }
-            m_upTimestampMs = ts; 
+            m_upTimestampMs = g_nixieMs; 
         }
     }
 }

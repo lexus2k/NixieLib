@@ -17,27 +17,8 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef _NIXIE_DECODER_H_
-#define _NIXIE_DECODER_H_
+#include "nixie_library.h"
 
-#include "nixie_types.h"
-    
-/*********************************************************************
- *     The main purpose of the NixieDriver is to control the circutes
- *     connected to the nixie tubes.
- *********************************************************************/
+uint16_t  g_nixieUs = 0;
+uint16_t  g_nixieMs = 0;
 
-class NixieDriver
-{
-public:
-    virtual void init() = 0;
-    /**
-     * Enables specified output pin on Nixie driver
-     * @param[in] pin - pin to enable
-     * @note all other pins are usually become disabled
-     */
-    virtual void switchPin(uint8_t pin) = 0;
-    virtual void setExtendedPins(uint8_t value) = 0;
-};
-
-#endif

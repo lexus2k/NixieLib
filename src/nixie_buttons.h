@@ -148,7 +148,7 @@ public:
      * Updates state of Buttons class, must be called in the cycle each time.
      * @param ts - time in milliseconds returned by millis() function.
      */
-    void update                        (uint16_t ts);
+    void update                        ();
 
     /**
      * Sets handler for button down events. Handler should accept button id

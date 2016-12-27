@@ -26,6 +26,7 @@
  *                 
  */
 
+#include <nixie_library.h>
 #include <nixie_buttons.h>
 
                              //  BTN1   BTN2  BTN3   BTN4
@@ -50,7 +51,8 @@ void setup()
 
 void loop()
 {
-    s_buttons.update(millis());
+    NixieLibrary::update();
+    s_buttons.update();
     if (s_buttons.isShortPress(0))
     {
         Serial.println("Another way to check BUTTON_1");

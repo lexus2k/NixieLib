@@ -1,5 +1,6 @@
-#include <nixie_display.h>
+#include <nixie_tube.h>
 #include <nixie_k155id1.h>
+#include <nixie_library.h>
 
 
 /*
@@ -19,28 +20,31 @@ const byte          in14driverMap[10]  = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 /*
  * Create display object, consisting of single Nixie Tube
  */
-NixieDisplay        g_display(g_driver, nullptr, in14driverMap, 1);
+NixieTube           g_tube(&g_driver, in14driverMap);
 
 void setup()
 {
     Serial.begin(9600);
-    g_display.init();
-    g_display.turnOn();
+    g_tube.init();
     /* Start with zero-digit. Zero index means the single tube we have */
-    g_display[0] = 0;
+    g_tube = 0;
+    g_tube.anodOn();
 }
 
 void loop()
 {
     static unsigned long timestamp = millis();
+    /* The line below must be called in the beginning of each loop cycle */
+    NixieLibrary::update();
     if (millis() - timestamp > 1000)
     {
-        if (g_display[0] >=8)
-            g_display[0] = g_display[0] + 1;
+        /* enumerate all digits one by one every 1000 mseconds */
+        if (g_tube >=8)
+            g_tube = g_tube + 1;
         else
-            g_display[0] = 0;
-        Serial.println(g_display[0].value());
+            g_tube = 0;
+        Serial.println(g_tube.value());
         timestamp = millis();
     }
-    g_display.render(micros());   
+    g_tube.update();
 }

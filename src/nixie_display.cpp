@@ -17,31 +17,46 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+#include "nixie_library.h"
 #include "nixie_display.h"
 
 static const uint32_t s_newInterval = ( (uint32_t)CHANGE_INTERVAL * DISPLAY_BRIGHTNESS_RANGE ) / (uint32_t)NIXIE_MAX_BRIGHTNESS;
 static const uint32_t s_minChangeInterval = (uint32_t)CHANGE_INTERVAL - s_newInterval;
 
-void NixieDisplay::init(void)
+
+NixieDisplay::NixieDisplay(NixieDriver   & driver,
+                           const uint8_t   tubePins[],
+                           const uint8_t * mapTable,
+                           uint8_t         maxTubes)
 {
-    if (m_tubePins != nullptr)
+    m_maxTubes = maxTubes;
+    for (uint8_t n=0; n<maxTubes; n++)
     {
-        for(uint8_t i=0; i<m_maxTubes; i++)
-            pinMode(m_tubePins[i], OUTPUT);
-    }
-    // Calculate boost table
-    for(uint8_t brightness = 0; brightness <= NIXIE_MAX_BRIGHTNESS; brightness++)
-    {
-        m_impulses[brightness] = (uint16_t)(( s_minChangeInterval + s_newInterval * (uint32_t)brightness) >> NIXIE_BRIGHTNESS_BITS );
+        m_tubes[n].setMap(mapTable);
+        m_tubes[n].setDriver(driver);
+        m_tubes[n].setAnodPin(tubePins[n]);
     }
 }
 
 
-void NixieDisplay::render(unsigned long ts)
+void NixieDisplay::init(void)
 {
-    m_activeTs = ts;
+    for(uint8_t i=0; i<m_maxTubes; i++)
+    {
+        m_tubes[i].init();
+    }
+}
+
+
+void NixieDisplay::render()
+{
+    bool nextTube = false;
     /* Turn off tube if needed */
-    __controlImpulseOff();
+    if (m_tubes[m_tube].update())
+    {
+        m_tubes[m_tube].anodOff();
+        nextTube = true;
+    }
     switch (m_state)
     {
     case STATE_MOVE_LEFT:
@@ -63,8 +78,17 @@ void NixieDisplay::render(unsigned long ts)
     default:
         break;
     }
-    __normalState();
-    /* Turn on tube if needed */
+    if ( nextTube )
+    {
+        // Select next tube
+        if (++m_tube >= m_maxTubes) m_tube = 0;
+        for (uint8_t i=0; i<m_maxTubes; i++)
+            m_tubes[i].update();
+        if (m_state != STATE_DISPLAY_OFF)
+        {
+            m_tubes[m_tube].anodOn();
+        }
+    }
 }
 
 
@@ -99,75 +123,15 @@ uint8_t NixieDisplay::getBrightness()
 }
 
 
-void NixieDisplay::__controlImpulseOff(void)
-{
-    /* If nixie tube had enough impulse, just power off it */
-    if ((true == m_tubeBurning) && ((uint16_t)m_activeTs - m_tubeTs >= m_impulseWidth))
-    {
-        __tubeOff(m_tube);
-        m_tubeBurning = false;
-    }
-}
-
-
-void NixieDisplay::__controlImpulseOn(void)
-{
-    if (m_tubeBurning == false)
-    {
-         if (m_state != STATE_DISPLAY_OFF)
-         {
-             __tubeOn(m_tube);
-             m_tubeBurning = true;
-             uint8_t brightness = m_tubes[m_tube].getActiveBrightness();
-             if (brightness > NIXIE_MAX_BRIGHTNESS)
-             {
-                 m_impulseWidth = CHANGE_INTERVAL;
-             }
-             else
-             {
-                 m_impulseWidth = m_impulses[brightness];
-             }
-         }
-    }
-}
-
-
-void NixieDisplay::__normalState(void)
-{
-    if ((uint16_t)m_activeTs - m_tubeTs >= CHANGE_INTERVAL)
-    {
-        // Consider that X/1000 ~ X/1024 to reduce calculation cost
-        /* Process only visible tubes. Consider shadowTubes as not needed for update */
-        uint16_t ticks = (uint16_t)(m_activeTs >> 10);
-        for (byte i=0; i<m_maxTubes; i++)
-            m_tubes[i].update( ticks );
-        m_tubeTs = m_activeTs; //+= CHANGE_INTERVAL;
-        // Select next tube
-        if (++m_tube >= m_maxTubes) m_tube = 0;
-        // Set digit code for new digit to display.
-        if ( m_tubes[m_tube].isBurning() )
-        {
-            m_driver->switchPin(m_tubes[m_tube].getActivePin());
-            m_driver->setExtendedPins(m_tubes[m_tube].flags(0xFF));
-            // Turn ON next bulb
-            __controlImpulseOn();
-        }
-    }
-}
-
 void NixieDisplay::__repairState(void)
 {
-/*    if (m_activeTs - m_stateTs >= SLIDE_INTERVAL)
-    {
-        m_
-    }*/
 }
 
 void NixieDisplay::__moveLeft(void)
 {
     if (m_startPos > 0)
     {
-        if (m_activeTs - m_stateTs >= SLIDE_INTERVAL)
+        if (g_nixieMs - m_stateTs >= SLIDE_INTERVAL)
         {
             m_stateTs += SLIDE_INTERVAL;
             for (uint8_t i=1; i<m_maxTubes; i++)
@@ -196,7 +160,7 @@ void NixieDisplay::__moveRight(void)
 {
     if (m_startPos < 0)
     {
-        if (m_activeTs - m_stateTs >= SLIDE_INTERVAL)
+        if (g_nixieMs - m_stateTs >= SLIDE_INTERVAL)
         {
             m_stateTs += SLIDE_INTERVAL;
             for (uint8_t i=m_maxTubes-1; i>0; i--)
@@ -225,7 +189,7 @@ void NixieDisplay::__scroll321( )
 {
     if (m_startPos < 0)
     {
-        if (m_activeTs - m_stateTs >= SLIDE_INTERVAL * 3)
+        if (g_nixieMs - m_stateTs >= SLIDE_INTERVAL * 3)
         {
             m_stateTs += SLIDE_INTERVAL * 3;
             m_tubes[ -m_startPos - 1 ] = m_shadowTubes[ -m_startPos - 1];
@@ -249,12 +213,12 @@ void NixieDisplay::swapSmooth(byte newBrightness)
     {
         m_state = STATE_SWAP_SMOOTH;
         m_startPos = m_maxTubes;
-        m_stateTs = m_activeTs;
+        m_stateTs = g_nixieMs;
         if (newBrightness != 0xFF)
         {
             m_brightness = newBrightness;
         }
-        for (byte i=0; i<m_maxTubes; i++)
+        for (uint8_t i=0; i<m_maxTubes; i++)
         {
             m_tubes[i].setSmoothBrightness(0);
             m_shadowTubes[i].setBrightness(0);
@@ -269,7 +233,7 @@ void NixieDisplay::__swapSmooth(void)
 {
     if (m_startPos == m_maxTubes)
     {
-        if (m_activeTs - m_stateTs >= (DIMMING_INTERVAL << 1) * m_brightness)
+        if (g_nixieMs - m_stateTs >= 2)
         {
             for(byte i=0; i<m_maxTubes; i++) m_tubes[i] = m_shadowTubes[i];
             m_startPos = 0;
@@ -329,7 +293,7 @@ void NixieDisplay::moveLeft(int8_t positions)
     {
         m_state = STATE_MOVE_LEFT;
         m_startPos = positions;
-        m_stateTs = m_activeTs;
+        m_stateTs = g_nixieMs;
         on();
     }
 }
@@ -343,7 +307,7 @@ void NixieDisplay::moveRight(int8_t positions)
     {
         m_state = STATE_MOVE_RIGHT;
         m_startPos = -positions;
-        m_stateTs = m_activeTs;
+        m_stateTs = g_nixieMs;
         on();
     }
 }
@@ -359,7 +323,7 @@ void NixieDisplay::scroll321( )
     {
         m_state = STATE_SCROLL321;
         m_startPos = - m_maxTubes;
-        m_stateTs = m_activeTs;
+        m_stateTs = g_nixieMs;
         __resetShadow();
         m_tubes[m_maxTubes - 1].scrollForward();
     }

@@ -17,27 +17,39 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef _NIXIE_DECODER_H_
-#define _NIXIE_DECODER_H_
+/**
+ This file contains NixieLibrary class, which control global states of NixieLibrary
+
+ @file
+ @brief Nixie Library - global.
+*/
+
+#ifndef _NIXIE_LIBRARY_H_
+#define _NIXIE_LIBRARY_H_
 
 #include "nixie_types.h"
-    
-/*********************************************************************
- *     The main purpose of the NixieDriver is to control the circutes
- *     connected to the nixie tubes.
- *********************************************************************/
 
-class NixieDriver
+extern uint16_t  g_nixieUs;
+extern uint16_t  g_nixieMs;
+
+class NixieLibrary
 {
 public:
-    virtual void init() = 0;
-    /**
-     * Enables specified output pin on Nixie driver
-     * @param[in] pin - pin to enable
-     * @note all other pins are usually become disabled
-     */
-    virtual void switchPin(uint8_t pin) = 0;
-    virtual void setExtendedPins(uint8_t value) = 0;
+    static inline void update(uint32_t ms, uint32_t us)
+    {
+       g_nixieMs = (uint16_t)ms;
+       g_nixieUs = (uint16_t)us;
+    };
+
+    static inline void update()
+    {
+       g_nixieMs = millis();  
+       g_nixieUs = micros();
+    };
+
 };
 
+
 #endif
+
+

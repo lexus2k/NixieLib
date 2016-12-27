@@ -17,6 +17,7 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+#include <nixie_library.h>
 #include <nixie_audio_channel.h>
 #include <nixie_melodies.h>
 
@@ -31,6 +32,7 @@ void setup()
 
 void loop()
 {
+    NixieLibrary::update();
     s_audio.update(micros());
     if (!s_audio.isPlaying( ))
     {

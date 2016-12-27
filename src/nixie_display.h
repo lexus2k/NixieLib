@@ -22,7 +22,6 @@
 
 #include "nixie_tube.h"
 #include "nixie_driver.h"
-#include "nixie_booster.h"
 /*********************************************************************
  *                      DISPLAY MODULE
  *
@@ -30,35 +29,10 @@
  *     provides special effects.
  *********************************************************************/
 
-/*
- * IN-12/IN-14 Datasheet.
- * Impulse mode: 70us / refresh frequency 1-1.8kHz
- */
-
-/* Burning time for each digit.
- * When 1 digit is ON, other are OFF. This means that during full cycle 
- * bulb is OFF for CHANGE_INTERVAL*5.
- * IMPULSE_WIDTH should be greater than 70us (according to IN-14 spec) and working
- * frequency should be below 1-1.8kHz, otherwise the gas in the the tube will be visible.
- * On other way, Atmega328 supports only 4us accuracy.
- * Nixie Display module uses 32 levels of brightness, thus to have 25% accuracy on low brightness
- * minimum change interval should be 100/25 * 4 * 64 = 512.
- */
-//#define CHANGE_INTERVAL   1600 // ~ 104Hz for each bulb
-#define CHANGE_INTERVAL   800 // ~ 160Hz for each bulb
-#define DISPLAY_BRIGHTNESS_RANGE  (uint32_t)( NIXIE_MAX_BRIGHTNESS - 2 )
-
-/* Slide interval points how fast digits are moved away from the screen */
-#define SLIDE_INTERVAL    50000
-
-#define REPAIR_TIMEOUT    1000000
+/* Slide interval in milliseconds points how fast digits are moved away from the screen */
+#define SLIDE_INTERVAL    50
 
 #define NIXIE_MAX_BULBS         ( 6 )
-#define MIN_DESIRED_BRIGHTNESS  ( 3 * NIXIE_MAX_BRIGHTNESS / 32 )
-#define MIN_NIXIE_IMPULSE_SPEC  ( 70 )  // 70us per spec
-#if CHANGE_INTERVAL * MIN_DESIRED_BRIGHTNESS / NIXIE_MAX_BRIGHTNESS < MIN_NIXIE_IMPULSE_SPEC
-   #error "Minimum nixie impulse should be at least 70us. Please increase change interval"
-#endif
 
 /**
  * Nixie Display encapsulates several tubes
@@ -85,19 +59,10 @@ public:
      * @param[in] mapTable - default pin mapping for all NixieTubes (refer to NixieTube class)
      * @param[in] maxTubes - 1 to 6
      */
-    inline NixieDisplay(NixieDriver    &driver,
-                        const uint8_t   tubePins[],
-                        const uint8_t  *mapTable,
-                        uint8_t         maxTubes)
-    {
-        m_driver   = &driver;
-        m_tubePins = tubePins;
-        m_maxTubes = maxTubes;
-        for (uint8_t n=0; n<maxTubes; n++)
-        {
-            m_tubes[n].setMap(mapTable);
-        }
-    };
+    NixieDisplay(NixieDriver    &driver,
+                 const uint8_t   tubePins[],
+                 const uint8_t  *mapTable,
+                 uint8_t         maxTubes);
 
     /**
      * This method must be called in setup function
@@ -106,9 +71,8 @@ public:
     
     /**
      * This method must be called in loop function
-     * @param ts - long time in microseconds
      */
-    void render(unsigned long ts);
+    void render();
     
     /**
      * Turns display off (immediately)
@@ -217,12 +181,7 @@ public:
         return m_tubes[idx];
     };
 
-
-    uint16_t getImpulseWidth() { return m_impulseWidth; };
-    
 private:
-    inline void __tubeOn(byte pos)  { if (m_tubePins != nullptr) nixiePinHigh(m_tubePins[pos]); };
-    inline void __tubeOff(byte pos) { if (m_tubePins != nullptr) nixiePinLow(m_tubePins[pos]); };
     void        __swapSmooth(void);
     void        __controlImpulseOff(void);
     void        __controlImpulseOn(void);
@@ -236,27 +195,19 @@ private:
 
     /* Number of the tubes supported by NixieDisplay */
     int8_t                     m_maxTubes;
-    /* K155ID1 driver chip to control the digits on the tube */
-    NixieDriver               *m_driver;
     /* These tubes are visible on the Tube Display */
-    NixieTube                  m_tubes[6];
+    NixieTube                  m_tubes[NIXIE_MAX_BULBS];
     /* These tubes are hidden on the Tube Display */
-    NixieTube                  m_shadowTubes[6];
-    const byte                 *m_tubePins;
+    NixieTube                  m_shadowTubes[NIXIE_MAX_BULBS];
     int8_t                     m_startPos    = 0;
-    byte                       m_tube        = 0;
+    uint8_t                    m_tube        = 0;
     ENixieDisplayState         m_state       = STATE_NORMAL;
-    uint16_t                   m_tubeTs      = 0;
-    unsigned long              m_activeTs    = 0;
     bool                       m_tubeBurning = false;
-    byte                       m_brightness;
+    uint8_t                    m_brightness;
 
     /* State-specific. Each state uses fields below for their own needs */
-    unsigned long              m_stateTs      = 0;
-    uint16_t                   m_impulseWidth = CHANGE_INTERVAL;
+    uint16_t                   m_stateTs      = 0;
     uint8_t                    m_lastEffect   = 0;
-
-    uint16_t                   m_impulses[NIXIE_MAX_BRIGHTNESS + 1];         
 };
 
 #endif
