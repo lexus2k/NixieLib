@@ -39,19 +39,22 @@
  *     describes the possible behavior of the tube.
  *********************************************************************/
 
-/* How much bits to use for display brightness */
+/** How much bits to use for display brightness */
 #define NIXIE_BRIGHTNESS_BITS   5
 
-/* How quickly each digit switches to another when numerating digits in milliseconds */
+/** How quickly each digit switches to another when numerating digits in milliseconds */
 #define SCROLL_INTERVAL   40
 
-/* The blinking internal of the tube in milliseconds. Must be power of 2. */
+/** The blinking internal of the tube in milliseconds. Must be power of 2. */
 #define BLINK_INTERVAL    ( 1<<10 )
 
-/* Maximum brightness, supported by the NixieTube class */
+/**
+ *  Maximum brightness, supported by the NixieTube class.
+ *  At present, it is range [0..32]
+ */
 #define NIXIE_MAX_BRIGHTNESS  (1<<NIXIE_BRIGHTNESS_BITS)
 
-/* Interval in milliseconds for updating Nixie Tube brightness */
+/** Interval in milliseconds for updating Nixie Tube brightness */
 #define DIMMING_INTERVAL  (BLINK_INTERVAL >> NIXIE_BRIGHTNESS_BITS)
 
 /*

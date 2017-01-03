@@ -1,5 +1,5 @@
 /*
-    Copyright (C) 2016 Alexey Dynda
+    Copyright (C) 2016-2017 Alexey Dynda
 
     This file is part of Nixie Library.
 
@@ -45,7 +45,7 @@ public:
     /**
      * Initializes pins. Should be called in setup().
      */
-    inline void   init() { for (byte i=0; i<3; i++) pinMode(m_pins[i], OUTPUT); };
+    inline void   init() { for (uint8_t i=0; i<3; i++) pinMode(m_pins[i], OUTPUT); };
 
     /**
      * Turns off the led
@@ -75,17 +75,72 @@ public:
     void          brightness(byte br);
     
 private:
-    const byte   *m_pins;
-    byte          m_brightness = NIXIE_MAX_BRIGHTNESS;
-    SNixieColor   m_color = { 0, 0, 0 };
+    const uint8_t *m_pins;
+    uint8_t        m_brightness = NIXIE_MAX_BRIGHTNESS;
+    SNixieColor    m_color = { 0, 0, 0 };
 };
 
 /**
- * NOT IMPLEMENTED.
+ * NixieSoftRgbLed class is intended to control RGB leds connected to
+ * any pins of Atmel controller - not only for pwm pins.
+ * Be careful when connecting LED pin to microcontroller. Remember, that
+ * most Atmel controllers provide 20mA at max (40mA for a short time only).
+ * If you're not sure, if microcontroller is possible to provide power for
+ * RGB led, please, connect LED via bi-polar transistor to controller pins.
  */
 class NixieSoftRgbLed
 {
-  
+public:
+    /**
+     * Constructor accepts array of 3 uint8_t integer numbers - pin numbers
+     * to control. PIN array passed to the constructor must be defined 
+     * globally, since the object remembers pointer to the array.
+     */
+    inline        NixieSoftRgbLed(const uint8_t pins[]) { m_pins = pins; };
+
+    /**
+     * Initializes pins. Should be called in setup().
+     */
+    inline void   init() { for (uint8_t i=0; i<3; i++) pinMode(m_pins[i], OUTPUT); };
+
+    /**
+     * Turns off the led
+     */
+    void          off();
+
+    /**
+     * Sets the color of RGB LED.
+     * @param[in] r - red value [0;255]
+     * @param[in] g - green value [0;255]
+     * @param[in] b - blue value [0;255]
+     * Remember that color component are not balanced since Green light
+     * has more brightness than red and blue on the same values.
+     */
+    void          rgb(byte r, byte g, byte b);
+
+    /**
+     * Sets RGB LED color.
+     */
+    inline void   rgb(const SNixieColor &color) { rgb(color.r, color.g, color.b); };
+
+    /**
+     * Set brightness of rgb leds in the range between [0,NIXIE_MAX_BRIGHTNESS]
+     * @param br - brightness in range [0,NIXIE_MAX_BRIGHTNESS]. 64 is maximum brightness
+     * for now.
+     */
+    void          brightness(byte br);
+
+    void          update();
+    
+private:
+    const uint8_t *m_pins;
+    uint8_t        m_brightness = NIXIE_MAX_BRIGHTNESS;
+    SNixieColor    m_color = { 0, 0, 0 };
+    uint8_t        m_redPwm = 0;
+    uint8_t        m_greenPwm = 0;
+    uint8_t        m_bluePwm = 0;
+    uint8_t        m_cnt;
+    uint16_t       m_lastMs;
 };
 
 #endif

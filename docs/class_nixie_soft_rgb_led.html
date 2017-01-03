@@ -60,12 +60,206 @@ $(function() {
 
 </div><!-- top -->
 <div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="class_nixie_soft_rgb_led-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">NixieSoftRgbLed Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<hr/>The documentation for this class was generated from the following file:<ul>
+
+<p><code>#include &lt;<a class="el" href="nixie__rgbled_8h_source.html">nixie_rgbled.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a06e30d00878bbab7ff7ec7c46e5ce25f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_nixie_soft_rgb_led.html#a06e30d00878bbab7ff7ec7c46e5ce25f">NixieSoftRgbLed</a> (const uint8_t pins[])</td></tr>
+<tr class="separator:a06e30d00878bbab7ff7ec7c46e5ce25f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3477fb068831d364f9d7cb91c9afbcd4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_nixie_soft_rgb_led.html#a3477fb068831d364f9d7cb91c9afbcd4">init</a> ()</td></tr>
+<tr class="separator:a3477fb068831d364f9d7cb91c9afbcd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19be8089e56ff61c6cf0479e5f859f0f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_nixie_soft_rgb_led.html#a19be8089e56ff61c6cf0479e5f859f0f">off</a> ()</td></tr>
+<tr class="separator:a19be8089e56ff61c6cf0479e5f859f0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa302733cdff9ba01b928ff0e55a975ae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_nixie_soft_rgb_led.html#aa302733cdff9ba01b928ff0e55a975ae">rgb</a> (byte r, byte g, byte b)</td></tr>
+<tr class="separator:aa302733cdff9ba01b928ff0e55a975ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a327331bb2e976ee1d48dcb5bbf6261b6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_nixie_soft_rgb_led.html#a327331bb2e976ee1d48dcb5bbf6261b6">rgb</a> (const <a class="el" href="struct_s_nixie_color.html">SNixieColor</a> &amp;color)</td></tr>
+<tr class="separator:a327331bb2e976ee1d48dcb5bbf6261b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7422295a33f1ec9b42cfd7d1479eb3c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_nixie_soft_rgb_led.html#ab7422295a33f1ec9b42cfd7d1479eb3c">brightness</a> (byte br)</td></tr>
+<tr class="separator:ab7422295a33f1ec9b42cfd7d1479eb3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9814bd06b590d5fcedf6153bcb24de8"><td class="memItemLeft" align="right" valign="top"><a id="aa9814bd06b590d5fcedf6153bcb24de8"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> ()</td></tr>
+<tr class="separator:aa9814bd06b590d5fcedf6153bcb24de8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p><a class="el" href="class_nixie_soft_rgb_led.html">NixieSoftRgbLed</a> class is intended to control RGB leds connected to any pins of Atmel controller - not only for pwm pins. Be careful when connecting LED pin to microcontroller. Remember, that most Atmel controllers provide 20mA at max (40mA for a short time only). If you're not sure, if microcontroller is possible to provide power for RGB led, please, connect LED via bi-polar transistor to controller pins. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a06e30d00878bbab7ff7ec7c46e5ce25f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a06e30d00878bbab7ff7ec7c46e5ce25f">&sect;&nbsp;</a></span>NixieSoftRgbLed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">NixieSoftRgbLed::NixieSoftRgbLed </td>
+          <td>(</td>
+          <td class="paramtype">const uint8_t&#160;</td>
+          <td class="paramname"><em>pins</em>[]</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Constructor accepts array of 3 uint8_t integer numbers - pin numbers to control. PIN array passed to the constructor must be defined globally, since the object remembers pointer to the array. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="ab7422295a33f1ec9b42cfd7d1479eb3c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7422295a33f1ec9b42cfd7d1479eb3c">&sect;&nbsp;</a></span>brightness()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void NixieSoftRgbLed::brightness </td>
+          <td>(</td>
+          <td class="paramtype">byte&#160;</td>
+          <td class="paramname"><em>br</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set brightness of rgb leds in the range between [0,NIXIE_MAX_BRIGHTNESS] </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">br</td><td>- brightness in range [0,NIXIE_MAX_BRIGHTNESS]. 64 is maximum brightness for now. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a3477fb068831d364f9d7cb91c9afbcd4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3477fb068831d364f9d7cb91c9afbcd4">&sect;&nbsp;</a></span>init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void NixieSoftRgbLed::init </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Initializes pins. Should be called in setup(). </p>
+
+</div>
+</div>
+<a id="a19be8089e56ff61c6cf0479e5f859f0f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a19be8089e56ff61c6cf0479e5f859f0f">&sect;&nbsp;</a></span>off()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void NixieSoftRgbLed::off </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Turns off the led </p>
+
+</div>
+</div>
+<a id="aa302733cdff9ba01b928ff0e55a975ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa302733cdff9ba01b928ff0e55a975ae">&sect;&nbsp;</a></span>rgb() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void NixieSoftRgbLed::rgb </td>
+          <td>(</td>
+          <td class="paramtype">byte&#160;</td>
+          <td class="paramname"><em>r</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">byte&#160;</td>
+          <td class="paramname"><em>g</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">byte&#160;</td>
+          <td class="paramname"><em>b</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Sets the color of RGB LED. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">r</td><td>- red value [0;255] </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">g</td><td>- green value [0;255] </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">b</td><td>- blue value [0;255] Remember that color component are not balanced since Green light has more brightness than red and blue on the same values. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a327331bb2e976ee1d48dcb5bbf6261b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a327331bb2e976ee1d48dcb5bbf6261b6">&sect;&nbsp;</a></span>rgb() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void NixieSoftRgbLed::rgb </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_s_nixie_color.html">SNixieColor</a> &amp;&#160;</td>
+          <td class="paramname"><em>color</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Sets RGB LED color. </p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/<a class="el" href="nixie__rgbled_8h_source.html">nixie_rgbled.h</a></li>
+<li>src/nixie_rgbled.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

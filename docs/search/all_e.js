@@ -1,6 +1,7 @@
 var searchData=
 [
   ['scroll321',['scroll321',['../class_nixie_display.html#a836c20459d1c7dcb92d928e0d398029d',1,'NixieDisplay']]],
+  ['scroll_5finterval',['SCROLL_INTERVAL',['../nixie__tube_8h.html#a69822c0275d7e7085b2289f9a52efd7a',1,'nixie_tube.h']]],
   ['scrollback',['scrollBack',['../class_nixie_tube.html#a7c92e2ad3ad4e38d4472b3b1e75ecd7f',1,'NixieTube']]],
   ['scrollforward',['scrollForward',['../class_nixie_display.html#a0de8358e02317e3e7aa8707fa697ec76',1,'NixieDisplay::scrollForward()'],['../class_nixie_tube.html#a32e45635e4eb6e60ea18925332d3a9ad',1,'NixieTube::scrollForward()']]],
   ['scrolloff',['scrollOff',['../class_nixie_tube.html#a0b96aba6bf1bcbd64ac75af4ab1c83ba',1,'NixieTube::scrollOff(void)'],['../class_nixie_tube.html#a4698951a5e3cb06724ced1e97f038811',1,'NixieTube::scrollOff(uint16_t msDelay)']]],

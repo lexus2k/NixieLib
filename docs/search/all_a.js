@@ -1,7 +1,9 @@
 var searchData=
 [
   ['nixie_20library_20api_2e',['Nixie Library API.',['../index.html',1,'']]],
+  ['nixie_5fbrightness_5fbits',['NIXIE_BRIGHTNESS_BITS',['../nixie__tube_8h.html#ad57c4facbcfa537a0b64af07a8c67ce4',1,'nixie_tube.h']]],
   ['nixie_5flibrary_2eh',['nixie_library.h',['../nixie__library_8h.html',1,'']]],
+  ['nixie_5fmax_5fbrightness',['NIXIE_MAX_BRIGHTNESS',['../nixie__tube_8h.html#a979c6bff74e3a33dd2136b47908b158d',1,'nixie_tube.h']]],
   ['nixie_5ftube_2eh',['nixie_tube.h',['../nixie__tube_8h.html',1,'']]],
   ['nixie_5ftypes_2eh',['nixie_types.h',['../nixie__types_8h.html',1,'']]],
   ['nixieanalogbuttons',['NixieAnalogButtons',['../class_nixie_analog_buttons.html',1,'NixieAnalogButtons'],['../class_nixie_analog_buttons.html#a60879cbb64788bfdf4b5ece9feaf885f',1,'NixieAnalogButtons::NixieAnalogButtons()']]],
@@ -13,7 +15,7 @@ var searchData=
   ['nixielibrary',['NixieLibrary',['../class_nixie_library.html',1,'']]],
   ['nixiemelody',['NixieMelody',['../struct_nixie_melody.html',1,'']]],
   ['nixiepwmrgbled',['NixiePwmRgbLed',['../class_nixie_pwm_rgb_led.html',1,'NixiePwmRgbLed'],['../class_nixie_pwm_rgb_led.html#a82fd95da06622b1119a95098f9d324d7',1,'NixiePwmRgbLed::NixiePwmRgbLed()']]],
-  ['nixiesoftrgbled',['NixieSoftRgbLed',['../class_nixie_soft_rgb_led.html',1,'']]],
+  ['nixiesoftrgbled',['NixieSoftRgbLed',['../class_nixie_soft_rgb_led.html',1,'NixieSoftRgbLed'],['../class_nixie_soft_rgb_led.html#a06e30d00878bbab7ff7ec7c46e5ce25f',1,'NixieSoftRgbLed::NixieSoftRgbLed()']]],
   ['nixietube',['NixieTube',['../class_nixie_tube.html',1,'NixieTube'],['../class_nixie_tube.html#ab019b98f66ef7338542581b5b7cd3058',1,'NixieTube::NixieTube()']]],
   ['noblink',['noBlink',['../class_nixie_display.html#a7169c9cd04e0e0b4730ace992f1755dd',1,'NixieDisplay::noBlink()'],['../class_nixie_tube.html#a88451b091f6d616d0f6818c9d897bd96',1,'NixieTube::noBlink()']]]
 ];

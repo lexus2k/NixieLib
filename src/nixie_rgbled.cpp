@@ -1,5 +1,5 @@
 /*
-    Copyright (C) 2016 Alexey Dynda
+    Copyright (C) 2016-2017 Alexey Dynda
 
     This file is part of Nixie Library.
 
@@ -18,6 +18,8 @@
 */
 
 #include "nixie_rgbled.h"
+#include "nixie_library.h"
+#include "nixie_booster.h"
 
 
 ////////////////////////////////////////////////////////////////////////////////////////
@@ -48,3 +50,58 @@ void NixiePwmRgbLed::brightness(byte br)
 ////////////////////////////////////////////////////////////////////////////////////////
 
 
+
+////////////////////////////////////////////////////////////////////////////////////////
+
+void NixieSoftRgbLed::off()
+{
+    rgb(0,0,0);
+}
+
+////////////////////////////////////////////////////////////////////////////////////////
+
+void NixieSoftRgbLed::rgb(byte r, byte g, byte b)
+{
+    m_color.r = r; m_color.g = b; m_color.b = b;
+    m_redPwm = ((uint16_t)r * m_brightness) >> (NIXIE_BRIGHTNESS_BITS + 4);
+    m_greenPwm = ((uint16_t)g * m_brightness) >> (NIXIE_BRIGHTNESS_BITS + 4);
+    m_bluePwm = ((uint16_t)b * m_brightness) >> (NIXIE_BRIGHTNESS_BITS + 4);
+}
+
+////////////////////////////////////////////////////////////////////////////////////////
+
+void NixieSoftRgbLed::brightness(uint8_t br)
+{
+    m_brightness = (br << 1);
+    rgb(m_color.r, m_color.g, m_color.b);
+}
+
+////////////////////////////////////////////////////////////////////////////////////////
+
+void NixieSoftRgbLed::update()
+{
+    while (g_nixieMs - m_lastMs > 0)
+    {
+        m_lastMs++;
+        if (m_lastMs & 0x001F == 0)
+        {
+            nixiePinHigh(m_pins[0]);
+            nixiePinHigh(m_pins[1]);
+            nixiePinHigh(m_pins[2]);
+        }
+        if (m_lastMs & 0x001F == m_redPwm)
+        {
+            nixiePinLow(m_pins[0]);
+        }
+        if (m_lastMs & 0x001F == m_greenPwm)
+        {
+            nixiePinLow(m_pins[1]);
+        }
+        if (m_lastMs & 0x001F == m_bluePwm)
+        {
+            nixiePinLow(m_pins[2]);
+        }
+    }
+}
+
+////////////////////////////////////////////////////////////////////////////////////////

@@ -14,7 +14,20 @@ With this library you can easy develop software for Nixie Clock and create
 interesting sound and visual effects. The library contains all required
 modules to communicate with different peripherals hardware (RTC, sensors,
 tube drivers). The library was tested on Attiny85, Attiny45, Atmega168
-and Atmega328p controllers. If you have questions, please contact via
-email.
+and Atmega328p controllers. Nixie Library includes faster digitalWrite,
+analogRead functions implementations (nixiePinLow, nixiePinHigh,
+nixieAnalogRead) for Atmega328p controllers. If you have questions, please
+contact via email.
+
+The library supports the following devices:
+ * DS3231, DS3232 RTC chips
+ * Piezo buzzer audio output
+ * Analog buttons
+ * Nixie Tubes (any: IN-14, IN-12, etc. )
+ * GL 5528 lightsensor (most popular light sensor on Arduino platforms)
+ * K155ID1 nixie drivers
+ * Mono-LEDs
+ * RGB-LEDs (both PWM controlled an Software controlled)
+ * LM35DZ temperature sensor
 
 */

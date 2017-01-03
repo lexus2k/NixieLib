@@ -60,6 +60,7 @@ public:
 
     /**
      * Returns current brightness detected in the range [0..NIXIE_MAX_BRIGHTNESS]
+     * @see NIXIE_MAX_BRIGHTNESS
      */
     inline uint8_t brightness() { return m_brightness; };
 
