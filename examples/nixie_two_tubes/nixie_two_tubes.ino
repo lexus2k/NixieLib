@@ -5,7 +5,7 @@
 /*
  * In this example both Nixie Tubes are controlled through single K155ID1 chip.
  * To correctly control tubes digits, we need to turn on tubes in different time 
- * by enabling and disabling power on Anod tubes.
+ * by enabling and disabling power on tube anods.
  */
 
 /*
@@ -37,11 +37,12 @@ void setup()
 {
     Serial.begin(9600);
     g_display.init();
-    /* Start with zero-digit. Zero index means the single tube we have */
+    /* Start with zero-digit. Index corresponds to the tube, we're referring to. */
     g_display[0] = 0;
     g_display[1] = 0;
-    /* Activate tube object by calling anodOn() method.
-     * Call this method if pin to control tube anod is not used.
+    /* Activate display object by calling turnOn() method.
+     * Display object will automatically call anodOn() and anodOff(), while
+     * functioning. Refer to NixieDisplay::render() method
      */
     g_display.turnOn();
 }
@@ -54,6 +55,7 @@ void loop()
     if (millis() - timestamp > 1000)
     {
         /* enumerate all digits one by one every 1000 mseconds on first tube only */
+        /* Tube with index 1 should display zero all the time */
         if (g_display[0] <=8)
             g_display[0] = g_display[0] + 1;
         else
@@ -61,5 +63,6 @@ void loop()
         Serial.println(g_display[0].value());
         timestamp = millis();
     }
+    /* We call this method each cycle. Also, this method can be placed to interrupt handler */
     g_display.render();
 }

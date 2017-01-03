@@ -26,10 +26,10 @@ void setup()
 {
     Serial.begin(9600);
     g_tube.init();
-    /* Start with zero-digit. Zero index means the single tube we have */
+    /* Start with zero-digit. Zero means that we start from 0-digit */
     g_tube = 0;
     /* Activate tube object by calling anodOn() method.
-     * Call this method if pin to control tube anod is not used.
+     * Call this method even if pin to control tube anod is not used.
      */
     g_tube.anodOn();
 }
