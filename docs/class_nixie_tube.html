@@ -174,6 +174,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>NixieDisplay</b></td
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This class represents logic entity related to nixie tube. It doesn't change controller pins directly, but provides a lot of service functions, related to physical tube effects. Remember that <a class="el" href="class_nixie_tube.html">NixieTube</a> class supports only 10 active pins, corresponding to numeric digits: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, or special symbols. If you need to control additional pins like right comma, left comma, use <a class="el" href="class_nixie_tube.html#af9da67bb4d8b6a8abde7fc6c500c310b">setFlags()</a>, <a class="el" href="class_nixie_tube.html#ac7bc5e09de4098edd3d0cbb141775a63">clearFlags()</a> and <a class="el" href="class_nixie_tube.html#a1ec3b519ece75e2cbd5925b799012084">flags()</a> methods. The purpose of mapping: If you use different type of tubes having common cathods, the same cathods switch on different digits on different type of tubes. </p>
+
+<p>Definition at line <a class="el" href="nixie__tube_8h_source.html#l00117">117</a> of file <a class="el" href="nixie__tube_8h_source.html">nixie_tube.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ab019b98f66ef7338542581b5b7cd3058"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab019b98f66ef7338542581b5b7cd3058">&sect;&nbsp;</a></span>NixieTube()</h2>
@@ -208,7 +210,9 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>NixieDisplay</b></td
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Creates object related to one Nixie Tube. Accepts mapping table, which must contain 10 elements: maps for digits to output pin of <a class="el" href="class_k155_i_d1.html">K155ID1</a> driver or other drivers. </p>
+<p>Creates object related to one Nixie Tube. Accepts mapping table, which must contain 10 elements: maps for digits to output pin of <a class="el" href="class_k155_i_d1.html" title="Transforms digit to binary code to control K155ID1 driver. ">K155ID1</a> driver or other drivers. </p>
+
+<p>Definition at line <a class="el" href="nixie__tube_8h_source.html#l00133">133</a> of file <a class="el" href="nixie__tube_8h_source.html">nixie_tube.h</a>.</p>
 
 </div>
 </div>
@@ -229,6 +233,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>NixieDisplay</b></td
 </div><div class="memdoc">
 <p>Works only for the tubes with specified Anod pin-control </p>
 
+<p>Definition at line <a class="el" href="nixie__tube_8cpp_source.html#l00180">180</a> of file <a class="el" href="nixie__tube_8cpp_source.html">nixie_tube.cpp</a>.</p>
+
 </div>
 </div>
 <a id="a1671a177d186af760992be67e5099b22"></a>
@@ -246,6 +252,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>NixieDisplay</b></td
       </table>
 </div><div class="memdoc">
 <p>Works only for the tubes with specified Anod pin-control </p>
+
+<p>Definition at line <a class="el" href="nixie__tube_8cpp_source.html#l00187">187</a> of file <a class="el" href="nixie__tube_8cpp_source.html">nixie_tube.cpp</a>.</p>
 
 </div>
 </div>
@@ -274,6 +282,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>NixieDisplay</b></td
 </div><div class="memdoc">
 <p>Starts blinking effect. The effect needs to be stopped by <a class="el" href="class_nixie_tube.html#a88451b091f6d616d0f6818c9d897bd96">noBlink()</a> function. </p>
 
+<p>Definition at line <a class="el" href="nixie__tube_8h_source.html#l00247">247</a> of file <a class="el" href="nixie__tube_8h_source.html">nixie_tube.h</a>.</p>
+
 </div>
 </div>
 <a id="af3513d271882ac47f86eb72573c3bab0"></a>
@@ -299,6 +309,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>NixieDisplay</b></td
 </table>
 </div><div class="memdoc">
 <p>Resets current brightness to set brightness and value to 0. </p>
+
+<p>Definition at line <a class="el" href="nixie__tube_8h_source.html#l00195">195</a> of file <a class="el" href="nixie__tube_8h_source.html">nixie_tube.h</a>.</p>
 
 </div>
 </div>
@@ -331,6 +343,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>NixieDisplay</b></td
   </table>
   </dd>
 </dl>
+
+<p>Definition at line <a class="el" href="nixie__tube_8h_source.html#l00192">192</a> of file <a class="el" href="nixie__tube_8h_source.html">nixie_tube.h</a>.</p>
 
 </div>
 </div>
@@ -365,6 +379,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>NixieDisplay</b></td
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>flags value, covered by bit mask. </dd></dl>
 
+<p>Definition at line <a class="el" href="nixie__tube_8h_source.html#l00182">182</a> of file <a class="el" href="nixie__tube_8h_source.html">nixie_tube.h</a>.</p>
+
 </div>
 </div>
 <a id="a17e4ef184454bfb2c925d31487579b23"></a>
@@ -390,6 +406,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>NixieDisplay</b></td
 </table>
 </div><div class="memdoc">
 <p>Returns active brightness for the tube, which depends on the tube state. [0..32] </p>
+
+<p>Definition at line <a class="el" href="nixie__tube_8h_source.html#l00274">274</a> of file <a class="el" href="nixie__tube_8h_source.html">nixie_tube.h</a>.</p>
 
 </div>
 </div>
@@ -417,6 +435,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>NixieDisplay</b></td
 </div><div class="memdoc">
 <p>Returns actual pin number to activate to displayed specific symbol on Nixie bulb. </p><dl class="section warning"><dt>Warning</dt><dd>Make sure that <a class="el" href="class_nixie_tube.html#aeea7c45e2ffd9699bd46931ea53e10bc">isBurning()</a> method returns true!! Otherwise, the program will crash </dd></dl>
 
+<p>Definition at line <a class="el" href="nixie__tube_8h_source.html#l00163">163</a> of file <a class="el" href="nixie__tube_8h_source.html">nixie_tube.h</a>.</p>
+
 </div>
 </div>
 <a id="a3d697c90b1e1671dd7f7ad133da36c58"></a>
@@ -443,6 +463,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>NixieDisplay</b></td
 </div><div class="memdoc">
 <p>Returns set brightness for the tube in range [0..32] </p>
 
+<p>Definition at line <a class="el" href="nixie__tube_8h_source.html#l00271">271</a> of file <a class="el" href="nixie__tube_8h_source.html">nixie_tube.h</a>.</p>
+
 </div>
 </div>
 <a id="aeea7c45e2ffd9699bd46931ea53e10bc"></a>
@@ -468,6 +490,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>NixieDisplay</b></td
 </table>
 </div><div class="memdoc">
 <p>Returns true if bulb digit should be visible. Doesn't correlate with PWM state </p>
+
+<p>Definition at line <a class="el" href="nixie__tube_8h_source.html#l00166">166</a> of file <a class="el" href="nixie__tube_8h_source.html">nixie_tube.h</a>.</p>
 
 </div>
 </div>
@@ -496,6 +520,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>NixieDisplay</b></td
 </div><div class="memdoc">
 <p>Returns true if the bulb is not switched off </p>
 
+<p>Definition at line <a class="el" href="nixie__tube_8h_source.html#l00169">169</a> of file <a class="el" href="nixie__tube_8h_source.html">nixie_tube.h</a>.</p>
+
 </div>
 </div>
 <a id="a88451b091f6d616d0f6818c9d897bd96"></a>
@@ -522,6 +548,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>NixieDisplay</b></td
 </table>
 </div><div class="memdoc">
 <p>Stops blinking effect. </p>
+
+<p>Definition at line <a class="el" href="nixie__tube_8h_source.html#l00250">250</a> of file <a class="el" href="nixie__tube_8h_source.html">nixie_tube.h</a>.</p>
 
 </div>
 </div>
@@ -550,6 +578,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>NixieDisplay</b></td
 </div><div class="memdoc">
 <p>Turns off the nixie tube. Turning off means that <a class="el" href="class_nixie_tube.html#aeea7c45e2ffd9699bd46931ea53e10bc">isBurning()</a> and <a class="el" href="class_nixie_tube.html#a6c9f6fe7cce1fa22de1c92deb96ce7d1">isEnabled()</a> returns false. </p>
 
+<p>Definition at line <a class="el" href="nixie__tube_8h_source.html#l00200">200</a> of file <a class="el" href="nixie__tube_8h_source.html">nixie_tube.h</a>.</p>
+
 </div>
 </div>
 <a id="a731c35c15d73c182dad239da3c12f763"></a>
@@ -576,6 +606,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>NixieDisplay</b></td
 </table>
 </div><div class="memdoc">
 <p>Turns on the nixie tube. Switches the tube to the TUBE_NORMAL state. </p>
+
+<p>Definition at line <a class="el" href="nixie__tube_8h_source.html#l00210">210</a> of file <a class="el" href="nixie__tube_8h_source.html">nixie_tube.h</a>.</p>
 
 </div>
 </div>
@@ -604,6 +636,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>NixieDisplay</b></td
 </div><div class="memdoc">
 <p>Changes displayed digit </p>
 
+<p>Definition at line <a class="el" href="nixie__tube_8h_source.html#l00253">253</a> of file <a class="el" href="nixie__tube_8h_source.html">nixie_tube.h</a>.</p>
+
 </div>
 </div>
 <a id="add2c7f09cd0c9710c9f0d8f020faa518"></a>
@@ -623,6 +657,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>NixieDisplay</b></td
 </div><div class="memdoc">
 <p>Copies state from the source tube.</p>
 <p>Copies state of source tube to new tube. All timer related variables are preserved. </p>
+
+<p>Definition at line <a class="el" href="nixie__tube_8cpp_source.html#l00274">274</a> of file <a class="el" href="nixie__tube_8cpp_source.html">nixie_tube.cpp</a>.</p>
 
 </div>
 </div>
@@ -651,6 +687,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>NixieDisplay</b></td
 </div><div class="memdoc">
 <p>Initiates wrapping digits effect and finally switching to specified state. Wrapping effect lasts for about 0.5 seconds. The difference from <a class="el" href="class_nixie_tube.html#a32e45635e4eb6e60ea18925332d3a9ad">scrollForward()</a> is that digits are being changed in reverse order: 5, 4, 3, 2, 1, 0, 9, etc. </p>
 
+<p>Definition at line <a class="el" href="nixie__tube_8h_source.html#l00227">227</a> of file <a class="el" href="nixie__tube_8h_source.html">nixie_tube.h</a>.</p>
+
 </div>
 </div>
 <a id="a32e45635e4eb6e60ea18925332d3a9ad"></a>
@@ -678,6 +716,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>NixieDisplay</b></td
 </div><div class="memdoc">
 <p>Initiates wrapping digits effect and finally switching to specified state. Wrapping effect lasts for about 0.5 seconds. </p>
 
+<p>Definition at line <a class="el" href="nixie__tube_8h_source.html#l00221">221</a> of file <a class="el" href="nixie__tube_8h_source.html">nixie_tube.h</a>.</p>
+
 </div>
 </div>
 <a id="a0b96aba6bf1bcbd64ac75af4ab1c83ba"></a>
@@ -696,6 +736,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>NixieDisplay</b></td
       </table>
 </div><div class="memdoc">
 <p>Starts wrapping digits effect finally switching tube to TUBE_OFF state </p>
+
+<p>Definition at line <a class="el" href="nixie__tube_8cpp_source.html#l00254">254</a> of file <a class="el" href="nixie__tube_8cpp_source.html">nixie_tube.cpp</a>.</p>
 
 </div>
 </div>
@@ -721,6 +763,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>NixieDisplay</b></td
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="nixie__tube_8cpp_source.html#l00259">259</a> of file <a class="el" href="nixie__tube_8cpp_source.html">nixie_tube.cpp</a>.</p>
+
 </div>
 </div>
 <a id="a2dde4bb92dbb78e6757caeab9fabe1e5"></a>
@@ -739,6 +783,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>NixieDisplay</b></td
       </table>
 </div><div class="memdoc">
 <p>Starts wrapping digits effect smoothly switching tube on. </p>
+
+<p>Definition at line <a class="el" href="nixie__tube_8cpp_source.html#l00235">235</a> of file <a class="el" href="nixie__tube_8cpp_source.html">nixie_tube.cpp</a>.</p>
 
 </div>
 </div>
@@ -763,6 +809,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>NixieDisplay</b></td
   </table>
   </dd>
 </dl>
+
+<p>Definition at line <a class="el" href="nixie__tube_8cpp_source.html#l00241">241</a> of file <a class="el" href="nixie__tube_8cpp_source.html">nixie_tube.cpp</a>.</p>
 
 </div>
 </div>
@@ -791,6 +839,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>NixieDisplay</b></td
 </div><div class="memdoc">
 <p>Sets Anod pin for the tube </p>
 
+<p>Definition at line <a class="el" href="nixie__tube_8h_source.html#l00291">291</a> of file <a class="el" href="nixie__tube_8h_source.html">nixie_tube.h</a>.</p>
+
 </div>
 </div>
 <a id="a4e35ec1b594ec1f07e809ab13ab30344"></a>
@@ -818,6 +868,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>NixieDisplay</b></td
 </div><div class="memdoc">
 <p>Sets tube brightness immediately in the range [0..32] </p>
 
+<p>Definition at line <a class="el" href="nixie__tube_8h_source.html#l00277">277</a> of file <a class="el" href="nixie__tube_8h_source.html">nixie_tube.h</a>.</p>
+
 </div>
 </div>
 <a id="a9843a8c2056cc05ccc8880054bfad2cb"></a>
@@ -844,6 +896,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>NixieDisplay</b></td
 </table>
 </div><div class="memdoc">
 <p>Sets <a class="el" href="class_nixie_driver.html">NixieDriver</a> for the tube </p>
+
+<p>Definition at line <a class="el" href="nixie__tube_8h_source.html#l00288">288</a> of file <a class="el" href="nixie__tube_8h_source.html">nixie_tube.h</a>.</p>
 
 </div>
 </div>
@@ -877,6 +931,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>NixieDisplay</b></td
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="nixie__tube_8h_source.html#l00187">187</a> of file <a class="el" href="nixie__tube_8h_source.html">nixie_tube.h</a>.</p>
+
 </div>
 </div>
 <a id="a935f44e96123babbb3c4460dacedece7"></a>
@@ -903,6 +959,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>NixieDisplay</b></td
 </table>
 </div><div class="memdoc">
 <p>Sets map for the tube. This map defines pin number of the nixie driver microchip, which should be enabled for specific digit. </p>
+
+<p>Definition at line <a class="el" href="nixie__tube_8h_source.html#l00285">285</a> of file <a class="el" href="nixie__tube_8h_source.html">nixie_tube.h</a>.</p>
 
 </div>
 </div>
@@ -931,6 +989,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>NixieDisplay</b></td
 </div><div class="memdoc">
 <p>Sets target brightness for the tube in the range [0..32]. Active brightness will slowly move to the target brightness </p>
 
+<p>Definition at line <a class="el" href="nixie__tube_8h_source.html#l00280">280</a> of file <a class="el" href="nixie__tube_8h_source.html">nixie_tube.h</a>.</p>
+
 </div>
 </div>
 <a id="ac5f8fd737e98a0e83ca0508ebde229ef"></a>
@@ -957,6 +1017,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>NixieDisplay</b></td
 </table>
 </div><div class="memdoc">
 <p>Turns off the tube by smoothly decreasing tube brightness to the zero and switching to TUBE_OFF state </p>
+
+<p>Definition at line <a class="el" href="nixie__tube_8h_source.html#l00216">216</a> of file <a class="el" href="nixie__tube_8h_source.html">nixie_tube.h</a>.</p>
 
 </div>
 </div>
@@ -985,6 +1047,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>NixieDisplay</b></td
 </div><div class="memdoc">
 <p>Turns on the tube by smoothly increasing tube brightness to the set brightness value </p>
 
+<p>Definition at line <a class="el" href="nixie__tube_8h_source.html#l00213">213</a> of file <a class="el" href="nixie__tube_8h_source.html">nixie_tube.h</a>.</p>
+
 </div>
 </div>
 <a id="a86503c3062a79f8a63a89c1091a30a1e"></a>
@@ -1002,6 +1066,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>NixieDisplay</b></td
       </table>
 </div><div class="memdoc">
 <p>This method must be called in the cycle. It updates the state of the tube. </p><dl class="section return"><dt>Returns</dt><dd>returns true when state of the tube is recalculated. It happens every CHANGE_INTERVAL microseconds </dd></dl>
+
+<p>Definition at line <a class="el" href="nixie__tube_8cpp_source.html#l00038">38</a> of file <a class="el" href="nixie__tube_8cpp_source.html">nixie_tube.cpp</a>.</p>
 
 </div>
 </div>
@@ -1030,6 +1096,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>NixieDisplay</b></td
 </div><div class="memdoc">
 <p>Returns value, programmed to the bulb to display This value differs from the displayed digit, because displayed digit depends on the bulb state </p>
 
+<p>Definition at line <a class="el" href="nixie__tube_8h_source.html#l00176">176</a> of file <a class="el" href="nixie__tube_8h_source.html">nixie_tube.h</a>.</p>
+
 </div>
 </div>
 <a id="a8c0b8d98d0f68bc53a18891334ff5a52"></a>
@@ -1057,11 +1125,13 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>NixieDisplay</b></td
 </div><div class="memdoc">
 <p>Turns on the bulb with wrap effect </p>
 
+<p>Definition at line <a class="el" href="nixie__tube_8h_source.html#l00205">205</a> of file <a class="el" href="nixie__tube_8h_source.html">nixie_tube.h</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/<a class="el" href="nixie__tube_8h_source.html">nixie_tube.h</a></li>
-<li>src/nixie_tube.cpp</li>
+<li>src/<a class="el" href="nixie__tube_8cpp_source.html">nixie_tube.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

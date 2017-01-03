@@ -1,5 +1,5 @@
 /*
-    Copyright (C) 2016 Alexey Dynda
+    Copyright (C) 2016-2017 Alexey Dynda
 
     This file is part of Nixie Library.
 
@@ -32,11 +32,16 @@
 #include <arduino.h>
 #include <avr/pgmspace.h>
 
-
+/**
+ *  SNixieColor describes RGB-color model of Nixie Library
+ */
 typedef struct SNixieColor
 {
+    /** Red component value in the range [0..255] */
     uint8_t r;
+    /** Green component value in the range [0..255] */
     uint8_t g;
+    /** Blue component value in the range [0..255] */
     uint8_t b;
 } SNixieColor;
 

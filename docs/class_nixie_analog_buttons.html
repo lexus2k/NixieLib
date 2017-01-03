@@ -72,13 +72,11 @@ $(function() {
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a60879cbb64788bfdf4b5ece9feaf885f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_nixie_analog_buttons.html#a60879cbb64788bfdf4b5ece9feaf885f">NixieAnalogButtons</a> (uint8_t adcPin, const int16_t btns[], uint8_t count)</td></tr>
 <tr class="separator:a60879cbb64788bfdf4b5ece9feaf885f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adce37b37fdecc59a3dc780583873a0f7"><td class="memItemLeft" align="right" valign="top"><a id="adce37b37fdecc59a3dc780583873a0f7"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>init</b> (void)</td></tr>
+<tr class="memitem:adce37b37fdecc59a3dc780583873a0f7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_nixie_analog_buttons.html#adce37b37fdecc59a3dc780583873a0f7">init</a> (void)</td></tr>
 <tr class="separator:adce37b37fdecc59a3dc780583873a0f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8c3fa33ccd6bba44753eeb41a5d3ffc9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_nixie_analog_buttons.html#a8c3fa33ccd6bba44753eeb41a5d3ffc9">isShortPress</a> (uint8_t n)</td></tr>
 <tr class="separator:a8c3fa33ccd6bba44753eeb41a5d3ffc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a471fa668e6d26008829ba1755ccc3589"><td class="memItemLeft" align="right" valign="top"><a id="a471fa668e6d26008829ba1755ccc3589"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>isShortPress</b> ()</td></tr>
+<tr class="memitem:a471fa668e6d26008829ba1755ccc3589"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_nixie_analog_buttons.html#a471fa668e6d26008829ba1755ccc3589">isShortPress</a> ()</td></tr>
 <tr class="separator:a471fa668e6d26008829ba1755ccc3589"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af068026b45f0adcd134410d21cbbeb48"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_nixie_analog_buttons.html#af068026b45f0adcd134410d21cbbeb48">isShortPress</a> (uint8_t n, uint16_t duration)</td></tr>
 <tr class="separator:af068026b45f0adcd134410d21cbbeb48"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -109,7 +107,10 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>isShortPress</b> ()</
 <tr class="memitem:a131f0b153d57044411251065d5eabcbc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_nixie_analog_buttons.html#a131f0b153d57044411251065d5eabcbc">onButtonUp</a> (TOnButtonEvent handler)</td></tr>
 <tr class="separator:a131f0b153d57044411251065d5eabcbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock">
+<p>Definition at line <a class="el" href="nixie__buttons_8h_source.html#l00034">34</a> of file <a class="el" href="nixie__buttons_8h_source.html">nixie_buttons.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a60879cbb64788bfdf4b5ece9feaf885f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a60879cbb64788bfdf4b5ece9feaf885f">&sect;&nbsp;</a></span>NixieAnalogButtons()</h2>
 
@@ -158,6 +159,8 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>isShortPress</b> ()</
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="nixie__buttons_8h_source.html#l00045">45</a> of file <a class="el" href="nixie__buttons_8h_source.html">nixie_buttons.h</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -183,7 +186,9 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>isShortPress</b> ()</
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Disables Up action if button is pressed now. Useful for holding cases; </p>
+<p>Disables Up action if button is pressed now. Useful to prevent button release action, when we need to process hold state only. </p>
+
+<p>Definition at line <a class="el" href="nixie__buttons_8h_source.html#l00143">143</a> of file <a class="el" href="nixie__buttons_8h_source.html">nixie_buttons.h</a>.</p>
 
 </div>
 </div>
@@ -210,6 +215,8 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>isShortPress</b> ()</
 </table>
 </div><div class="memdoc">
 <p>Returns number of milliseconds passed between button down and up events. To find the button id, which this value is valid for, call isButtonUp method. </p>
+
+<p>Definition at line <a class="el" href="nixie__buttons_8h_source.html#l00137">137</a> of file <a class="el" href="nixie__buttons_8h_source.html">nixie_buttons.h</a>.</p>
 
 </div>
 </div>
@@ -255,6 +262,37 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>isShortPress</b> ()</
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 - if n doesn't correspond to button id, being held number of milliseconds between button down event and specified time for &lt;n&gt; button. </dd></dl>
 
+<p>Definition at line <a class="el" href="nixie__buttons_8h_source.html#l00152">152</a> of file <a class="el" href="nixie__buttons_8h_source.html">nixie_buttons.h</a>.</p>
+
+</div>
+</div>
+<a id="adce37b37fdecc59a3dc780583873a0f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adce37b37fdecc59a3dc780583873a0f7">&sect;&nbsp;</a></span>init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void NixieAnalogButtons::init </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Initializes state of the object. Must be called in setup() function. </p>
+
+<p>Definition at line <a class="el" href="nixie__buttons_8h_source.html#l00055">55</a> of file <a class="el" href="nixie__buttons_8h_source.html">nixie_buttons.h</a>.</p>
+
 </div>
 </div>
 <a id="a531bbfad470da3bcea7084998bd31032"></a>
@@ -282,6 +320,8 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>isShortPress</b> ()</
 </div><div class="memdoc">
 <p>Returns true if button is being down </p>
 
+<p>Definition at line <a class="el" href="nixie__buttons_8h_source.html#l00121">121</a> of file <a class="el" href="nixie__buttons_8h_source.html">nixie_buttons.h</a>.</p>
+
 </div>
 </div>
 <a id="ab002057db2c6380dfd5c84bc5083e88a"></a>
@@ -308,6 +348,8 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>isShortPress</b> ()</
 </table>
 </div><div class="memdoc">
 <p>Returns true if button is being up </p>
+
+<p>Definition at line <a class="el" href="nixie__buttons_8h_source.html#l00126">126</a> of file <a class="el" href="nixie__buttons_8h_source.html">nixie_buttons.h</a>.</p>
 
 </div>
 </div>
@@ -352,6 +394,8 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>isShortPress</b> ()</
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true or false </dd></dl>
+
+<p>Definition at line <a class="el" href="nixie__buttons_8h_source.html#l00090">90</a> of file <a class="el" href="nixie__buttons_8h_source.html">nixie_buttons.h</a>.</p>
 
 </div>
 </div>
@@ -404,6 +448,8 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>isShortPress</b> ()</
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true or false </dd></dl>
 
+<p>Definition at line <a class="el" href="nixie__buttons_8h_source.html#l00099">99</a> of file <a class="el" href="nixie__buttons_8h_source.html">nixie_buttons.h</a>.</p>
+
 </div>
 </div>
 <a id="a11e31cf79bd4214a73f7701114285364"></a>
@@ -436,6 +482,8 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>isShortPress</b> ()</
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true or false </dd></dl>
+
+<p>Definition at line <a class="el" href="nixie__buttons_8h_source.html#l00082">82</a> of file <a class="el" href="nixie__buttons_8h_source.html">nixie_buttons.h</a>.</p>
 
 </div>
 </div>
@@ -481,6 +529,8 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>isShortPress</b> ()</
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true or false </dd></dl>
 
+<p>Definition at line <a class="el" href="nixie__buttons_8h_source.html#l00116">116</a> of file <a class="el" href="nixie__buttons_8h_source.html">nixie_buttons.h</a>.</p>
+
 </div>
 </div>
 <a id="a2644c79b049e321299ccba7e2518230e"></a>
@@ -507,10 +557,12 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>isShortPress</b> ()</
 </div><div class="memdoc">
 <p>Returns true whever there are all buttons are up now </p>
 
+<p>Definition at line <a class="el" href="nixie__buttons_8h_source.html#l00131">131</a> of file <a class="el" href="nixie__buttons_8h_source.html">nixie_buttons.h</a>.</p>
+
 </div>
 </div>
 <a id="a8c3fa33ccd6bba44753eeb41a5d3ffc9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8c3fa33ccd6bba44753eeb41a5d3ffc9">&sect;&nbsp;</a></span>isShortPress() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c3fa33ccd6bba44753eeb41a5d3ffc9">&sect;&nbsp;</a></span>isShortPress() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -540,10 +592,40 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>isShortPress</b> ()</
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true or false </dd></dl>
 
+<p>Definition at line <a class="el" href="nixie__buttons_8h_source.html#l00062">62</a> of file <a class="el" href="nixie__buttons_8h_source.html">nixie_buttons.h</a>.</p>
+
+</div>
+</div>
+<a id="a471fa668e6d26008829ba1755ccc3589"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a471fa668e6d26008829ba1755ccc3589">&sect;&nbsp;</a></span>isShortPress() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool NixieAnalogButtons::isShortPress </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Returns true if any button or their combination is pressed. </p><dl class="section return"><dt>Returns</dt><dd>true or false </dd></dl>
+
+<p>Definition at line <a class="el" href="nixie__buttons_8h_source.html#l00068">68</a> of file <a class="el" href="nixie__buttons_8h_source.html">nixie_buttons.h</a>.</p>
+
 </div>
 </div>
 <a id="af068026b45f0adcd134410d21cbbeb48"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af068026b45f0adcd134410d21cbbeb48">&sect;&nbsp;</a></span>isShortPress() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#af068026b45f0adcd134410d21cbbeb48">&sect;&nbsp;</a></span>isShortPress() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -583,6 +665,8 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>isShortPress</b> ()</
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="nixie__buttons_8h_source.html#l00075">75</a> of file <a class="el" href="nixie__buttons_8h_source.html">nixie_buttons.h</a>.</p>
+
 </div>
 </div>
 <a id="aa3351ece21b500e23f070af722ad180d"></a>
@@ -614,6 +698,8 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>isShortPress</b> ()</
   </table>
   </dd>
 </dl>
+
+<p>Definition at line <a class="el" href="nixie__buttons_8h_source.html#l00167">167</a> of file <a class="el" href="nixie__buttons_8h_source.html">nixie_buttons.h</a>.</p>
 
 </div>
 </div>
@@ -647,6 +733,8 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>isShortPress</b> ()</
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="nixie__buttons_8h_source.html#l00174">174</a> of file <a class="el" href="nixie__buttons_8h_source.html">nixie_buttons.h</a>.</p>
+
 </div>
 </div>
 <a id="a07d7ac30348f48d725ab99b0d5cc02ff"></a>
@@ -663,19 +751,16 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>isShortPress</b> ()</
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Updates state of Buttons class, must be called in the cycle each time. </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">ts</td><td>- time in milliseconds returned by millis() function.</td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Updates state of Buttons class, must be called in the cycle each time.</p>
 <p>In milliseconds </p>
+
+<p>Definition at line <a class="el" href="nixie__buttons_8cpp_source.html#l00034">34</a> of file <a class="el" href="nixie__buttons_8cpp_source.html">nixie_buttons.cpp</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/<a class="el" href="nixie__buttons_8h_source.html">nixie_buttons.h</a></li>
-<li>src/nixie_buttons.cpp</li>
+<li>src/<a class="el" href="nixie__buttons_8cpp_source.html">nixie_buttons.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

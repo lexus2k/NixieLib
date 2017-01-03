@@ -1,5 +1,5 @@
 /*
-    Copyright (C) 2016 Alexey Dynda
+    Copyright (C) 2016-2017 Alexey Dynda
 
     This file is part of Nixie Library.
 
@@ -30,6 +30,8 @@ const int LIGHT_LEVEL_ROOM   = 800; //808;  // 3.95V
 const int LIGHT_LEVEL_NIGHT  = 562;  // 2.75V
 
 /**
+ * @brief NixieLdrGl5528 interacts with light sensor.
+ *
  * GL 5528 is standard light sensor, used in many projects.
  * This class can be turned. However, default schematics to use is:
  *                   --------------- +VCC
@@ -55,17 +57,35 @@ public:
      */
     inline void init() { m_ts = millis(); };
 
-    /* Returns true if sensor data are updated */
+    /**
+     * Returns true if sensor data are updated.
+     * @note Remember that light sensor is polled every second.
+     */
     bool update(uint16_t ts);
 
     /**
      * Returns current brightness detected in the range [0..NIXIE_MAX_BRIGHTNESS]
+     * @returns brightness in the range [0..32].
      * @see NIXIE_MAX_BRIGHTNESS
      */
     inline uint8_t brightness() { return m_brightness; };
 
+    /**
+     * Sets Adc value, which corresponds to room light.
+     * @param[in] level - ADC level to set. For arduino it is usually in the range [0..1023]
+     */
     void setRoomAdcLevel (int16_t level) { m_roomLevel = level; };
+
+    /**
+     * Sets Adc value, which corresponds to night (complete darkness).
+     * @param[in] level - ADC level to set. For arduino it is usually in the range [0..1023]
+     */
     void setNightAdcLevel(int16_t level) { m_nightLevel = level; };
+
+    /**
+     * Sets Adc value, which corresponds to day light (most brightness level, which can be registered).
+     * @param[in] level - ADC level to set. For arduino it is usually in the range [0..1023]
+     */
     void setDayAdcLevel  (int16_t level) { m_dayLevel = level; };
 private:
     int16_t     m_nightLevel  = LIGHT_LEVEL_NIGHT;

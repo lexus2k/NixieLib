@@ -1,5 +1,5 @@
 /*
-    Copyright (C) 2016 Alexey Dynda
+    Copyright (C) 2016-2017 Alexey Dynda
 
     This file is part of Nixie Library.
 
@@ -32,12 +32,17 @@
  *
  *********************************************************************/
 
+/**
+ * @brief Transforms digit to binary code to control K155ID1 driver
+ *
+ * Standard K155ID1 Nixie driver. (4 input pins, 10 outputs).
+ */
 class K155ID1: public NixieDriver
 {
 public:
     /**
      * Standard K155ID1 Nixie driver. (4 input pins, 10 outputs).
-     * @param[in] - array of pin numbers to control K155ID1 driver
+     * @param[in] pins - array of pin numbers to control K155ID1 driver
      */
     inline         K155ID1(const uint8_t pins[])
     {
@@ -47,7 +52,7 @@ public:
     /**
      * Standard K155ID1 Nixie driver. (4 input pins, 10 outputs).
      * additionally you can specifies pins to control separate elemets like commas.
-     * @param[in] - array of pin numbers to control (>=4). First 4 are to control
+     * @param[in] pins - array of pin numbers to control (>=4). First 4 are to control
      *              K155ID1 driver.
      * @param[in] extendedCount - number of additional pins to control
      *            each additional pin corresponds to extended flag
@@ -73,6 +78,7 @@ public:
 
     /**
      * Sets extended pins corresponding to specified bitvalues
+     * @param[in] value - bit values for each extended pin
      */
     virtual void   setExtendedPins(uint8_t value);
     

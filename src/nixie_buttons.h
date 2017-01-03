@@ -1,5 +1,5 @@
 /*
-    Copyright (C) 2016 Alexey Dynda
+    Copyright (C) 2016-2017 Alexey Dynda
 
     This file is part of Nixie Library.
 
@@ -23,6 +23,9 @@
 #include "nixie_types.h"
 #include "nixie_booster.h"
 
+/**
+ * TOnButtonEvent defines format of callback functions used by NixieAnalogButtons class
+ */
 typedef void (*TOnButtonEvent)(uint8_t);
 
 
@@ -46,6 +49,9 @@ public:
         m_buttons = btns;
     };
     
+    /**
+     * Initializes state of the object. Must be called in setup() function.
+     */
     void init                          (void)     { pinMode(m_pin, INPUT); };
 
     /**
@@ -55,6 +61,10 @@ public:
      */
     inline bool isShortPress           (uint8_t n)   { return isShortPress(n, 300); };
 
+    /**
+     * Returns true if any button or their combination is pressed.
+     * @returns true or false
+     */
     inline bool isShortPress           ()         { return (m_isButtonDown == false) && (m_wasButtonDown == true) && holdDuration() < 300; };
 
     /**
@@ -128,7 +138,7 @@ public:
 
     /**
      * Disables Up action if button is pressed now.
-     * Useful for holding cases;
+     * Useful to prevent button release action, when we need to process hold state only.
      */
     inline void disableUpAction() { if (m_isButtonDown) m_disableAction = true; };
 
@@ -146,7 +156,6 @@ public:
 
     /**
      * Updates state of Buttons class, must be called in the cycle each time.
-     * @param ts - time in milliseconds returned by millis() function.
      */
     void update                        ();
 

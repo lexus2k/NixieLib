@@ -1,5 +1,5 @@
 /*
-    Copyright (C) 2016 Alexey Dynda
+    Copyright (C) 2016-2017 Alexey Dynda
 
     This file is part of Nixie Library.
 
@@ -23,6 +23,8 @@
 #include <nixie_types.h>
 
 /**
+ * @brief Provides access to DS3231 register values
+ *
  * Ds3231 class supports Ds3231 and Ds3232 chips.
  * The class encapsulates the work with RTC chip,
  * allowing to set and read time.

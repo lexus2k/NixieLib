@@ -1,5 +1,5 @@
 /*
-    Copyright (C) 2016 Alexey Dynda
+    Copyright (C) 2016-2017 Alexey Dynda
 
     This file is part of Nixie Library.
 
@@ -21,7 +21,7 @@
  This file contains NixieLibrary class, which control global states of NixieLibrary
 
  @file
- @brief Nixie Library - global.
+ @brief Nixie Library - global settings of the library.
 */
 
 #ifndef _NIXIE_LIBRARY_H_
@@ -29,18 +29,37 @@
 
 #include "nixie_types.h"
 
+/** This variable contains lower 16-bits of microseconds counter. For internal use by Nixie Library only! */
 extern uint16_t  g_nixieUs;
+/** This variable contains lower 16-bits of milliseconds counter. For internal use by Nixie Library only! */
 extern uint16_t  g_nixieMs;
 
+/**
+ * NixieLibrary class contains static methods to be called in loop cycle and setup library
+ */
 class NixieLibrary
 {
 public:
+
+    /**
+     * @brief updates ms and us counters of NixieLibrary
+     * Call this method in the main loop.
+     * @param[in] ms - time in milliseconds returned by millis()
+     * @param[in] us - time in microseconds returned by micros()
+     * @note if you don't want to call millis() and micros() by yourself
+     *       please, use update() method without parameters
+     */
     static inline void update(uint32_t ms, uint32_t us)
     {
        g_nixieMs = (uint16_t)ms;
        g_nixieUs = (uint16_t)us;
     };
 
+    /**
+     * @brief updates ms and us counters of NixieLibrary
+     * Call this method in the main loop.
+     * This method uses standard millis() and micros() functions.
+     */
     static inline void update()
     {
        g_nixieMs = millis();  
