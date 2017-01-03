@@ -6,6 +6,10 @@
  * In this example both Nixie Tubes are controlled through single K155ID1 chip.
  * To correctly control tubes digits, we need to turn on tubes in different time 
  * by enabling and disabling power on tube anods.
+ * To provide power for Nixie tubes, please, use step-up converter available in
+ * schematics folder. It transforms 12V to 180V, required to power up Nixie tubes.
+ * Don't forget that tube anod should be connected via 12K resistor (0.25W is good)
+ * to 180V.
  */
 
 /*

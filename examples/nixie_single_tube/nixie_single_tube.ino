@@ -2,6 +2,13 @@
 #include <nixie_k155id1.h>
 #include <nixie_library.h>
 
+/*
+ * In this example single Nixie Tubes is controlled through single K155ID1 chip.
+ * To provide power for Nixie tube, please, use step-up converter available in
+ * schematics folder. It transforms 12V to 180V, required to power up Nixie tubes.
+ * Don't forget that tube anod should be connected via 12K resistor (0.25W is good)
+ * to 180V.
+ */
 
 /*
  * Assume that I1, I2, I3 and I4 input pins of K155ID1 are connected to
