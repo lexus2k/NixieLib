@@ -1,6 +1,7 @@
 var searchData=
 [
   ['nixieanalogbuttons',['NixieAnalogButtons',['../class_nixie_analog_buttons.html#a60879cbb64788bfdf4b5ece9feaf885f',1,'NixieAnalogButtons']]],
+  ['nixieaudiochannel',['NixieAudioChannel',['../class_nixie_audio_channel.html#a84f1346e197fb802bfcdf884fa653a33',1,'NixieAudioChannel']]],
   ['nixiedisplay',['NixieDisplay',['../class_nixie_display.html#ab7479da38e68098c50101c3532189cee',1,'NixieDisplay']]],
   ['nixieldrgl5528',['NixieLdrGl5528',['../class_nixie_ldr_gl5528.html#a3af4bdf8bc0e33a5168e518c74ad88dd',1,'NixieLdrGl5528']]],
   ['nixiepwmrgbled',['NixiePwmRgbLed',['../class_nixie_pwm_rgb_led.html#a82fd95da06622b1119a95098f9d324d7',1,'NixiePwmRgbLed']]],

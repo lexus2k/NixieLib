@@ -72,13 +72,12 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:af0189f46d4815d128f676f0a40a5fcd7"><td class="memItemLeft" align="right" valign="top"><a id="af0189f46d4815d128f676f0a40a5fcd7"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>NixieAudioChannel</b> (byte pin)</td></tr>
-<tr class="separator:af0189f46d4815d128f676f0a40a5fcd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84f1346e197fb802bfcdf884fa653a33"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_nixie_audio_channel.html#a84f1346e197fb802bfcdf884fa653a33">NixieAudioChannel</a> (uint8_t pin)</td></tr>
+<tr class="separator:a84f1346e197fb802bfcdf884fa653a33"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a68331e1d2e4d0b5eff9412d2635f42b3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_nixie_audio_channel.html#a68331e1d2e4d0b5eff9412d2635f42b3">init</a> ()</td></tr>
 <tr class="separator:a68331e1d2e4d0b5eff9412d2635f42b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac8971761b427e43c923151904161a37b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_nixie_audio_channel.html#ac8971761b427e43c923151904161a37b">update</a> (unsigned long ts)</td></tr>
-<tr class="separator:ac8971761b427e43c923151904161a37b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abce3b1d963e23d508190500b219580d7"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_nixie_audio_channel.html#abce3b1d963e23d508190500b219580d7">update</a> (unsigned long ts)</td></tr>
+<tr class="separator:abce3b1d963e23d508190500b219580d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a249219529b7b80055c56aa25bc0dc5b7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_nixie_audio_channel.html#a249219529b7b80055c56aa25bc0dc5b7">playMusic</a> (const <a class="el" href="struct_nixie_melody.html">NixieMelody</a> &amp;melody, long totalDuration=0)</td></tr>
 <tr class="separator:a249219529b7b80055c56aa25bc0dc5b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a32e2e8f24ce1ab9468feb4de4c2b8bfe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_nixie_audio_channel.html#a32e2e8f24ce1ab9468feb4de4c2b8bfe">playNote</a> (const <a class="el" href="struct_s_nixie_tempo_note.html">SNixieTempoNote</a> &amp;note, bool wait=false)</td></tr>
@@ -94,7 +93,41 @@ Public Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="class_nixie_audio_channel.html">NixieAudioChannel</a> class is intended to play defined melodies on buzzer, connected to specific atmel controller pin. </p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a84f1346e197fb802bfcdf884fa653a33"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84f1346e197fb802bfcdf884fa653a33">&sect;&nbsp;</a></span>NixieAudioChannel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">NixieAudioChannel::NixieAudioChannel </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>pin</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Creates <a class="el" href="class_nixie_audio_channel.html">NixieAudioChannel</a> object. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">pin</td><td>- buzzer pin to control. Set it to 0xFF if you want to control buzzer pin manually. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_nixie_audio_channel.html#abce3b1d963e23d508190500b219580d7">update()</a> </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
 <a id="a68331e1d2e4d0b5eff9412d2635f42b3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a68331e1d2e4d0b5eff9412d2635f42b3">&sect;&nbsp;</a></span>init()</h2>
 
@@ -203,7 +236,7 @@ Public Member Functions</h2></td></tr>
 <p>Plays single tempo note, located in RAM. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">note</td><td>- reference to <a class="el" href="struct_s_nixie_tempo_note.html">SNixieTempoNote</a> structure, describing the note to play </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">wait</td><td>- if false, playNote() will return immediately, and don't forget to call <a class="el" href="class_nixie_audio_channel.html#ac8971761b427e43c923151904161a37b">update()</a> in loop cycle. if true, playNote() will return, when playing is finished. For "true" case playNote() will call <a class="el" href="class_nixie_audio_channel.html#ac8971761b427e43c923151904161a37b">update()</a> automatically. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">wait</td><td>- if false, playNote() will return immediately, and don't forget to call <a class="el" href="class_nixie_audio_channel.html#abce3b1d963e23d508190500b219580d7">update()</a> in loop cycle. if true, playNote() will return, when playing is finished. For "true" case playNote() will call <a class="el" href="class_nixie_audio_channel.html#abce3b1d963e23d508190500b219580d7">update()</a> automatically. </td></tr>
   </table>
   </dd>
 </dl>
@@ -239,7 +272,7 @@ Public Member Functions</h2></td></tr>
 <p>Plays single sampling note, located in RAM. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">note</td><td>- reference to <a class="el" href="struct_s_nixie_sampling_note.html">SNixieSamplingNote</a> structure, describing the note to play </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">wait</td><td>- if false, playNote() will return immediately, and don't forget to call <a class="el" href="class_nixie_audio_channel.html#ac8971761b427e43c923151904161a37b">update()</a> in loop cycle. if true, playNote() will return, when playing is finished. For "true" case playNote() will call <a class="el" href="class_nixie_audio_channel.html#ac8971761b427e43c923151904161a37b">update()</a> automatically. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">wait</td><td>- if false, playNote() will return immediately, and don't forget to call <a class="el" href="class_nixie_audio_channel.html#abce3b1d963e23d508190500b219580d7">update()</a> in loop cycle. if true, playNote() will return, when playing is finished. For "true" case playNote() will call <a class="el" href="class_nixie_audio_channel.html#abce3b1d963e23d508190500b219580d7">update()</a> automatically. </td></tr>
   </table>
   </dd>
 </dl>
@@ -282,7 +315,7 @@ Public Member Functions</h2></td></tr>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">freq</td><td>- frequency in Herz to play </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">totalDuration</td><td>- how log to play the note in microseconds. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">wait</td><td>- if false, playNote() will return immediately, and don't forget to call <a class="el" href="class_nixie_audio_channel.html#ac8971761b427e43c923151904161a37b">update()</a> in loop cycle. if true, playNote() will return, when playing is finished. For "true" case playNote() will call <a class="el" href="class_nixie_audio_channel.html#ac8971761b427e43c923151904161a37b">update()</a> automatically. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">wait</td><td>- if false, playNote() will return immediately, and don't forget to call <a class="el" href="class_nixie_audio_channel.html#abce3b1d963e23d508190500b219580d7">update()</a> in loop cycle. if true, playNote() will return, when playing is finished. For "true" case playNote() will call <a class="el" href="class_nixie_audio_channel.html#abce3b1d963e23d508190500b219580d7">update()</a> automatically. </td></tr>
   </table>
   </dd>
 </dl>
@@ -308,14 +341,14 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ac8971761b427e43c923151904161a37b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac8971761b427e43c923151904161a37b">&sect;&nbsp;</a></span>update()</h2>
+<a id="abce3b1d963e23d508190500b219580d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abce3b1d963e23d508190500b219580d7">&sect;&nbsp;</a></span>update()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void NixieAudioChannel::update </td>
+          <td class="memname">uint8_t NixieAudioChannel::update </td>
           <td>(</td>
           <td class="paramtype">unsigned long&#160;</td>
           <td class="paramname"><em>ts</em></td><td>)</td>
@@ -329,6 +362,7 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>LOW or HIGH, saying which state should be set Digital pin to. This value can be used to manually control the buzzer pin, if you need. </dd></dl>
 
 </div>
 </div>

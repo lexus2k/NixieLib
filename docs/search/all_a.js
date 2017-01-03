@@ -7,7 +7,7 @@ var searchData=
   ['nixie_5ftube_2eh',['nixie_tube.h',['../nixie__tube_8h.html',1,'']]],
   ['nixie_5ftypes_2eh',['nixie_types.h',['../nixie__types_8h.html',1,'']]],
   ['nixieanalogbuttons',['NixieAnalogButtons',['../class_nixie_analog_buttons.html',1,'NixieAnalogButtons'],['../class_nixie_analog_buttons.html#a60879cbb64788bfdf4b5ece9feaf885f',1,'NixieAnalogButtons::NixieAnalogButtons()']]],
-  ['nixieaudiochannel',['NixieAudioChannel',['../class_nixie_audio_channel.html',1,'']]],
+  ['nixieaudiochannel',['NixieAudioChannel',['../class_nixie_audio_channel.html',1,'NixieAudioChannel'],['../class_nixie_audio_channel.html#a84f1346e197fb802bfcdf884fa653a33',1,'NixieAudioChannel::NixieAudioChannel()']]],
   ['nixiedisplay',['NixieDisplay',['../class_nixie_display.html',1,'NixieDisplay'],['../class_nixie_display.html#ab7479da38e68098c50101c3532189cee',1,'NixieDisplay::NixieDisplay()']]],
   ['nixiedriver',['NixieDriver',['../class_nixie_driver.html',1,'']]],
   ['nixieldrgl5528',['NixieLdrGl5528',['../class_nixie_ldr_gl5528.html',1,'NixieLdrGl5528'],['../class_nixie_ldr_gl5528.html#a3af4bdf8bc0e33a5168e518c74ad88dd',1,'NixieLdrGl5528::NixieLdrGl5528()']]],

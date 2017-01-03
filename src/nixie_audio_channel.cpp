@@ -1,5 +1,5 @@
 /*
-    Copyright (C) 2016 Alexey Dynda
+    Copyright (C) 2016-2017 Alexey Dynda
 
     This file is part of Nixie Library.
 
@@ -18,6 +18,7 @@
 */
 
 #include <nixie_audio_channel.h>
+#include "nixie_booster.h"
 
 ////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -59,12 +60,12 @@ static inline int16_t getNoteFreq(const uint8_t *ptr, EMelodyType type)
 
 ////////////////////////////////////////////////////////////////////////////////////////////
 
-void NixieAudioChannel::update(unsigned long ts)
+uint8_t NixieAudioChannel::update(unsigned long ts)
 {
     if (m_notes == nullptr)
     {
         m_ts = ts;
-        return;
+        return LOW;
     }
     bool updated = false;
     while (ts - m_ts >= m_halfPeriod)
@@ -82,8 +83,8 @@ void NixieAudioChannel::update(unsigned long ts)
         if (m_totalDuration < 0)
         {
             m_notes = nullptr;
-            digitalWrite(m_pin, LOW);
-            return;
+            if (m_pin != 0xFF) nixieDigitalWrite(m_pin, LOW);
+            return LOW;
         }
         switch (m_freq)
         {
@@ -94,12 +95,13 @@ void NixieAudioChannel::update(unsigned long ts)
             m_pinState = !m_pinState;
             break;
         }
-        digitalWrite(m_pin, m_pinState ? HIGH: LOW);
+        if (m_pin != 0xFF) nixieDigitalWrite(m_pin, m_pinState ? HIGH: LOW);
         if (m_duration <= 0)
         {
             playNext();
         }
     }
+    return m_pinState ? HIGH : LOW;
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////

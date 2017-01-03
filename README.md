@@ -17,7 +17,7 @@ The library supports the following devices:
  * GL 5528 lightsensor (most popular light sensor on Arduino platforms)
  * K155ID1 nixie drivers
  * Mono-LEDs
- * RGB-LEDs (both PWM controlled an Software controlled)
+ * RGB-LEDs (both PWM controlled and Software controlled)
  * LM35DZ temperature sensor
 
 For more information about this library please visit

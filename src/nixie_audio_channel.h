@@ -1,5 +1,5 @@
 /*
-    Copyright (C) 2016 Alexey Dynda
+    Copyright (C) 2016-2017 Alexey Dynda
 
     This file is part of Nixie Library.
 
@@ -80,7 +80,13 @@ typedef struct
 class NixieAudioChannel
 {
 public:
-     inline NixieAudioChannel(byte pin) { m_pin = pin; };
+     /**
+      *  Creates NixieAudioChannel object.
+      *  @param[in] pin - buzzer pin to control. Set it to 0xFF if
+      *             you want to control buzzer pin manually.
+      *  @see update()
+      */
+     inline NixieAudioChannel(uint8_t pin) { m_pin = pin; };
 
      /** Initializes and sets correct pin mode */
      void init();
@@ -88,8 +94,11 @@ public:
      /**
       *  This method must be called in main loop cycle always.
       *  @param[in] ts - timestamp returned by micros() function.
+      *  @returns LOW or HIGH, saying which state should be set Digital pin to.
+      *           This value can be used to manually control the buzzer pin,
+      *           if you need.
       */
-     void   update(unsigned long ts);
+     uint8_t update(unsigned long ts);
 
      /**
       * Starts playing specified melody.

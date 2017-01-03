@@ -1,5 +1,5 @@
 /*
-    Copyright (C) 2016 Alexey Dynda
+    Copyright (C) 2016-2017 Alexey Dynda
 
     This file is part of Nixie Library.
 
@@ -25,6 +25,7 @@
 
 #include <nixie_types.h>
 
+/* Uncomment line below if you need to disable boosting */
 // #define NIXIE_BOOSTER_DISABLE
 
 const int16_t ADC_IN_PROGRESS   =   -1;
@@ -43,16 +44,41 @@ inline void __nixiePinHigh(uint8_t pin)
     else         PORTB |= (1 << (pin & 0x07));
 }
 
-#define nixiePinLow(pin)   __nixiePinLow(pin)
-#define nixiePinHigh(pin)  __nixiePinHigh(pin)
+#define nixiePinLow(pin)                __nixiePinLow(pin)
+#define nixiePinHigh(pin)               __nixiePinHigh(pin)
+#define nixieDigitalWrite(pin, level)   { if (level) __nixiePinHigh(pin); else __nixiePinLow(pin); }
 
 int nixieAnalogRead(uint8_t pin);
 
-#else /* Nixie Booster disabled */
+#elif (defined(__AVR_ATtiny25__) || \
+     defined(__AVR_ATtiny45__) || \
+     defined(__AVR_ATtiny85__)) && \
+    !defined(NIXIE_BOOSTER_DISABLE)
+
+inline void __nixiePinLow(uint8_t pin)
+{
+    PORTB &= ~(1 << pin);
+}
+
+inline void __nixiePinHigh(uint8_t pin)
+{
+    PORTB |= (1 << pin);
+}
+
+#define nixiePinLow(pin)                __nixiePinLow(pin)
+#define nixiePinHigh(pin)               __nixiePinHigh(pin)
 
 /* implementation of standard functions */
+#define nixieDigitalWrite(pin, level)   { if (level) __nixiePinHigh(pin); else __nixiePinLow(pin); }
+#define nixieAnalogRead(pin)            analogRead(pin)
+
+#else /* Nixie Booster disabled */
+
 #define nixiePinLow(pin)                digitalWrite(pin, LOW)  
 #define nixiePinHigh(pin)               digitalWrite(pin, HIGH)
+
+/* implementation of standard functions */
+#define nixieDigitalWrite(pin, level)   digitalWrite(pin, level)
 #define nixieAnalogRead(pin)            analogRead(pin)
 
 #endif
