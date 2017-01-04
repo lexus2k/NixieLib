@@ -26,7 +26,7 @@ If you found any problem, please report to Issues section.
 
 == License ==
 
-Copyright (C) 2016 Alexey Dynda
+Copyright (C) 2016-2017 Alexey Dynda
 
 This file is part of Nixie Library.
 
