@@ -30,6 +30,7 @@ NixieDisplay::NixieDisplay(NixieDriver   & driver,
                            uint8_t         maxTubes)
 {
     m_maxTubes = maxTubes;
+    m_brightness = NIXIE_MAX_BRIGHTNESS;
     for (uint8_t n=0; n<maxTubes; n++)
     {
         m_tubes[n].setMap(mapTable);
@@ -271,7 +272,11 @@ void NixieDisplay::smoothOn()
 
 void NixieDisplay::on()
 {
-    for(byte i=0; i<m_maxTubes; i++) getByIndex(i).on();
+    for(byte i=0; i<m_maxTubes; i++)
+    {
+        getByIndex(i).setBrightness( m_brightness );
+        getByIndex(i).on();
+    }
 }
 
 void NixieDisplay::off()
@@ -326,6 +331,7 @@ void NixieDisplay::scroll321( )
         m_stateTs = g_nixieMs;
         __resetShadow();
         m_tubes[m_maxTubes - 1].scrollForward();
+        on();
     }
 }
 

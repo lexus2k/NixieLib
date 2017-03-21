@@ -32,6 +32,8 @@ void  NixieTube::init()
     {
         m_driver->init();
     }
+    m_brightness = NIXIE_MAX_BRIGHTNESS;
+    m_tempBrightness = NIXIE_MAX_BRIGHTNESS;
 }
 
 

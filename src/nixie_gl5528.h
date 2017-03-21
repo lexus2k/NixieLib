@@ -92,8 +92,8 @@ private:
     int16_t     m_roomLevel   = LIGHT_LEVEL_ROOM;
     int16_t     m_dayLevel    = LIGHT_LEVEL_MAX;
     uint8_t     m_pin;
-    uint8_t     m_brightness       = (NIXIE_MAX_BRIGHTNESS / 8);
-    uint8_t     m_targetBrightness = (NIXIE_MAX_BRIGHTNESS / 8);
+    uint8_t     m_brightness       = (NIXIE_MAX_BRIGHTNESS);
+    uint8_t     m_targetBrightness = (NIXIE_MAX_BRIGHTNESS);
     uint16_t    m_ts;
 };
 

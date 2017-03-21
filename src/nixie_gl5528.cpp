@@ -35,8 +35,10 @@ bool NixieLdrGl5528::update(uint16_t ts)
     else if (val > m_nightLevel)
         level = (NIXIE_MAX_BRIGHTNESS / 8) +
                  9 * NIXIE_MAX_BRIGHTNESS / 16*(val - m_nightLevel)/(m_roomLevel - m_nightLevel);
-    else
+    else if (val >= m_nightLevel/2)
         level = (NIXIE_MAX_BRIGHTNESS / 8);
+    else
+        level = NIXIE_MAX_BRIGHTNESS; // some invalid sensor, take maximum brightness
     m_targetBrightness = level;
     if ( m_targetBrightness > m_brightness )
     {

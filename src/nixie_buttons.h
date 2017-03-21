@@ -28,8 +28,9 @@
  */
 typedef void (*TOnButtonEvent)(uint8_t);
 
-
-#define ANALOG_BUTTONS_THRESHOLD  30
+#ifndef ANALOG_BUTTONS_THRESHOLD
+    #define ANALOG_BUTTONS_THRESHOLD  30
+#endif
 
 class NixieAnalogButtons
 {

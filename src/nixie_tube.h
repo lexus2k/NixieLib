@@ -192,7 +192,8 @@ public:
     inline void        clearFlags     (uint8_t mask)                       { m_flags &= (~mask); };
 
     /** Resets current brightness to set brightness and value to 0. */
-    inline void        clear          ()                                   { m_value = 0; m_flags = 0; setActiveBrightness(m_brightness); };
+    inline void        clear          ()                                   { m_value = 0; m_flags = 0;
+                                                                             setActiveBrightness(m_brightness); };
     
     /**
      * Turns off the nixie tube. Turning off means that isBurning() and isEnabled() returns false.
@@ -326,10 +327,10 @@ private:
     uint8_t            m_digit      = 0;
 
     /** Set brightness */
-    uint8_t            m_brightness = NIXIE_MAX_BRIGHTNESS;
+    uint8_t            m_brightness;
 
     /** Active brightness */
-    uint8_t            m_tempBrightness = NIXIE_MAX_BRIGHTNESS;
+    uint8_t            m_tempBrightness;
 
     /** Current timestamp milliseconds */
     uint16_t           m_mts        = 0;

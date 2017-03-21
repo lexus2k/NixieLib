@@ -65,7 +65,7 @@ uint8_t NixieAudioChannel::update(unsigned long ts)
     if (m_notes == nullptr)
     {
         m_ts = ts;
-        return LOW;
+        return 0xFF;
     }
     bool updated = false;
     while (ts - m_ts >= m_halfPeriod)
@@ -84,7 +84,7 @@ uint8_t NixieAudioChannel::update(unsigned long ts)
         {
             m_notes = nullptr;
             if (m_pin != 0xFF) nixieDigitalWrite(m_pin, LOW);
-            return LOW;
+            return 0xFF;
         }
         switch (m_freq)
         {
@@ -95,13 +95,13 @@ uint8_t NixieAudioChannel::update(unsigned long ts)
             m_pinState = !m_pinState;
             break;
         }
-        if (m_pin != 0xFF) nixieDigitalWrite(m_pin, m_pinState ? HIGH: LOW);
+        if (m_pin != 0xFF) nixieDigitalWrite(m_pin, m_pinState);
         if (m_duration <= 0)
         {
             playNext();
         }
     }
-    return m_pinState ? HIGH : LOW;
+    return m_pinState;
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////

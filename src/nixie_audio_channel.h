@@ -97,6 +97,7 @@ public:
       *  @returns LOW or HIGH, saying which state should be set Digital pin to.
       *           This value can be used to manually control the buzzer pin,
       *           if you need.
+      *           0xFF if audio source should be disabled.
       */
      uint8_t update(unsigned long ts);
 
@@ -158,7 +159,7 @@ private:
 
      unsigned long     m_halfPeriod;     /* time in useconds */
      long              m_duration = 0;   /* time in mseconds */
-     bool              m_pinState = false;
+     uint8_t           m_pinState = LOW;
      int               m_freq = 0;
      int               m_pause = 0;
 

@@ -25,15 +25,29 @@
 
 #include <Wire.h>
 
-void Ds3231::init()
+bool Ds3231::init()
 {
     /* Init DS3232/DS3231 */
     Wire.beginTransmission(I2C_ADDR_DS3231);
     Wire.write(0x0E); // Write to control register
     Wire.write(0b00011100);
     Wire.write(0b00110000);
-    Wire.endTransmission();
-    getDateTime();
+    if ( Wire.endTransmission() != 0)
+    {
+        m_no_device = true;
+        m_seconds     = 0;
+        m_minutes     = 0;
+        m_hours       = 0;
+        m_day_of_week = 1;
+        m_day         = 1;
+        m_month       = 1;
+        m_year        = 16;
+    }
+    else
+    {
+        getDateTime();
+    }
+    return !m_no_device;
 }
 
 Ds3231& Ds3231::operator  ++() 
@@ -53,6 +67,10 @@ Ds3231& Ds3231::operator  ++()
 
 void Ds3231::getDateTime()
 {
+    if (m_no_device)
+    {
+        return;
+    }
     Wire.beginTransmission(I2C_ADDR_DS3231);
     Wire.write(0x00);
     Wire.endTransmission();
@@ -72,6 +90,10 @@ void Ds3231::getDateTime()
 
 void Ds3231::setDateTime()
 {
+    if (m_no_device)
+    {
+        return;
+    }
     Wire.beginTransmission(I2C_ADDR_DS3231);
     Wire.write(0x00);
     Wire.write(m_seconds);
@@ -86,6 +108,10 @@ void Ds3231::setDateTime()
 
 void    Ds3231::setDate()
 {
+    if (m_no_device)
+    {
+        return;
+    }
     Wire.beginTransmission(I2C_ADDR_DS3231);
     Wire.write(0x03);
     Wire.write(m_day_of_week);
@@ -97,6 +123,10 @@ void    Ds3231::setDate()
 
 void    Ds3231::setTime()
 {
+    if (m_no_device)
+    {
+        return;
+    }
     Wire.beginTransmission(I2C_ADDR_DS3231);
     Wire.write(0x00);
     Wire.write(m_seconds);
@@ -107,6 +137,10 @@ void    Ds3231::setTime()
 
 int16_t Ds3231::getTemp()
 {
+    if (m_no_device)
+    {
+        return 0;
+    }
     //temp registers (11h-12h) get updated automatically every 64s
     Wire.beginTransmission(I2C_ADDR_DS3231);
     Wire.write(0x11);

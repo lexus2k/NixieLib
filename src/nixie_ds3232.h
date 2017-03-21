@@ -48,10 +48,11 @@ public:
 
     /**
      * Initializes Ds3231 class state. Should be called in setup
+     * @return true if successful, otherwise false
      */
-    void init();
+    bool init();
 
-    Ds3231() {};
+    Ds3231(): m_no_device(false) {};
 
     /**
      * Reads date and time from the chip
@@ -115,6 +116,7 @@ public:
 private:
     static const int I2C_ADDR_AT24C32 = 0x57;
     static const int I2C_ADDR_DS3231  = 0x68;
+    bool m_no_device;
 };
 
 #endif /* _NIXIE_RTC_H_ */
