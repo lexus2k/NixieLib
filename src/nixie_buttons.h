@@ -25,8 +25,14 @@
 
 /**
  * TOnButtonEvent defines format of callback functions used by NixieAnalogButtons class
+ * @param id           - id of the pressed button
+ * @param timeDeltaMs  - delta in milliseconds
+ *                For button down events:  delta means time passed since up event
+ *                For button up events:    delta means time passed since down event
+ *                For button hold events:  delta means time passed since down event,
+ *                                         when button is not released yet.
  */
-typedef void (*TOnButtonEvent)(uint8_t);
+typedef void (*TOnButtonEvent)(uint8_t id, uint16_t timeDeltaMs);
 
 #ifndef ANALOG_BUTTONS_THRESHOLD
     #define ANALOG_BUTTONS_THRESHOLD  30
@@ -162,17 +168,25 @@ public:
 
     /**
      * Sets handler for button down events. Handler should accept button id
-     * as the only parameter
+     * and time delta in milliseconds as the only parameters.
      * @param[in] handler - callback handler of TOnButtonEvent type
      */
     void onButtonDown(TOnButtonEvent handler) { m_downHandler = handler; };
 
     /**
      * Sets handler for button up events. Handler should accept button id
-     * as the only parameter
+     * and time delta in milliseconds as the only parameters.
      * @param[in] handler - callback handler of TOnButtonEvent type
      */
     void onButtonUp(TOnButtonEvent handler)   { m_upHandler   = handler; };
+
+
+    /**
+     * Sets handler for button hold events. Handler should accept button id
+     * and time delta in milliseconds as the only parameters.
+     * @param[in] handler - callback handler of TOnButtonEvent type
+     */
+    void onButtonHold(TOnButtonEvent handler)   { m_holdHandler   = handler; };
     
 private:
     uint8_t  m_id                       = 0xFF;
@@ -190,6 +204,7 @@ private:
     uint8_t  m_checkBounce              = 0;
     TOnButtonEvent  m_downHandler       = nullptr;
     TOnButtonEvent  m_upHandler         = nullptr;
+    TOnButtonEvent  m_holdHandler       = nullptr;
 };
 
 #endif

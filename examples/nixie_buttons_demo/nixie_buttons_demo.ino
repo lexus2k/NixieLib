@@ -35,7 +35,7 @@ const int16_t buttons[4]    =  { 752,   542,  362,   188 };
 static NixieAnalogButtons s_buttons(A1, buttons, 4 );
 
 
-void onButtonDown(uint8_t id)
+void onButtonDown(uint8_t id, uint16_t timeDeltaMs)
 {
     Serial.print("Pressed button: ");
     Serial.println(id + 1); /* indexes are zero-based */

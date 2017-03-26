@@ -76,10 +76,17 @@ void NixieAnalogButtons::update()
                 m_downTimestampMs = g_nixieMs; 
                 if (m_downHandler != nullptr)
                 {
-                    m_downHandler(m_id);
+                    m_downHandler(m_id, g_nixieMs - m_upTimestampMs);
                 }
             }
-            /* Otherwise, just holding button */
+            else
+            {
+                /* Otherwise, just holding button */
+                if (m_holdHandler != nullptr)
+                {
+                    m_holdHandler(m_id, g_nixieMs - m_downTimestampMs);
+                }
+            }
         }
         if (found)
         {
@@ -99,7 +106,7 @@ void NixieAnalogButtons::update()
             }
             else if ( m_upHandler != nullptr )
             {
-                m_upHandler(m_id); 
+                m_upHandler(m_id, g_nixieMs - m_downTimestampMs);
             }
             m_upTimestampMs = g_nixieMs; 
         }
