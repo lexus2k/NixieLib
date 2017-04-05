@@ -25,11 +25,23 @@
 class NixieLed
 {
 public:
-    inline        NixieLed(byte pin) { m_pin = pin; };
+    /**
+     * @brief Creates NixieLed object.
+     * @param pin - pin number to control led.
+     */
+    inline        NixieLed(uint8_t pin) { m_pin = pin; };
+
+    /**
+     * @brief Switches LED off
+     */
     void inline   off()              { digitalWrite(m_pin, LOW); };
+
+    /**
+     * @brief Switches LED on
+     */
     void inline   on()               { digitalWrite(m_pin, HIGH); };
 private:
-    byte          m_pin;    
+    uint8_t          m_pin;    
 };
 
 #endif

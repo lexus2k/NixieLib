@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Nixie Library
-   &#160;<span id="projectnumber">0.0.2pre</span>
+   &#160;<span id="projectnumber">0.2.0</span>
    </div>
    <div id="projectbrief">Nixie Library to develop Nixie Clock</div>
   </td>
@@ -94,7 +94,7 @@ Public Member Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="class_nixie_audio_channel.html">NixieAudioChannel</a> class is intended to play defined melodies on buzzer, connected to specific atmel controller pin. </p>
 
-<p>Definition at line <a class="el" href="nixie__audio__channel_8h_source.html#l00080">80</a> of file <a class="el" href="nixie__audio__channel_8h_source.html">nixie_audio_channel.h</a>.</p>
+<p>Definition at line <a class="el" href="nixie__audio__channel_8h_source.html#l00091">91</a> of file <a class="el" href="nixie__audio__channel_8h_source.html">nixie_audio_channel.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a84f1346e197fb802bfcdf884fa653a33"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a84f1346e197fb802bfcdf884fa653a33">&sect;&nbsp;</a></span>NixieAudioChannel()</h2>
@@ -127,7 +127,7 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="class_nixie_audio_channel.html#abce3b1d963e23d508190500b219580d7">update()</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="nixie__audio__channel_8h_source.html#l00089">89</a> of file <a class="el" href="nixie__audio__channel_8h_source.html">nixie_audio_channel.h</a>.</p>
+<p>Definition at line <a class="el" href="nixie__audio__channel_8h_source.html#l00100">100</a> of file <a class="el" href="nixie__audio__channel_8h_source.html">nixie_audio_channel.h</a>.</p>
 
 </div>
 </div>
@@ -176,7 +176,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Returns true if playing something </p>
 
-<p>Definition at line <a class="el" href="nixie__audio__channel_8h_source.html#l00151">151</a> of file <a class="el" href="nixie__audio__channel_8h_source.html">nixie_audio_channel.h</a>.</p>
+<p>Definition at line <a class="el" href="nixie__audio__channel_8h_source.html#l00163">163</a> of file <a class="el" href="nixie__audio__channel_8h_source.html">nixie_audio_channel.h</a>.</p>
 
 </div>
 </div>
@@ -205,7 +205,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Starts playing specified melody.  melody notes should be placed to flash memory, not RAM</p>
+<p>Starts playing specified melody. </p><dl class="section warning"><dt>Warning</dt><dd>melody notes should be placed to flash memory, not RAM</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">melody</td><td>- melody to play </td></tr>
@@ -380,7 +380,7 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>LOW or HIGH, saying which state should be set Digital pin to. This value can be used to manually control the buzzer pin, if you need. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>LOW or HIGH, saying which state should be set Digital pin to. This value can be used to manually control the buzzer pin, if you need. 0xFF if audio source should be disabled. </dd></dl>
 
 <p>Definition at line <a class="el" href="nixie__audio__channel_8cpp_source.html#l00063">63</a> of file <a class="el" href="nixie__audio__channel_8cpp_source.html">nixie_audio_channel.cpp</a>.</p>
 

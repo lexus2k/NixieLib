@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Nixie Library
-   &#160;<span id="projectnumber">0.0.2pre</span>
+   &#160;<span id="projectnumber">0.2.0</span>
    </div>
    <div id="projectbrief">Nixie Library to develop Nixie Clock</div>
   </td>
@@ -72,11 +72,9 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a5afb6a6e7133ac223f10976210760a64"><td class="memItemLeft" align="right" valign="top"><a id="a5afb6a6e7133ac223f10976210760a64"></a>
-int16_t&#160;</td><td class="memItemRight" valign="bottom"><b>freq</b></td></tr>
+<tr class="memitem:a5afb6a6e7133ac223f10976210760a64"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_s_nixie_tempo_note.html#a5afb6a6e7133ac223f10976210760a64">freq</a></td></tr>
 <tr class="separator:a5afb6a6e7133ac223f10976210760a64"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a55b879050762f3066395f2b456563093"><td class="memItemLeft" align="right" valign="top"><a id="a55b879050762f3066395f2b456563093"></a>
-uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>tempo</b></td></tr>
+<tr class="memitem:a55b879050762f3066395f2b456563093"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_s_nixie_tempo_note.html#a55b879050762f3066395f2b456563093">tempo</a></td></tr>
 <tr class="separator:a55b879050762f3066395f2b456563093"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -87,7 +85,42 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>tempo</b></td></tr
 <p>Tempo '2' means 1/2 sec, tempo '8' means 1/8 sec. This way of definition needs only 3 bytes per note and is easy for translating Notes to digital representation. </p>
 
 <p>Definition at line <a class="el" href="nixie__audio__channel_8h_source.html#l00035">35</a> of file <a class="el" href="nixie__audio__channel_8h_source.html">nixie_audio_channel.h</a>.</p>
-</div><hr/>The documentation for this struct was generated from the following file:<ul>
+</div><h2 class="groupheader">Member Data Documentation</h2>
+<a id="a5afb6a6e7133ac223f10976210760a64"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5afb6a6e7133ac223f10976210760a64">&sect;&nbsp;</a></span>freq</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t SNixieTempoNote::freq</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Frequency of sound to play </p>
+
+<p>Definition at line <a class="el" href="nixie__audio__channel_8h_source.html#l00038">38</a> of file <a class="el" href="nixie__audio__channel_8h_source.html">nixie_audio_channel.h</a>.</p>
+
+</div>
+</div>
+<a id="a55b879050762f3066395f2b456563093"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a55b879050762f3066395f2b456563093">&sect;&nbsp;</a></span>tempo</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t SNixieTempoNote::tempo</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Duration in parts of the second, i.e. 8 means 1/8 </p>
+
+<p>Definition at line <a class="el" href="nixie__audio__channel_8h_source.html#l00040">40</a> of file <a class="el" href="nixie__audio__channel_8h_source.html">nixie_audio_channel.h</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this struct was generated from the following file:<ul>
 <li>src/<a class="el" href="nixie__audio__channel_8h_source.html">nixie_audio_channel.h</a></li>
 </ul>
 </div><!-- contents -->

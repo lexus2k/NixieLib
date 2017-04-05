@@ -30,13 +30,22 @@
 class NixieDriver
 {
 public:
+    /**
+     * Initializes Nixie Driver
+     */
     virtual void init() = 0;
+
     /**
      * Enables specified output pin on Nixie driver
      * @param[in] pin - pin to enable
      * @note all other pins are usually become disabled
      */
     virtual void switchPin(uint8_t pin) = 0;
+
+    /**
+     * Changes extended control pins. 
+     * Actual implementation depends on specific driver.
+     */
     virtual void setExtendedPins(uint8_t value) = 0;
 };
 

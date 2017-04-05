@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Nixie Library
-   &#160;<span id="projectnumber">0.0.2pre</span>
+   &#160;<span id="projectnumber">0.2.0</span>
    </div>
    <div id="projectbrief">Nixie Library to develop Nixie Clock</div>
   </td>
@@ -124,8 +124,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>randomEffect</b> ()</
 <tr class="separator:a7522c80942939c47cc1ad4d4584c7f0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a91319d8628e741528347ab8fbcefcdbe"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_nixie_tube.html">NixieTube</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_nixie_display.html#a91319d8628e741528347ab8fbcefcdbe">operator[]</a> (int index)</td></tr>
 <tr class="separator:a91319d8628e741528347ab8fbcefcdbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6f2df766f73dc8dfcc4662b3d645e545"><td class="memItemLeft" align="right" valign="top"><a id="a6f2df766f73dc8dfcc4662b3d645e545"></a>
-<a class="el" href="class_nixie_tube.html">NixieTube</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getByIndex</b> (int index)</td></tr>
+<tr class="memitem:a6f2df766f73dc8dfcc4662b3d645e545"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_nixie_tube.html">NixieTube</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_nixie_display.html#a6f2df766f73dc8dfcc4662b3d645e545">getByIndex</a> (int index)</td></tr>
+<tr class="memdesc:a6f2df766f73dc8dfcc4662b3d645e545"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns reference to <a class="el" href="class_nixie_tube.html">NixieTube</a> object  <a href="#a6f2df766f73dc8dfcc4662b3d645e545">More...</a><br /></td></tr>
 <tr class="separator:a6f2df766f73dc8dfcc4662b3d645e545"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -201,7 +201,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>randomEffect</b> ()</
 </div><div class="memdoc">
 <p>Makes all Nixie tubes to blink </p>
 
-<p>Definition at line <a class="el" href="nixie__display_8cpp_source.html#l00254">254</a> of file <a class="el" href="nixie__display_8cpp_source.html">nixie_display.cpp</a>.</p>
+<p>Definition at line <a class="el" href="nixie__display_8cpp_source.html#l00255">255</a> of file <a class="el" href="nixie__display_8cpp_source.html">nixie_display.cpp</a>.</p>
 
 </div>
 </div>
@@ -221,7 +221,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>randomEffect</b> ()</
 </div><div class="memdoc">
 <p>Clears all flags of Nixie Tubes </p>
 
-<p>Definition at line <a class="el" href="nixie__display_8cpp_source.html#l00102">102</a> of file <a class="el" href="nixie__display_8cpp_source.html">nixie_display.cpp</a>.</p>
+<p>Definition at line <a class="el" href="nixie__display_8cpp_source.html#l00103">103</a> of file <a class="el" href="nixie__display_8cpp_source.html">nixie_display.cpp</a>.</p>
 
 </div>
 </div>
@@ -241,7 +241,43 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>randomEffect</b> ()</
 </div><div class="memdoc">
 <p>Brightness in the range 0 - 64 </p>
 
-<p>Definition at line <a class="el" href="nixie__display_8cpp_source.html#l00120">120</a> of file <a class="el" href="nixie__display_8cpp_source.html">nixie_display.cpp</a>.</p>
+<p>Definition at line <a class="el" href="nixie__display_8cpp_source.html#l00121">121</a> of file <a class="el" href="nixie__display_8cpp_source.html">nixie_display.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a6f2df766f73dc8dfcc4662b3d645e545"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f2df766f73dc8dfcc4662b3d645e545">&sect;&nbsp;</a></span>getByIndex()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_nixie_tube.html">NixieTube</a>&amp; NixieDisplay::getByIndex </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>returns reference to <a class="el" href="class_nixie_tube.html">NixieTube</a> object </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">index</td><td>- index of nixie tube objet to get 0 - 5 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="nixie__display_8h_source.html#l00180">180</a> of file <a class="el" href="nixie__display_8h_source.html">nixie_display.h</a>.</p>
 
 </div>
 </div>
@@ -262,7 +298,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>randomEffect</b> ()</
 </div><div class="memdoc">
 <p>This method must be called in setup function </p>
 
-<p>Definition at line <a class="el" href="nixie__display_8cpp_source.html#l00042">42</a> of file <a class="el" href="nixie__display_8cpp_source.html">nixie_display.cpp</a>.</p>
+<p>Definition at line <a class="el" href="nixie__display_8cpp_source.html#l00043">43</a> of file <a class="el" href="nixie__display_8cpp_source.html">nixie_display.cpp</a>.</p>
 
 </div>
 </div>
@@ -283,7 +319,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>randomEffect</b> ()</
 </div><div class="memdoc">
 <p>Scrolls all digits away to the left. </p>
 
-<p>Definition at line <a class="el" href="nixie__display_8cpp_source.html#l00290">290</a> of file <a class="el" href="nixie__display_8cpp_source.html">nixie_display.cpp</a>.</p>
+<p>Definition at line <a class="el" href="nixie__display_8cpp_source.html#l00295">295</a> of file <a class="el" href="nixie__display_8cpp_source.html">nixie_display.cpp</a>.</p>
 
 </div>
 </div>
@@ -304,7 +340,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>randomEffect</b> ()</
 </div><div class="memdoc">
 <p>Scrolls all digits away to the right. </p>
 
-<p>Definition at line <a class="el" href="nixie__display_8cpp_source.html#l00304">304</a> of file <a class="el" href="nixie__display_8cpp_source.html">nixie_display.cpp</a>.</p>
+<p>Definition at line <a class="el" href="nixie__display_8cpp_source.html#l00309">309</a> of file <a class="el" href="nixie__display_8cpp_source.html">nixie_display.cpp</a>.</p>
 
 </div>
 </div>
@@ -324,7 +360,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>randomEffect</b> ()</
 </div><div class="memdoc">
 <p>Switches all nixie tubes to normal mode </p>
 
-<p>Definition at line <a class="el" href="nixie__display_8cpp_source.html#l00261">261</a> of file <a class="el" href="nixie__display_8cpp_source.html">nixie_display.cpp</a>.</p>
+<p>Definition at line <a class="el" href="nixie__display_8cpp_source.html#l00262">262</a> of file <a class="el" href="nixie__display_8cpp_source.html">nixie_display.cpp</a>.</p>
 
 </div>
 </div>
@@ -344,7 +380,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>randomEffect</b> ()</
 </div><div class="memdoc">
 <p>Turns off nixie tubes. This means that module will never enable Anod on the tubes. </p>
 
-<p>Definition at line <a class="el" href="nixie__display_8cpp_source.html#l00277">277</a> of file <a class="el" href="nixie__display_8cpp_source.html">nixie_display.cpp</a>.</p>
+<p>Definition at line <a class="el" href="nixie__display_8cpp_source.html#l00282">282</a> of file <a class="el" href="nixie__display_8cpp_source.html">nixie_display.cpp</a>.</p>
 
 </div>
 </div>
@@ -364,7 +400,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>randomEffect</b> ()</
 </div><div class="memdoc">
 <p>Turns on nixie tubes </p>
 
-<p>Definition at line <a class="el" href="nixie__display_8cpp_source.html#l00272">272</a> of file <a class="el" href="nixie__display_8cpp_source.html">nixie_display.cpp</a>.</p>
+<p>Definition at line <a class="el" href="nixie__display_8cpp_source.html#l00273">273</a> of file <a class="el" href="nixie__display_8cpp_source.html">nixie_display.cpp</a>.</p>
 
 </div>
 </div>
@@ -413,7 +449,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>randomEffect</b> ()</
 </div><div class="memdoc">
 <p>This method must be called in loop function </p>
 
-<p>Definition at line <a class="el" href="nixie__display_8cpp_source.html#l00051">51</a> of file <a class="el" href="nixie__display_8cpp_source.html">nixie_display.cpp</a>.</p>
+<p>Definition at line <a class="el" href="nixie__display_8cpp_source.html#l00052">52</a> of file <a class="el" href="nixie__display_8cpp_source.html">nixie_display.cpp</a>.</p>
 
 </div>
 </div>
@@ -433,7 +469,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>randomEffect</b> ()</
 </div><div class="memdoc">
 <p>Wraps all digits on the display once. </p>
 
-<p>Definition at line <a class="el" href="nixie__display_8cpp_source.html#l00095">95</a> of file <a class="el" href="nixie__display_8cpp_source.html">nixie_display.cpp</a>.</p>
+<p>Definition at line <a class="el" href="nixie__display_8cpp_source.html#l00096">96</a> of file <a class="el" href="nixie__display_8cpp_source.html">nixie_display.cpp</a>.</p>
 
 </div>
 </div>
@@ -453,7 +489,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>randomEffect</b> ()</
 </div><div class="memdoc">
 <p>Starts to scroll from last digit till the first one. Unlike <a class="el" href="class_nixie_display.html#a0de8358e02317e3e7aa8707fa697ec76">scrollForward()</a> method it scrolls digits one by one. Not all together </p>
 
-<p>Definition at line <a class="el" href="nixie__display_8cpp_source.html#l00320">320</a> of file <a class="el" href="nixie__display_8cpp_source.html">nixie_display.cpp</a>.</p>
+<p>Definition at line <a class="el" href="nixie__display_8cpp_source.html#l00325">325</a> of file <a class="el" href="nixie__display_8cpp_source.html">nixie_display.cpp</a>.</p>
 
 </div>
 </div>
@@ -474,7 +510,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>randomEffect</b> ()</
 </div><div class="memdoc">
 <p>Starts to scrolls all digits forward until they reach new values </p>
 
-<p>Definition at line <a class="el" href="nixie__display_8cpp_source.html#l00315">315</a> of file <a class="el" href="nixie__display_8cpp_source.html">nixie_display.cpp</a>.</p>
+<p>Definition at line <a class="el" href="nixie__display_8cpp_source.html#l00320">320</a> of file <a class="el" href="nixie__display_8cpp_source.html">nixie_display.cpp</a>.</p>
 
 </div>
 </div>
@@ -495,7 +531,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>randomEffect</b> ()</
 </div><div class="memdoc">
 <p>Brightness in the range 0 - 64 </p>
 
-<p>Definition at line <a class="el" href="nixie__display_8cpp_source.html#l00109">109</a> of file <a class="el" href="nixie__display_8cpp_source.html">nixie_display.cpp</a>.</p>
+<p>Definition at line <a class="el" href="nixie__display_8cpp_source.html#l00110">110</a> of file <a class="el" href="nixie__display_8cpp_source.html">nixie_display.cpp</a>.</p>
 
 </div>
 </div>
@@ -515,7 +551,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>randomEffect</b> ()</
 </div><div class="memdoc">
 <p>Smoothly turns on nixie tubes </p>
 
-<p>Definition at line <a class="el" href="nixie__display_8cpp_source.html#l00267">267</a> of file <a class="el" href="nixie__display_8cpp_source.html">nixie_display.cpp</a>.</p>
+<p>Definition at line <a class="el" href="nixie__display_8cpp_source.html#l00268">268</a> of file <a class="el" href="nixie__display_8cpp_source.html">nixie_display.cpp</a>.</p>
 
 </div>
 </div>
@@ -541,7 +577,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>randomEffect</b> ()</
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="nixie__display_8cpp_source.html#l00210">210</a> of file <a class="el" href="nixie__display_8cpp_source.html">nixie_display.cpp</a>.</p>
+<p>Definition at line <a class="el" href="nixie__display_8cpp_source.html#l00211">211</a> of file <a class="el" href="nixie__display_8cpp_source.html">nixie_display.cpp</a>.</p>
 
 </div>
 </div>

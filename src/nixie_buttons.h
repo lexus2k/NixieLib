@@ -154,7 +154,7 @@ public:
      * @param n - button id to check
      * @param ts - time, returned by millis() function
      * @return 0 - if n doesn't correspond to button id, being held
-     *         number of milliseconds between button down event and specified time for <n> button.
+     *         number of milliseconds between button down event and specified time for N button.
      */
     inline uint16_t holdDuration       (uint8_t n, uint16_t ts)
     {

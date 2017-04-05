@@ -12,7 +12,7 @@ var searchData=
   ['setdatetime',['setDateTime',['../class_ds3231.html#a3b639811f73e5a8c9285105dd8834b78',1,'Ds3231']]],
   ['setdayadclevel',['setDayAdcLevel',['../class_nixie_ldr_gl5528.html#aa2fec5835943764bd48accc60610940e',1,'NixieLdrGl5528']]],
   ['setdriver',['setDriver',['../class_nixie_tube.html#a9843a8c2056cc05ccc8880054bfad2cb',1,'NixieTube']]],
-  ['setextendedpins',['setExtendedPins',['../class_k155_i_d1.html#a3c71e6cbfe693ba36d3dee81a285f582',1,'K155ID1']]],
+  ['setextendedpins',['setExtendedPins',['../class_nixie_driver.html#a9693203997f37468a5f2c3232b05f764',1,'NixieDriver::setExtendedPins()'],['../class_k155_i_d1.html#a3c71e6cbfe693ba36d3dee81a285f582',1,'K155ID1::setExtendedPins()']]],
   ['setflags',['setFlags',['../class_nixie_tube.html#af9da67bb4d8b6a8abde7fc6c500c310b',1,'NixieTube']]],
   ['setmap',['setMap',['../class_nixie_tube.html#a935f44e96123babbb3c4460dacedece7',1,'NixieTube']]],
   ['setnightadclevel',['setNightAdcLevel',['../class_nixie_ldr_gl5528.html#ae8af9fe59a106afcc3debf7d60729409',1,'NixieLdrGl5528']]],

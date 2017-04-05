@@ -34,7 +34,9 @@
  */
 typedef struct
 {
+    /** Frequency of sound to play */
     int16_t    freq;
+    /** Duration in parts of the second, i.e. 8 means 1/8 */
     uint8_t    tempo;
 } SNixieTempoNote;
 
@@ -48,7 +50,9 @@ typedef struct
  */
 typedef struct
 {
+    /** Frequency of sound to play */
     int16_t    freq;
+    /** Durarion of sound to play in milliseconds */
     int16_t    duration;
 } SNixieSamplingNote;
 
@@ -65,7 +69,14 @@ typedef enum
 
 typedef struct
 {
+    /**
+     * Pointer to array of SNixieSamplingNote or array of SNixieTempoNote to play.
+     * Type of expected array depends on type field.
+     */
     const uint8_t *notes;
+    /**
+     * Defines type of Nixie notes
+     */
     EMelodyType    type;
     /** pause in milliseconds between playing notes
      *  or if negative - defines pause between note in % of note duration (in 1/32 units).
@@ -103,7 +114,7 @@ public:
 
      /**
       * Starts playing specified melody.
-      * @warn melody notes should be placed to flash memory, not RAM
+      * @warning melody notes should be placed to flash memory, not RAM
       * 
       * @param[in] melody - melody to play
       * @param[in] totalDuration - desired duration in microseconds or 0.

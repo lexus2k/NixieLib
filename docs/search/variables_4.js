@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['r',['r',['../struct_s_nixie_color.html#a6261d21298e531783a86aed23ab1f948',1,'SNixieColor']]]
+  ['m_5fseconds',['m_seconds',['../class_ds3231.html#a3de0301da243aff77e9b4b8ea5d8386f',1,'Ds3231']]]
 ];

@@ -71,8 +71,9 @@
  * Nixie Display module uses 32 levels of brightness, thus to have 25% accuracy on low brightness
  * minimum change interval should be 100/25 * 4 * 64 = 512.
  */
-//#define CHANGE_INTERVAL   1600 // ~ 104Hz for each bulb
-#define CHANGE_INTERVAL   800 // ~ 160Hz for each bulb
+#define CHANGE_INTERVAL   2000 // ~ 83Hz for each tube
+//#define CHANGE_INTERVAL   1600 // ~ 104Hz for each tube
+//#define CHANGE_INTERVAL   800 // ~ 160Hz for each tube
 #define DISPLAY_BRIGHTNESS_RANGE  (uint32_t)( NIXIE_MAX_BRIGHTNESS - 2 )
 
 #define MIN_DESIRED_BRIGHTNESS  ( 3 * NIXIE_MAX_BRIGHTNESS / 32 )
@@ -129,6 +130,11 @@ public:
      * Creates object related to one Nixie Tube. Accepts mapping table,
      * which must contain 10 elements: maps for digits to output pin of
      * K155ID1 driver or other drivers.
+     *
+     * @param driver - Pointer to NixieDriver class
+     * @param mapTable - Pointer to map table for the used NixieDriver.
+     *                   map table defines, how digits to be displayed are
+     *                   mapped to logic digits in schematics.
      */
     inline NixieTube(NixieDriver *driver, const uint8_t *mapTable)
     {
@@ -138,6 +144,17 @@ public:
         m_pinState = PIN_STATE_POWERED | PIN_STATE_PWM_HIGH;
     };
 
+    /**
+     * Creates object related to one Nixie Tube. Accepts mapping table,
+     * which must contain 10 elements: maps for digits to output pin of
+     * K155ID1 driver or other drivers.
+     *
+     * @param pin - pin to control Tube Anod.
+     * @param driver - Pointer to NixieDriver class
+     * @param mapTable - Pointer to map table for the used NixieDriver.
+     *                   map table defines, how digits to be displayed are
+     *                   mapped to logic digits in schematics.
+     */
     inline NixieTube(uint8_t pin, NixieDriver *driver, const uint8_t *mapTable)
     {
         m_map = mapTable;
@@ -154,6 +171,9 @@ public:
      */
     bool               update();
 
+    /**
+     * Initializes NixieTube state.
+     */
     void               init();
     
     /** 
@@ -256,16 +276,22 @@ public:
     /** Copies state from the source tube. */
     void        operator =            (const NixieTube &tube);
 
+    /** Compares value asigned to NixieTube with value provided */
     bool        operator >=           (const uint8_t val)                  { return m_value >= val; };
 
+    /** Compares value asigned to NixieTube with value provided */
     bool        operator <=           (const uint8_t val)                  { return m_value <= val; };
 
+    /** Compares value asigned to NixieTube with value provided */
     bool        operator >            (const uint8_t val)                  { return m_value > val; };
 
+    /** Compares value asigned to NixieTube with value provided */
     bool        operator <            (const uint8_t val)                  { return m_value < val; };
 
+    /** Increments value assigned to NixieTube */
     uint8_t     operator +            (const int8_t val)                   { return m_value + val; };
 
+    /** Decrements value assigned to NixieTube */
     uint8_t     operator -            (const int8_t val)                   { return m_value - val; };
 
     /** Returns set brightness for the tube in range [0..32] */

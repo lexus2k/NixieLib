@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Nixie Library
-   &#160;<span id="projectnumber">0.0.2pre</span>
+   &#160;<span id="projectnumber">0.2.0</span>
    </div>
    <div id="projectbrief">Nixie Library to develop Nixie Clock</div>
   </td>
@@ -77,8 +77,8 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a64c9f4c6a54e4665cfad0dd4f6899e1d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ds3231.html#a64c9f4c6a54e4665cfad0dd4f6899e1d">init</a> ()</td></tr>
-<tr class="separator:a64c9f4c6a54e4665cfad0dd4f6899e1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc9dfccb63849a89f475b08f3ad94829"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ds3231.html#afc9dfccb63849a89f475b08f3ad94829">init</a> ()</td></tr>
+<tr class="separator:afc9dfccb63849a89f475b08f3ad94829"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a84ea4ab922820b54e32a6922874c0ca5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ds3231.html#a84ea4ab922820b54e32a6922874c0ca5">getDateTime</a> ()</td></tr>
 <tr class="separator:a84ea4ab922820b54e32a6922874c0ca5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3b639811f73e5a8c9285105dd8834b78"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ds3231.html#a3b639811f73e5a8c9285105dd8834b78">setDateTime</a> ()</td></tr>
@@ -148,7 +148,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>m_year</b></td></t
 </div><div class="memdoc">
 <p>Reads date and time from the chip </p>
 
-<p>Definition at line <a class="el" href="nixie__ds3232_8cpp_source.html#l00054">54</a> of file <a class="el" href="nixie__ds3232_8cpp_source.html">nixie_ds3232.cpp</a>.</p>
+<p>Definition at line <a class="el" href="nixie__ds3232_8cpp_source.html#l00068">68</a> of file <a class="el" href="nixie__ds3232_8cpp_source.html">nixie_ds3232.cpp</a>.</p>
 
 </div>
 </div>
@@ -168,18 +168,18 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>m_year</b></td></t
 </div><div class="memdoc">
 <p>Returns temp in celsius times four. For example, 100 means 25.0C </p>
 
-<p>Definition at line <a class="el" href="nixie__ds3232_8cpp_source.html#l00108">108</a> of file <a class="el" href="nixie__ds3232_8cpp_source.html">nixie_ds3232.cpp</a>.</p>
+<p>Definition at line <a class="el" href="nixie__ds3232_8cpp_source.html#l00138">138</a> of file <a class="el" href="nixie__ds3232_8cpp_source.html">nixie_ds3232.cpp</a>.</p>
 
 </div>
 </div>
-<a id="a64c9f4c6a54e4665cfad0dd4f6899e1d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a64c9f4c6a54e4665cfad0dd4f6899e1d">&sect;&nbsp;</a></span>init()</h2>
+<a id="afc9dfccb63849a89f475b08f3ad94829"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc9dfccb63849a89f475b08f3ad94829">&sect;&nbsp;</a></span>init()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Ds3231::init </td>
+          <td class="memname">bool Ds3231::init </td>
           <td>(</td>
           <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
@@ -187,7 +187,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>m_year</b></td></t
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Initializes <a class="el" href="class_ds3231.html" title="Provides access to DS3231 register values. ">Ds3231</a> class state. Should be called in setup </p>
+<p>Initializes <a class="el" href="class_ds3231.html" title="Provides access to DS3231 register values. ">Ds3231</a> class state. Should be called in setup </p><dl class="section return"><dt>Returns</dt><dd>true if successful, otherwise false </dd></dl>
 
 <p>Definition at line <a class="el" href="nixie__ds3232_8cpp_source.html#l00028">28</a> of file <a class="el" href="nixie__ds3232_8cpp_source.html">nixie_ds3232.cpp</a>.</p>
 
@@ -209,7 +209,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>m_year</b></td></t
 </div><div class="memdoc">
 <p>Increments date and time variables by 1 second The function doesn't changes state of RTC chip. </p>
 
-<p>Definition at line <a class="el" href="nixie__ds3232_8cpp_source.html#l00039">39</a> of file <a class="el" href="nixie__ds3232_8cpp_source.html">nixie_ds3232.cpp</a>.</p>
+<p>Definition at line <a class="el" href="nixie__ds3232_8cpp_source.html#l00053">53</a> of file <a class="el" href="nixie__ds3232_8cpp_source.html">nixie_ds3232.cpp</a>.</p>
 
 </div>
 </div>
@@ -229,7 +229,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>m_year</b></td></t
 </div><div class="memdoc">
 <p>Writes only date to the chip. The time state is preserved. </p>
 
-<p>Definition at line <a class="el" href="nixie__ds3232_8cpp_source.html#l00087">87</a> of file <a class="el" href="nixie__ds3232_8cpp_source.html">nixie_ds3232.cpp</a>.</p>
+<p>Definition at line <a class="el" href="nixie__ds3232_8cpp_source.html#l00109">109</a> of file <a class="el" href="nixie__ds3232_8cpp_source.html">nixie_ds3232.cpp</a>.</p>
 
 </div>
 </div>
@@ -249,7 +249,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>m_year</b></td></t
 </div><div class="memdoc">
 <p>Writes date and time to the chip </p>
 
-<p>Definition at line <a class="el" href="nixie__ds3232_8cpp_source.html#l00073">73</a> of file <a class="el" href="nixie__ds3232_8cpp_source.html">nixie_ds3232.cpp</a>.</p>
+<p>Definition at line <a class="el" href="nixie__ds3232_8cpp_source.html#l00091">91</a> of file <a class="el" href="nixie__ds3232_8cpp_source.html">nixie_ds3232.cpp</a>.</p>
 
 </div>
 </div>
@@ -269,7 +269,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>m_year</b></td></t
 </div><div class="memdoc">
 <p>Writes only time to the chip. The date state is preserved. </p>
 
-<p>Definition at line <a class="el" href="nixie__ds3232_8cpp_source.html#l00098">98</a> of file <a class="el" href="nixie__ds3232_8cpp_source.html">nixie_ds3232.cpp</a>.</p>
+<p>Definition at line <a class="el" href="nixie__ds3232_8cpp_source.html#l00124">124</a> of file <a class="el" href="nixie__ds3232_8cpp_source.html">nixie_ds3232.cpp</a>.</p>
 
 </div>
 </div>
@@ -308,7 +308,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>m_year</b></td></t
 </div><div class="memdoc">
 <p>Returns minimum time delta between 2 timestamps. For example, if timestamps are 60 and 120, the function will return 60. If timestamps are 120 and 60, the function will return 60 If timestamps are 22*60 and 60, the function will return 180. </p>
 
-<p>Definition at line <a class="el" href="nixie__ds3232_8cpp_source.html#l00148">148</a> of file <a class="el" href="nixie__ds3232_8cpp_source.html">nixie_ds3232.cpp</a>.</p>
+<p>Definition at line <a class="el" href="nixie__ds3232_8cpp_source.html#l00182">182</a> of file <a class="el" href="nixie__ds3232_8cpp_source.html">nixie_ds3232.cpp</a>.</p>
 
 </div>
 </div>
@@ -337,7 +337,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>m_year</b></td></t
 </div><div class="memdoc">
 <p>Converts internal value representation to decimal: internal value 0x22 will be converted to integer 22. </p>
 
-<p>Definition at line <a class="el" href="nixie__ds3232_8cpp_source.html#l00133">133</a> of file <a class="el" href="nixie__ds3232_8cpp_source.html">nixie_ds3232.cpp</a>.</p>
+<p>Definition at line <a class="el" href="nixie__ds3232_8cpp_source.html#l00167">167</a> of file <a class="el" href="nixie__ds3232_8cpp_source.html">nixie_ds3232.cpp</a>.</p>
 
 </div>
 </div>
@@ -366,7 +366,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>m_year</b></td></t
 </div><div class="memdoc">
 <p>Converts integer value to internal DS3231 representation. integer value 12 will be converted to 00010010 = 0x12 </p>
 
-<p>Definition at line <a class="el" href="nixie__ds3232_8cpp_source.html#l00124">124</a> of file <a class="el" href="nixie__ds3232_8cpp_source.html">nixie_ds3232.cpp</a>.</p>
+<p>Definition at line <a class="el" href="nixie__ds3232_8cpp_source.html#l00158">158</a> of file <a class="el" href="nixie__ds3232_8cpp_source.html">nixie_ds3232.cpp</a>.</p>
 
 </div>
 </div>
@@ -417,7 +417,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>m_year</b></td></t
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>number of minutes since midnight </dd></dl>
 
-<p>Definition at line <a class="el" href="nixie__ds3232_8cpp_source.html#l00138">138</a> of file <a class="el" href="nixie__ds3232_8cpp_source.html">nixie_ds3232.cpp</a>.</p>
+<p>Definition at line <a class="el" href="nixie__ds3232_8cpp_source.html#l00172">172</a> of file <a class="el" href="nixie__ds3232_8cpp_source.html">nixie_ds3232.cpp</a>.</p>
 
 </div>
 </div>

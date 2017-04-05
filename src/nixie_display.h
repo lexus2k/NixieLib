@@ -171,6 +171,12 @@ public:
         return getByIndex(index);
     };
 
+    /**
+     * @brief returns reference to NixieTube object
+     *
+     * @param index - index of nixie tube objet to get
+     *                0 - 5
+     */
     inline NixieTube& getByIndex(int index)
     {
         int8_t idx = index + m_startPos;

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['m_5fseconds',['m_seconds',['../class_ds3231.html#a3de0301da243aff77e9b4b8ea5d8386f',1,'Ds3231']]]
+  ['freq',['freq',['../struct_s_nixie_tempo_note.html#a5afb6a6e7133ac223f10976210760a64',1,'SNixieTempoNote::freq()'],['../struct_s_nixie_sampling_note.html#ab730a8a7a9a0795cafb28f429914ae8e',1,'SNixieSamplingNote::freq()']]]
 ];

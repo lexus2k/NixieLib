@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Nixie Library
-   &#160;<span id="projectnumber">0.0.2pre</span>
+   &#160;<span id="projectnumber">0.2.0</span>
    </div>
    <div id="projectbrief">Nixie Library to develop Nixie Clock</div>
   </td>
@@ -103,12 +103,19 @@ $(function() {
 <li>disableUpAction()
 : <a class="el" href="class_nixie_analog_buttons.html#a0386eaac926e10c2f0b42f3a17b30408">NixieAnalogButtons</a>
 </li>
+<li>duration
+: <a class="el" href="struct_s_nixie_sampling_note.html#ae9c77c14c683aabd6f2177cf8d5f08be">SNixieSamplingNote</a>
+</li>
 </ul>
 
 
 <h3><a id="index_f"></a>- f -</h3><ul>
 <li>flags()
 : <a class="el" href="class_nixie_tube.html#a1ec3b519ece75e2cbd5925b799012084">NixieTube</a>
+</li>
+<li>freq
+: <a class="el" href="struct_s_nixie_sampling_note.html#ab730a8a7a9a0795cafb28f429914ae8e">SNixieSamplingNote</a>
+, <a class="el" href="struct_s_nixie_tempo_note.html#a5afb6a6e7133ac223f10976210760a64">SNixieTempoNote</a>
 </li>
 </ul>
 
@@ -127,11 +134,20 @@ $(function() {
 : <a class="el" href="class_nixie_display.html#a7522c80942939c47cc1ad4d4584c7f0b">NixieDisplay</a>
 , <a class="el" href="class_nixie_tube.html#a3d697c90b1e1671dd7f7ad133da36c58">NixieTube</a>
 </li>
+<li>getByIndex()
+: <a class="el" href="class_nixie_display.html#a6f2df766f73dc8dfcc4662b3d645e545">NixieDisplay</a>
+</li>
 <li>getDateTime()
 : <a class="el" href="class_ds3231.html#a84ea4ab922820b54e32a6922874c0ca5">Ds3231</a>
 </li>
+<li>getHumidity()
+: <a class="el" href="class_nixie_h_t_u21.html#a083a8a8ed55c4c2c3f8daec135cc9069">NixieHTU21</a>
+</li>
 <li>getTemp()
 : <a class="el" href="class_ds3231.html#a0c350c45a10e2e8d1032ee694bd7da92">Ds3231</a>
+</li>
+<li>getTemperature()
+: <a class="el" href="class_nixie_h_t_u21.html#a871ca8c8c86e1c82bd7d52e2f3fb8037">NixieHTU21</a>
 </li>
 </ul>
 
@@ -145,14 +161,17 @@ $(function() {
 
 <h3><a id="index_i"></a>- i -</h3><ul>
 <li>init()
-: <a class="el" href="class_ds3231.html#a64c9f4c6a54e4665cfad0dd4f6899e1d">Ds3231</a>
+: <a class="el" href="class_ds3231.html#afc9dfccb63849a89f475b08f3ad94829">Ds3231</a>
 , <a class="el" href="class_k155_i_d1.html#a82abfa521d7d467abb7d988d67d39e69">K155ID1</a>
 , <a class="el" href="class_nixie_analog_buttons.html#adce37b37fdecc59a3dc780583873a0f7">NixieAnalogButtons</a>
 , <a class="el" href="class_nixie_audio_channel.html#a68331e1d2e4d0b5eff9412d2635f42b3">NixieAudioChannel</a>
 , <a class="el" href="class_nixie_display.html#a6ff2e571e1faf2437b302b6b0282b93e">NixieDisplay</a>
+, <a class="el" href="class_nixie_driver.html#afa2e84211696fe1d0c944ee1566fefa2">NixieDriver</a>
+, <a class="el" href="class_nixie_h_t_u21.html#a0b0793623a60fe9ae23b633cedf77716">NixieHTU21</a>
 , <a class="el" href="class_nixie_ldr_gl5528.html#aecaf37d68897c114242ee99582f32339">NixieLdrGl5528</a>
 , <a class="el" href="class_nixie_pwm_rgb_led.html#a54fb72544493a54cf2cadf0e7c954b08">NixiePwmRgbLed</a>
 , <a class="el" href="class_nixie_soft_rgb_led.html#a3477fb068831d364f9d7cb91c9afbcd4">NixieSoftRgbLed</a>
+, <a class="el" href="class_nixie_tube.html#aca1acdaca22d200f2ce3939f27d171c3">NixieTube</a>
 </li>
 <li>isBurning()
 : <a class="el" href="class_nixie_tube.html#aeea7c45e2ffd9699bd46931ea53e10bc">NixieTube</a>
@@ -217,6 +236,9 @@ $(function() {
 <li>NixieLdrGl5528()
 : <a class="el" href="class_nixie_ldr_gl5528.html#a3af4bdf8bc0e33a5168e518c74ad88dd">NixieLdrGl5528</a>
 </li>
+<li>NixieLed()
+: <a class="el" href="class_nixie_led.html#a1306194fe5dd32c11ef7b98089d22f3c">NixieLed</a>
+</li>
 <li>NixiePwmRgbLed()
 : <a class="el" href="class_nixie_pwm_rgb_led.html#a82fd95da06622b1119a95098f9d324d7">NixiePwmRgbLed</a>
 </li>
@@ -224,11 +246,14 @@ $(function() {
 : <a class="el" href="class_nixie_soft_rgb_led.html#a06e30d00878bbab7ff7ec7c46e5ce25f">NixieSoftRgbLed</a>
 </li>
 <li>NixieTube()
-: <a class="el" href="class_nixie_tube.html#ab019b98f66ef7338542581b5b7cd3058">NixieTube</a>
+: <a class="el" href="class_nixie_tube.html#a2fbb9c10cfaaaeb7bcec3c7b961e8754">NixieTube</a>
 </li>
 <li>noBlink()
 : <a class="el" href="class_nixie_display.html#a7169c9cd04e0e0b4730ace992f1755dd">NixieDisplay</a>
 , <a class="el" href="class_nixie_tube.html#a88451b091f6d616d0f6818c9d897bd96">NixieTube</a>
+</li>
+<li>notes
+: <a class="el" href="struct_nixie_melody.html#a0c5a5ff2ae8d152f9dd3d9fa56b9b4b1">NixieMelody</a>
 </li>
 </ul>
 
@@ -236,25 +261,48 @@ $(function() {
 <h3><a id="index_o"></a>- o -</h3><ul>
 <li>off()
 : <a class="el" href="class_nixie_display.html#a5cc4feb3c4cfd2acd14bd956f5198e2e">NixieDisplay</a>
+, <a class="el" href="class_nixie_led.html#a74a2a635eecb6714149654665538b222">NixieLed</a>
 , <a class="el" href="class_nixie_pwm_rgb_led.html#a4f1ae83306c5d720c111129fdb7600cc">NixiePwmRgbLed</a>
 , <a class="el" href="class_nixie_soft_rgb_led.html#a19be8089e56ff61c6cf0479e5f859f0f">NixieSoftRgbLed</a>
 , <a class="el" href="class_nixie_tube.html#a3306033852076faec619ee06e65a4710">NixieTube</a>
 </li>
 <li>on()
 : <a class="el" href="class_nixie_display.html#a8e47dd1467144cb70a5871068509d474">NixieDisplay</a>
+, <a class="el" href="class_nixie_led.html#a71eb374c6acccb1f1882da2dbd77d2a2">NixieLed</a>
 , <a class="el" href="class_nixie_tube.html#a731c35c15d73c182dad239da3c12f763">NixieTube</a>
 </li>
 <li>onButtonDown()
 : <a class="el" href="class_nixie_analog_buttons.html#aa3351ece21b500e23f070af722ad180d">NixieAnalogButtons</a>
 </li>
+<li>onButtonHold()
+: <a class="el" href="class_nixie_analog_buttons.html#aae1c79db6ffd5c8c632b41c38a69bf4c">NixieAnalogButtons</a>
+</li>
 <li>onButtonUp()
 : <a class="el" href="class_nixie_analog_buttons.html#a131f0b153d57044411251065d5eabcbc">NixieAnalogButtons</a>
+</li>
+<li>operator+()
+: <a class="el" href="class_nixie_tube.html#a7169dd5d2751eca16453a5545d51069f">NixieTube</a>
 </li>
 <li>operator++()
 : <a class="el" href="class_ds3231.html#aa5c34aebfc45e129f581fc0e66136e64">Ds3231</a>
 </li>
+<li>operator-()
+: <a class="el" href="class_nixie_tube.html#acbea8a9f7d1e66ca279056e1d8636937">NixieTube</a>
+</li>
+<li>operator&lt;()
+: <a class="el" href="class_nixie_tube.html#aa98517b635f7c2c2f00c2935d481b0fd">NixieTube</a>
+</li>
+<li>operator&lt;=()
+: <a class="el" href="class_nixie_tube.html#a6500e3148760166f74eb0291434304bb">NixieTube</a>
+</li>
 <li>operator=()
 : <a class="el" href="class_nixie_tube.html#acf2376e3cf50524292511c42f025b69d">NixieTube</a>
+</li>
+<li>operator&gt;()
+: <a class="el" href="class_nixie_tube.html#aa407cbe96eb49f556fd76df01dd80d76">NixieTube</a>
+</li>
+<li>operator&gt;=()
+: <a class="el" href="class_nixie_tube.html#af9f70369d9fd21bab7bc49dcbbc10488">NixieTube</a>
 </li>
 <li>operator[]()
 : <a class="el" href="class_nixie_display.html#a91319d8628e741528347ab8fbcefcdbe">NixieDisplay</a>
@@ -330,6 +378,7 @@ $(function() {
 </li>
 <li>setExtendedPins()
 : <a class="el" href="class_k155_i_d1.html#a3c71e6cbfe693ba36d3dee81a285f582">K155ID1</a>
+, <a class="el" href="class_nixie_driver.html#a9693203997f37468a5f2c3232b05f764">NixieDriver</a>
 </li>
 <li>setFlags()
 : <a class="el" href="class_nixie_tube.html#af9da67bb4d8b6a8abde7fc6c500c310b">NixieTube</a>
@@ -370,6 +419,9 @@ $(function() {
 
 
 <h3><a id="index_t"></a>- t -</h3><ul>
+<li>tempo
+: <a class="el" href="struct_s_nixie_tempo_note.html#a55b879050762f3066395f2b456563093">SNixieTempoNote</a>
+</li>
 <li>timeDelta()
 : <a class="el" href="class_ds3231.html#a2a3e197b0f70ed14f7bdb4ce16c1513c">Ds3231</a>
 </li>
@@ -388,6 +440,9 @@ $(function() {
 <li>turnOn()
 : <a class="el" href="class_nixie_display.html#a69ee89f71c0f286d6d518e4413fcfdb0">NixieDisplay</a>
 </li>
+<li>type
+: <a class="el" href="struct_nixie_melody.html#a08f705ccafb20882ffee89c4fee77a66">NixieMelody</a>
+</li>
 </ul>
 
 
@@ -396,7 +451,8 @@ $(function() {
 : <a class="el" href="class_nixie_analog_buttons.html#a07d7ac30348f48d725ab99b0d5cc02ff">NixieAnalogButtons</a>
 , <a class="el" href="class_nixie_audio_channel.html#abce3b1d963e23d508190500b219580d7">NixieAudioChannel</a>
 , <a class="el" href="class_nixie_ldr_gl5528.html#a7a01cdc57a4931ef997005ce80b8d398">NixieLdrGl5528</a>
-, <a class="el" href="class_nixie_library.html#a5bbd00d7b05a9b8a250edf8878079d01">NixieLibrary</a>
+, <a class="el" href="class_nixie_library.html#a3a960de94fd4e218aee72016f335d174">NixieLibrary</a>
+, <a class="el" href="class_nixie_soft_rgb_led.html#aa9814bd06b590d5fcedf6153bcb24de8">NixieSoftRgbLed</a>
 , <a class="el" href="class_nixie_tube.html#a86503c3062a79f8a63a89c1091a30a1e">NixieTube</a>
 </li>
 </ul>

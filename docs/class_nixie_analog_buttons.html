@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Nixie Library
-   &#160;<span id="projectnumber">0.0.2pre</span>
+   &#160;<span id="projectnumber">0.2.0</span>
    </div>
    <div id="projectbrief">Nixie Library to develop Nixie Clock</div>
   </td>
@@ -106,10 +106,12 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aa3351ece21b500e23f070af722ad180d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a131f0b153d57044411251065d5eabcbc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_nixie_analog_buttons.html#a131f0b153d57044411251065d5eabcbc">onButtonUp</a> (TOnButtonEvent handler)</td></tr>
 <tr class="separator:a131f0b153d57044411251065d5eabcbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae1c79db6ffd5c8c632b41c38a69bf4c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_nixie_analog_buttons.html#aae1c79db6ffd5c8c632b41c38a69bf4c">onButtonHold</a> (TOnButtonEvent handler)</td></tr>
+<tr class="separator:aae1c79db6ffd5c8c632b41c38a69bf4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p>Definition at line <a class="el" href="nixie__buttons_8h_source.html#l00034">34</a> of file <a class="el" href="nixie__buttons_8h_source.html">nixie_buttons.h</a>.</p>
+<p>Definition at line <a class="el" href="nixie__buttons_8h_source.html#l00041">41</a> of file <a class="el" href="nixie__buttons_8h_source.html">nixie_buttons.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a60879cbb64788bfdf4b5ece9feaf885f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a60879cbb64788bfdf4b5ece9feaf885f">&sect;&nbsp;</a></span>NixieAnalogButtons()</h2>
@@ -159,7 +161,7 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="nixie__buttons_8h_source.html#l00045">45</a> of file <a class="el" href="nixie__buttons_8h_source.html">nixie_buttons.h</a>.</p>
+<p>Definition at line <a class="el" href="nixie__buttons_8h_source.html#l00052">52</a> of file <a class="el" href="nixie__buttons_8h_source.html">nixie_buttons.h</a>.</p>
 
 </div>
 </div>
@@ -188,7 +190,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Disables Up action if button is pressed now. Useful to prevent button release action, when we need to process hold state only. </p>
 
-<p>Definition at line <a class="el" href="nixie__buttons_8h_source.html#l00143">143</a> of file <a class="el" href="nixie__buttons_8h_source.html">nixie_buttons.h</a>.</p>
+<p>Definition at line <a class="el" href="nixie__buttons_8h_source.html#l00150">150</a> of file <a class="el" href="nixie__buttons_8h_source.html">nixie_buttons.h</a>.</p>
 
 </div>
 </div>
@@ -216,7 +218,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Returns number of milliseconds passed between button down and up events. To find the button id, which this value is valid for, call isButtonUp method. </p>
 
-<p>Definition at line <a class="el" href="nixie__buttons_8h_source.html#l00137">137</a> of file <a class="el" href="nixie__buttons_8h_source.html">nixie_buttons.h</a>.</p>
+<p>Definition at line <a class="el" href="nixie__buttons_8h_source.html#l00144">144</a> of file <a class="el" href="nixie__buttons_8h_source.html">nixie_buttons.h</a>.</p>
 
 </div>
 </div>
@@ -260,9 +262,9 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>0 - if n doesn't correspond to button id, being held number of milliseconds between button down event and specified time for &lt;n&gt; button. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>0 - if n doesn't correspond to button id, being held number of milliseconds between button down event and specified time for N button. </dd></dl>
 
-<p>Definition at line <a class="el" href="nixie__buttons_8h_source.html#l00152">152</a> of file <a class="el" href="nixie__buttons_8h_source.html">nixie_buttons.h</a>.</p>
+<p>Definition at line <a class="el" href="nixie__buttons_8h_source.html#l00159">159</a> of file <a class="el" href="nixie__buttons_8h_source.html">nixie_buttons.h</a>.</p>
 
 </div>
 </div>
@@ -291,7 +293,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Initializes state of the object. Must be called in setup() function. </p>
 
-<p>Definition at line <a class="el" href="nixie__buttons_8h_source.html#l00055">55</a> of file <a class="el" href="nixie__buttons_8h_source.html">nixie_buttons.h</a>.</p>
+<p>Definition at line <a class="el" href="nixie__buttons_8h_source.html#l00062">62</a> of file <a class="el" href="nixie__buttons_8h_source.html">nixie_buttons.h</a>.</p>
 
 </div>
 </div>
@@ -320,7 +322,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Returns true if button is being down </p>
 
-<p>Definition at line <a class="el" href="nixie__buttons_8h_source.html#l00121">121</a> of file <a class="el" href="nixie__buttons_8h_source.html">nixie_buttons.h</a>.</p>
+<p>Definition at line <a class="el" href="nixie__buttons_8h_source.html#l00128">128</a> of file <a class="el" href="nixie__buttons_8h_source.html">nixie_buttons.h</a>.</p>
 
 </div>
 </div>
@@ -349,7 +351,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Returns true if button is being up </p>
 
-<p>Definition at line <a class="el" href="nixie__buttons_8h_source.html#l00126">126</a> of file <a class="el" href="nixie__buttons_8h_source.html">nixie_buttons.h</a>.</p>
+<p>Definition at line <a class="el" href="nixie__buttons_8h_source.html#l00133">133</a> of file <a class="el" href="nixie__buttons_8h_source.html">nixie_buttons.h</a>.</p>
 
 </div>
 </div>
@@ -395,7 +397,7 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true or false </dd></dl>
 
-<p>Definition at line <a class="el" href="nixie__buttons_8h_source.html#l00090">90</a> of file <a class="el" href="nixie__buttons_8h_source.html">nixie_buttons.h</a>.</p>
+<p>Definition at line <a class="el" href="nixie__buttons_8h_source.html#l00097">97</a> of file <a class="el" href="nixie__buttons_8h_source.html">nixie_buttons.h</a>.</p>
 
 </div>
 </div>
@@ -448,7 +450,7 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true or false </dd></dl>
 
-<p>Definition at line <a class="el" href="nixie__buttons_8h_source.html#l00099">99</a> of file <a class="el" href="nixie__buttons_8h_source.html">nixie_buttons.h</a>.</p>
+<p>Definition at line <a class="el" href="nixie__buttons_8h_source.html#l00106">106</a> of file <a class="el" href="nixie__buttons_8h_source.html">nixie_buttons.h</a>.</p>
 
 </div>
 </div>
@@ -483,7 +485,7 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true or false </dd></dl>
 
-<p>Definition at line <a class="el" href="nixie__buttons_8h_source.html#l00082">82</a> of file <a class="el" href="nixie__buttons_8h_source.html">nixie_buttons.h</a>.</p>
+<p>Definition at line <a class="el" href="nixie__buttons_8h_source.html#l00089">89</a> of file <a class="el" href="nixie__buttons_8h_source.html">nixie_buttons.h</a>.</p>
 
 </div>
 </div>
@@ -529,7 +531,7 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true or false </dd></dl>
 
-<p>Definition at line <a class="el" href="nixie__buttons_8h_source.html#l00116">116</a> of file <a class="el" href="nixie__buttons_8h_source.html">nixie_buttons.h</a>.</p>
+<p>Definition at line <a class="el" href="nixie__buttons_8h_source.html#l00123">123</a> of file <a class="el" href="nixie__buttons_8h_source.html">nixie_buttons.h</a>.</p>
 
 </div>
 </div>
@@ -557,7 +559,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Returns true whever there are all buttons are up now </p>
 
-<p>Definition at line <a class="el" href="nixie__buttons_8h_source.html#l00131">131</a> of file <a class="el" href="nixie__buttons_8h_source.html">nixie_buttons.h</a>.</p>
+<p>Definition at line <a class="el" href="nixie__buttons_8h_source.html#l00138">138</a> of file <a class="el" href="nixie__buttons_8h_source.html">nixie_buttons.h</a>.</p>
 
 </div>
 </div>
@@ -592,7 +594,7 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true or false </dd></dl>
 
-<p>Definition at line <a class="el" href="nixie__buttons_8h_source.html#l00062">62</a> of file <a class="el" href="nixie__buttons_8h_source.html">nixie_buttons.h</a>.</p>
+<p>Definition at line <a class="el" href="nixie__buttons_8h_source.html#l00069">69</a> of file <a class="el" href="nixie__buttons_8h_source.html">nixie_buttons.h</a>.</p>
 
 </div>
 </div>
@@ -620,7 +622,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Returns true if any button or their combination is pressed. </p><dl class="section return"><dt>Returns</dt><dd>true or false </dd></dl>
 
-<p>Definition at line <a class="el" href="nixie__buttons_8h_source.html#l00068">68</a> of file <a class="el" href="nixie__buttons_8h_source.html">nixie_buttons.h</a>.</p>
+<p>Definition at line <a class="el" href="nixie__buttons_8h_source.html#l00075">75</a> of file <a class="el" href="nixie__buttons_8h_source.html">nixie_buttons.h</a>.</p>
 
 </div>
 </div>
@@ -665,7 +667,7 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="nixie__buttons_8h_source.html#l00075">75</a> of file <a class="el" href="nixie__buttons_8h_source.html">nixie_buttons.h</a>.</p>
+<p>Definition at line <a class="el" href="nixie__buttons_8h_source.html#l00082">82</a> of file <a class="el" href="nixie__buttons_8h_source.html">nixie_buttons.h</a>.</p>
 
 </div>
 </div>
@@ -692,14 +694,48 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Sets handler for button down events. Handler should accept button id as the only parameter </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Sets handler for button down events. Handler should accept button id and time delta in milliseconds as the only parameters. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handler</td><td>- callback handler of TOnButtonEvent type </td></tr>
   </table>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="nixie__buttons_8h_source.html#l00167">167</a> of file <a class="el" href="nixie__buttons_8h_source.html">nixie_buttons.h</a>.</p>
+<p>Definition at line <a class="el" href="nixie__buttons_8h_source.html#l00174">174</a> of file <a class="el" href="nixie__buttons_8h_source.html">nixie_buttons.h</a>.</p>
+
+</div>
+</div>
+<a id="aae1c79db6ffd5c8c632b41c38a69bf4c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae1c79db6ffd5c8c632b41c38a69bf4c">&sect;&nbsp;</a></span>onButtonHold()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void NixieAnalogButtons::onButtonHold </td>
+          <td>(</td>
+          <td class="paramtype">TOnButtonEvent&#160;</td>
+          <td class="paramname"><em>handler</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Sets handler for button hold events. Handler should accept button id and time delta in milliseconds as the only parameters. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handler</td><td>- callback handler of TOnButtonEvent type </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="nixie__buttons_8h_source.html#l00189">189</a> of file <a class="el" href="nixie__buttons_8h_source.html">nixie_buttons.h</a>.</p>
 
 </div>
 </div>
@@ -726,14 +762,14 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Sets handler for button up events. Handler should accept button id as the only parameter </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Sets handler for button up events. Handler should accept button id and time delta in milliseconds as the only parameters. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handler</td><td>- callback handler of TOnButtonEvent type </td></tr>
   </table>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="nixie__buttons_8h_source.html#l00174">174</a> of file <a class="el" href="nixie__buttons_8h_source.html">nixie_buttons.h</a>.</p>
+<p>Definition at line <a class="el" href="nixie__buttons_8h_source.html#l00181">181</a> of file <a class="el" href="nixie__buttons_8h_source.html">nixie_buttons.h</a>.</p>
 
 </div>
 </div>

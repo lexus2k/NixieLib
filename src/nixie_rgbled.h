@@ -130,6 +130,10 @@ public:
      */
     void          brightness(byte br);
 
+    /**
+     * Processes NixieSoftRgbLed states.
+     * Must be called in cycle.
+     */
     void          update();
     
 private:

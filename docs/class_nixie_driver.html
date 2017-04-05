@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Nixie Library
-   &#160;<span id="projectnumber">0.0.2pre</span>
+   &#160;<span id="projectnumber">0.2.0</span>
    </div>
    <div id="projectbrief">Nixie Library to develop Nixie Clock</div>
   </td>
@@ -79,19 +79,74 @@ Inheritance diagram for NixieDriver:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:afa2e84211696fe1d0c944ee1566fefa2"><td class="memItemLeft" align="right" valign="top"><a id="afa2e84211696fe1d0c944ee1566fefa2"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>init</b> ()=0</td></tr>
+<tr class="memitem:afa2e84211696fe1d0c944ee1566fefa2"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_nixie_driver.html#afa2e84211696fe1d0c944ee1566fefa2">init</a> ()=0</td></tr>
 <tr class="separator:afa2e84211696fe1d0c944ee1566fefa2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7a9c3b5dd030afdd6f0115430eb61424"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_nixie_driver.html#a7a9c3b5dd030afdd6f0115430eb61424">switchPin</a> (uint8_t pin)=0</td></tr>
 <tr class="separator:a7a9c3b5dd030afdd6f0115430eb61424"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9693203997f37468a5f2c3232b05f764"><td class="memItemLeft" align="right" valign="top"><a id="a9693203997f37468a5f2c3232b05f764"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>setExtendedPins</b> (uint8_t value)=0</td></tr>
+<tr class="memitem:a9693203997f37468a5f2c3232b05f764"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_nixie_driver.html#a9693203997f37468a5f2c3232b05f764">setExtendedPins</a> (uint8_t value)=0</td></tr>
 <tr class="separator:a9693203997f37468a5f2c3232b05f764"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
 <p>Definition at line <a class="el" href="nixie__driver_8h_source.html#l00030">30</a> of file <a class="el" href="nixie__driver_8h_source.html">nixie_driver.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="afa2e84211696fe1d0c944ee1566fefa2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa2e84211696fe1d0c944ee1566fefa2">&sect;&nbsp;</a></span>init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void NixieDriver::init </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Initializes Nixie Driver </p>
+
+<p>Implemented in <a class="el" href="class_k155_i_d1.html#a82abfa521d7d467abb7d988d67d39e69">K155ID1</a>.</p>
+
+</div>
+</div>
+<a id="a9693203997f37468a5f2c3232b05f764"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9693203997f37468a5f2c3232b05f764">&sect;&nbsp;</a></span>setExtendedPins()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void NixieDriver::setExtendedPins </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Changes extended control pins. Actual implementation depends on specific driver. </p>
+
+<p>Implemented in <a class="el" href="class_k155_i_d1.html#a3c71e6cbfe693ba36d3dee81a285f582">K155ID1</a>.</p>
+
+</div>
+</div>
 <a id="a7a9c3b5dd030afdd6f0115430eb61424"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7a9c3b5dd030afdd6f0115430eb61424">&sect;&nbsp;</a></span>switchPin()</h2>
 

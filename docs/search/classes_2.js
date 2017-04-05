@@ -4,6 +4,7 @@ var searchData=
   ['nixieaudiochannel',['NixieAudioChannel',['../class_nixie_audio_channel.html',1,'']]],
   ['nixiedisplay',['NixieDisplay',['../class_nixie_display.html',1,'']]],
   ['nixiedriver',['NixieDriver',['../class_nixie_driver.html',1,'']]],
+  ['nixiehtu21',['NixieHTU21',['../class_nixie_h_t_u21.html',1,'']]],
   ['nixieldrgl5528',['NixieLdrGl5528',['../class_nixie_ldr_gl5528.html',1,'']]],
   ['nixieled',['NixieLed',['../class_nixie_led.html',1,'']]],
   ['nixielibrary',['NixieLibrary',['../class_nixie_library.html',1,'']]],
