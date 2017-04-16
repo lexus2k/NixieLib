@@ -52,7 +52,9 @@ void NixieDisplay::init(void)
 void NixieDisplay::render()
 {
     bool nextTube = false;
-    /* Turn off tube if needed */
+    /* Turn off tube if we use dynamic display mode (single *
+     * K155ID1 for several nixie tubes), and pwm interval   *
+     * is passed. */
     if (m_tubes[m_tube].update())
     {
         m_tubes[m_tube].anodOff();

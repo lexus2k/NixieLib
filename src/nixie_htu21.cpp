@@ -17,8 +17,12 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <Wire.h>
 #include "nixie_htu21.h"
+
+#if !defined(__AVR_ATtiny25__) && \
+    !defined(__AVR_ATtiny45__) && \
+    !defined(__AVR_ATtiny85__)
+#include <Wire.h>
 
 void NixieHTU21::init()
 {
@@ -97,3 +101,4 @@ int16_t NixieHTU21::getHumidity()
     return (((int32_t)humidity*125) >> 16 ) - 6;
 }
 
+#endif

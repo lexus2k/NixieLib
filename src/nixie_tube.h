@@ -46,7 +46,7 @@
 #define SCROLL_INTERVAL   40
 
 /** The blinking internal of the tube in milliseconds. Must be power of 2. */
-#define BLINK_INTERVAL    ( 1<<10 )
+#define BLINK_INTERVAL    1024
 
 /**
  *  Maximum brightness, supported by the NixieTube class.
@@ -55,7 +55,7 @@
 #define NIXIE_MAX_BRIGHTNESS  (1<<NIXIE_BRIGHTNESS_BITS)
 
 /** Interval in milliseconds for updating Nixie Tube brightness */
-#define DIMMING_INTERVAL  (BLINK_INTERVAL >> NIXIE_BRIGHTNESS_BITS)
+#define DIMMING_INTERVAL      (20)
 
 /*
  * IN-12/IN-14 Datasheet.
@@ -166,8 +166,8 @@ public:
 
     /**
      * This method must be called in the cycle. It updates the state of the tube.
-     * @return returns true when state of the tube is recalculated.
-     *         It happens every CHANGE_INTERVAL microseconds 
+     * @return returns true when CHANGE_INTERVAL is passed since last anodOn() call.
+     * CHANGE_INTERVAL units are microseconds.
      */
     bool               update();
 
@@ -239,14 +239,13 @@ public:
     /** Initiates wrapping digits effect and finally switching to specified state.
      *  Wrapping effect lasts for about 0.5 seconds.
      */
-    inline void        scrollForward  (ENixieTubeState next = TUBE_NORMAL) { m_state = TUBE_SCROLL_FORWARD; m_delayedScroll = 10;
-                                                                             m_next = next; m_digit = m_value; };
+    void               scrollForward  (ENixieTubeState next = TUBE_NORMAL);
+
     /** Initiates wrapping digits effect and finally switching to specified state.
      *  Wrapping effect lasts for about 0.5 seconds. The difference from scrollForward() is that
      *  digits are being changed in reverse order: 5, 4, 3, 2, 1, 0, 9, etc.
      */
-    inline void        scrollBack     (ENixieTubeState next = TUBE_NORMAL) { m_state = TUBE_SCROLL_BACK; m_delayedScroll = 10;
-                                                                             m_next = next; m_digit = m_value; };
+    void               scrollBack     (ENixieTubeState next = TUBE_NORMAL);
 
     /** Starts wrapping digits effect finally switching tube to TUBE_OFF state */
     void               scrollOff      (void);

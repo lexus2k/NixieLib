@@ -77,7 +77,6 @@ bool NixieTube::update()
         }
         break;
     case TUBE_NORMAL:
-        m_mts = g_nixieMs;
         m_digit = m_value;
         updateDimming();
         break;
@@ -87,7 +86,6 @@ bool NixieTube::update()
             m_state = TUBE_BLINK_OFF;
         }
         m_digit = m_value;
-        m_mts = g_nixieMs;
         updateDimming();
         break;
     case TUBE_BLINK_OFF:
@@ -95,35 +93,41 @@ bool NixieTube::update()
         {
             m_state = TUBE_BLINK_ON;
         }
-        m_mts = g_nixieMs;
         updateDimming();
         break;
     case TUBE_SCROLL_OFF:
-        if (g_nixieMs - m_mts >= SCROLL_INTERVAL)
         {
-            if (m_delayedScroll)
+            uint16_t delta = g_nixieMs - m_mts;
+            if (delta >= SCROLL_INTERVAL)
             {
-                if (g_nixieMs - m_mts < m_dimmingTs )
+                m_mts += SCROLL_INTERVAL;
+                if (++m_digit == 10)
                 {
-                    m_dimmingTs = m_dimmingTs - (g_nixieMs - m_mts);
+                    m_digit = 0;
+                }
+            }
+            if (0 != m_delayedScroll)
+            {
+                if (delta < m_dimmingTs )
+                {
+                    m_dimmingTs -= delta;
                 }
                 else
                 {
-                    m_dimmingTs = g_nixieMs;
+                    m_mts = g_nixieMs;
+                    m_dimmingTs = m_mts;
                     m_delayedScroll = 0;
                 }
             }
-            m_mts += SCROLL_INTERVAL;
-            if (++m_digit == 10)
+            else
             {
-                m_digit = 0;
+                updateDimming();
             }
             if (m_tempBrightness == 0)
             {
                 m_state = m_next;
             }
         }
-        if (!m_delayedScroll) updateDimming();
         break;
     case TUBE_SCROLL_WRAP:
     case TUBE_SCROLL_FORWARD:
@@ -137,6 +141,7 @@ bool NixieTube::update()
             }
             if ((m_digit == m_value) && (m_delayedScroll == 0))
             {
+                m_mts = g_nixieMs;
                 m_state = m_next;
             }
         }
@@ -159,16 +164,19 @@ bool NixieTube::update()
         updateDimming();
         break;
     case TUBE_SCROLL_ON:
-        if (g_nixieMs - m_mts < m_dimmingTs )
         {
-            m_dimmingTs = m_dimmingTs - (g_nixieMs - m_mts);
+            uint16_t delta = g_nixieMs - m_mts;
+            if (delta < m_dimmingTs )
+            {
+                m_dimmingTs -= delta;
+                m_mts = g_nixieMs;
+            }
+            else
+            {
+                m_dimmingTs = g_nixieMs;
+                scrollForward();
+            }
         }
-        else
-        {
-            m_dimmingTs = g_nixieMs;
-            scrollForward();
-        }
-        m_mts = g_nixieMs;
         break;
     default:
        /* for unknown state return OFF */
@@ -219,7 +227,7 @@ void  NixieTube::updatePinState()
 
 void  NixieTube::updateDimming  ()
 {
-    if (m_mts - m_dimmingTs >= DIMMING_INTERVAL)
+    if (g_nixieMs - m_dimmingTs >= DIMMING_INTERVAL)
     {
         m_dimmingTs += DIMMING_INTERVAL;
         if ((m_state == TUBE_SMOOTH_OFF) || (m_state == TUBE_SCROLL_OFF))
@@ -245,6 +253,7 @@ void NixieTube::scrollOn(uint16_t msDelay)
     if (m_state == TUBE_OFF)
     {
         m_dimmingTs = msDelay;
+        m_mts = g_nixieMs;
         m_state = TUBE_SCROLL_ON;
     }
     else
@@ -253,7 +262,26 @@ void NixieTube::scrollOn(uint16_t msDelay)
     }
 }
 
-void  NixieTube::scrollOff(void)
+void  NixieTube::scrollForward(ENixieTubeState next)
+{
+    m_state = TUBE_SCROLL_FORWARD;
+    m_delayedScroll = 10;
+    m_next = next;
+    m_digit = m_value;
+    m_mts = g_nixieMs;
+}
+
+void  NixieTube::scrollBack(ENixieTubeState next)
+{
+    m_state = TUBE_SCROLL_BACK;
+    m_delayedScroll = 10;
+    m_next = next;
+    m_digit = m_value;
+    m_mts = g_nixieMs;
+};
+
+
+void  NixieTube::scrollOff()
 {
     scrollOff( (m_value >> 1) * SCROLL_INTERVAL ); 
 }
@@ -266,6 +294,7 @@ void  NixieTube::scrollOff(uint16_t msDelay)
         m_dimmingTs = msDelay;
         m_next = TUBE_OFF;
         m_state = TUBE_SCROLL_OFF;
+        m_mts = g_nixieMs;
     }
 };
 
@@ -288,6 +317,7 @@ void NixieTube::operator =(const NixieTube &tube)
     /* Copy flags from the source tube */
     m_flags = tube.m_flags;
     m_delayedScroll = tube.m_delayedScroll;
+    m_mts = tube.m_mts;
 
     /* We do not copy timer related variables */
     /* Each tube object must calculate them itself.
