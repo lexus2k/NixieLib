@@ -100,6 +100,7 @@ typedef enum
     TUBE_BLINK_OFF        = 0x0C,       //      invisible
     TUBE_SCROLL_OFF       = 0x0D,       //      visible
     TUBE_SCROLL_ON        = 0x0E,       //      invisible
+    TUBE_SMOOTH_ON        = 0x0F,       //      visible
 } ENixieTubeState;
 
 
@@ -228,13 +229,14 @@ public:
     /**
      * Turns on the nixie tube. Switches the tube to the TUBE_NORMAL state.
      */
-    inline void        on             (void)                               { m_state = TUBE_NORMAL; };
+    inline void        on             (void)                               { m_state = TUBE_NORMAL;
+                                                                             setActiveBrightness( m_brightness ); };
     
     /** Turns on the tube by smoothly increasing tube brightness to the set brightness value */
-    inline void        smoothOn       (void)                               { m_state = TUBE_NORMAL; };
+    void               smoothOn       ();
 
     /** Turns off the tube by smoothly decreasing tube brightness to the zero and switching to TUBE_OFF state */
-    inline void        smoothOff      (void)                               { m_state = TUBE_SMOOTH_OFF; };
+    void               smoothOff      ();
 
     /** Initiates wrapping digits effect and finally switching to specified state.
      *  Wrapping effect lasts for about 0.5 seconds.

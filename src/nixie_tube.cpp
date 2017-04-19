@@ -64,7 +64,6 @@ bool NixieTube::update()
     switch (m_state)
     {
     case TUBE_OFF:
-        m_mts = g_nixieMs;
         break;
     case TUBE_SMOOTH_OFF:
         if (m_tempBrightness == 0)
@@ -76,6 +75,7 @@ bool NixieTube::update()
             updateDimming();  
         }
         break;
+    case TUBE_SMOOTH_ON:
     case TUBE_NORMAL:
         m_digit = m_value;
         updateDimming();
@@ -241,6 +241,26 @@ void  NixieTube::updateDimming  ()
     }
 }
 
+void  NixieTube::smoothOn()
+{
+    m_state = TUBE_NORMAL;
+    if (g_nixieMs - m_dimmingTs >= (DIMMING_INTERVAL << 1))
+    {
+        m_dimmingTs = g_nixieMs;
+    }
+}
+
+void  NixieTube::smoothOff()
+{
+    if ( m_state != TUBE_OFF )
+    {
+        m_state = TUBE_SMOOTH_OFF;
+        if (g_nixieMs - m_dimmingTs >= (DIMMING_INTERVAL << 1))
+        {
+            m_dimmingTs = g_nixieMs;
+        }
+    }
+}
 
 void NixieTube::scrollOn()
 {

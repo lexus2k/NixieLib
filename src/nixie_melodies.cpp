@@ -1487,14 +1487,14 @@ const NixieMelody soundCancel = {
      .pause = 30,
 };
 
-const PROGMEM SNixieTempoNote clickNotes[] = {
-  { 500, 24 },    { NOTE_SILENT, 64 }, { 250, 24 }, // pick pick
+const PROGMEM SNixieSamplingNote clickNotes[] = {
+  { 4000, 20 },    { NOTE_SILENT, 10 }, { 2000, 20 }, // pick pick
   { NOTE_STOP, 0 },
 };
 
 const NixieMelody soundClick = {
      .notes = (const uint8_t *)clickNotes,
-     .type = MELODY_TYPE_PROGMEM_TEMPO,
+     .type = MELODY_TYPE_PROGMEM_SAMPLING,
      .pause = 30,
 };
 
