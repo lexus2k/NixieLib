@@ -70,19 +70,26 @@ public:
     void init(void);
     
     /**
-     * This method must be called in loop function
+     * This method must be called in loop function as often as it's possible.
+     *
+     * @warning If you miss call to this function for a time much more than CHANGE_INTERVAL,
+     * defined in nixie_tube.h, this may cause neon gas to flash inside nixie tube (this is bad).
+     * Thus, if you need to do some time consuming actions, use powerOff() before and
+     * powerOn() after actions.
      */
     void render();
     
     /**
-     * Turns display off (immediately)
+     * Turns display off (immediately).
+     * Switches power off for all nixie tube. The power will not be applied
+     * until powerOn() method is called.
      */
-    inline void turnOff()  { m_state = STATE_DISPLAY_OFF; }
+    void powerOff();
 
     /**
      * Turns display on (immediately)
      */
-    inline void turnOn ()  { m_state = STATE_NORMAL; };
+    void powerOn ();
 
 
     //======================== Effects ==================================
@@ -100,10 +107,11 @@ public:
     void on();
     
     /** Turns off nixie tubes. This means that module will never enable
-     *  Anod on the tubes.
+     *  Anod on the tubes until special effect is requested.
      */
     void off();
-    
+
+   
     void smoothOff();
     
     /**
@@ -207,9 +215,9 @@ private:
     NixieTube                  m_shadowTubes[NIXIE_MAX_BULBS];
     int8_t                     m_startPos    = 0;
     uint8_t                    m_tube        = 0;
-    ENixieDisplayState         m_state       = STATE_NORMAL;
-    bool                       m_tubeBurning = false;
     uint8_t                    m_brightness;
+    bool                       m_powerOn     = true;
+    ENixieDisplayState         m_state       = STATE_NORMAL;
 
     /* State-specific. Each state uses fields below for their own needs */
     uint16_t                   m_stateTs      = 0;

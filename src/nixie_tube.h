@@ -1,5 +1,5 @@
 /*
-    Copyright (C) 2016 Alexey Dynda
+    Copyright (C) 2016-2017 Alexey Dynda
 
     This file is part of Nixie Library.
 
@@ -47,6 +47,7 @@
 
 /** The blinking internal of the tube in milliseconds. Must be power of 2. */
 #define BLINK_INTERVAL    1024
+#define BLINK_DIM_INTERVAL  8
 
 /**
  *  Maximum brightness, supported by the NixieTube class.
@@ -184,10 +185,10 @@ public:
     inline uint8_t     getActivePin   ()                                   { return m_map[m_digit]; };
     
     /** Returns true if bulb digit should be visible. Doesn't correlate with PWM state */
-    inline bool        isBurning      ()                                   { return (m_digit != 0xFF) && isEnabled(); };
+    inline bool        isBurning      ()                                   { return (m_digit != 0xFF) && m_enabled; };
     
     /** Returns true if the bulb is not switched off */
-    inline bool        isEnabled      (void)                               { return (m_state & 0x01) != 0; };
+    inline bool        isEnabled      (void)                               { return m_enabled; };
     
     /** 
      *  Returns value, programmed to the bulb to display
@@ -219,7 +220,8 @@ public:
     /**
      * Turns off the nixie tube. Turning off means that isBurning() and isEnabled() returns false.
      */
-    inline void        off            (void)                               { m_tempBrightness = 0; m_state = TUBE_OFF; };
+    inline void        off            ()                                   { m_enabled = false;
+                                                                             m_tempBrightness = 0; m_state = TUBE_OFF; };
 
     /**
      * Turns on the bulb with wrap effect
@@ -230,6 +232,7 @@ public:
      * Turns on the nixie tube. Switches the tube to the TUBE_NORMAL state.
      */
     inline void        on             (void)                               { m_state = TUBE_NORMAL;
+                                                                             m_enabled = true;
                                                                              setActiveBrightness( m_brightness ); };
     
     /** Turns on the tube by smoothly increasing tube brightness to the set brightness value */
@@ -266,10 +269,10 @@ public:
     void               scrollOn       (uint16_t msDelay);
 
     /** Starts blinking effect. The effect needs to be stopped by noBlink() function. */
-    inline void        blink          (void)                               { m_state = TUBE_BLINK; };
+    void               blink          ();
 
     /** Stops blinking effect. */
-    inline void        noBlink        (void)                               { m_state = TUBE_NORMAL; };
+    void               noBlink        ();
 
     /** Changes displayed digit */
     inline void operator =            (const uint8_t val)                  { m_value = val & 0x0F; };
@@ -374,6 +377,8 @@ private:
     /** Flags set for the tube */
     uint8_t            m_flags      = 0;
 
+    bool               m_enabled    = false;
+
     /** Current tube state */
     ENixieTubeState    m_state      = TUBE_NORMAL;
 
@@ -385,6 +390,9 @@ private:
 
     /** Updates active tube brightness */
     void               updateDimming  ();
+
+    /** Updates active tube brightness */
+    void               updateBlinkDimming();
 
     /** Sets active brightness */
     void               setActiveBrightness( uint8_t brightness );

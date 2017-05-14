@@ -1,5 +1,5 @@
 /*
-    Copyright (C) 2016 Alexey Dynda
+    Copyright (C) 2016-2017 Alexey Dynda
 
     This file is part of Nixie Library.
 
@@ -84,10 +84,10 @@ void NixieDisplay::render()
     if ( nextTube )
     {
         // Select next tube
-        if (++m_tube >= m_maxTubes) m_tube = 0;
         for (uint8_t i=0; i<m_maxTubes; i++)
             m_tubes[i].update();
-        if (m_state != STATE_DISPLAY_OFF)
+        if (++m_tube >= m_maxTubes) m_tube = 0;
+        if (m_powerOn)
         {
             m_tubes[m_tube].anodOn();
         }
@@ -212,23 +212,20 @@ void NixieDisplay::__scroll321( )
 
 void NixieDisplay::swapSmooth(byte newBrightness)
 {
-    if (m_state != STATE_DISPLAY_OFF)
+    m_state = STATE_SWAP_SMOOTH;
+    m_startPos = m_maxTubes;
+    m_stateTs = g_nixieMs;
+    if (newBrightness != 0xFF)
     {
-        m_state = STATE_SWAP_SMOOTH;
-        m_startPos = m_maxTubes;
-        m_stateTs = g_nixieMs;
-        if (newBrightness != 0xFF)
-        {
-            m_brightness = newBrightness;
-        }
-        for (uint8_t i=0; i<m_maxTubes; i++)
-        {
-            m_tubes[i].setSmoothBrightness(0);
-            m_shadowTubes[i].setBrightness(0);
-            m_shadowTubes[i].setSmoothBrightness(m_brightness);
-        }
-        smoothOn();
+        m_brightness = newBrightness;
     }
+    for (uint8_t i=0; i<m_maxTubes; i++)
+    {
+        m_tubes[i].setSmoothBrightness(0);
+        m_shadowTubes[i].setBrightness(0);
+        m_shadowTubes[i].setSmoothBrightness(m_brightness);
+    }
+    smoothOn();
 };
 
 
@@ -296,13 +293,10 @@ void NixieDisplay::smoothOff()
      */
 void NixieDisplay::moveLeft(int8_t positions)
 {
-    if (m_state != STATE_DISPLAY_OFF)
-    {
-        m_state = STATE_MOVE_LEFT;
-        m_startPos = positions;
-        m_stateTs = g_nixieMs;
-        on();
-    }
+    m_state = STATE_MOVE_LEFT;
+    m_startPos = positions;
+    m_stateTs = g_nixieMs;
+    on();
 }
 
     /**
@@ -310,13 +304,10 @@ void NixieDisplay::moveLeft(int8_t positions)
      */
 void NixieDisplay::moveRight(int8_t positions)
 {
-    if (m_state != STATE_DISPLAY_OFF)
-    {
-        m_state = STATE_MOVE_RIGHT;
-        m_startPos = -positions;
-        m_stateTs = g_nixieMs;
-        on();
-    }
+    m_state = STATE_MOVE_RIGHT;
+    m_startPos = -positions;
+    m_stateTs = g_nixieMs;
+    on();
 }
 
 void NixieDisplay::scrollForward(ENixieTubeState tubeState)
@@ -326,19 +317,17 @@ void NixieDisplay::scrollForward(ENixieTubeState tubeState)
 
 void NixieDisplay::scroll321( )
 {
-    if (m_state != STATE_DISPLAY_OFF)
-    {
-        m_state = STATE_SCROLL321;
-        m_startPos = - m_maxTubes;
-        m_stateTs = g_nixieMs;
-        __resetShadow();
-        m_tubes[m_maxTubes - 1].scrollForward();
-        on();
-    }
+    m_state = STATE_SCROLL321;
+    m_startPos = - m_maxTubes;
+    m_stateTs = g_nixieMs;
+    __resetShadow();
+    m_tubes[m_maxTubes - 1].scrollForward();
+    on();
 }
 
 void NixieDisplay::scrollOn()
 {
+    m_powerOn = true;
     for (byte i=0; i<m_maxTubes; i++)
         if (i<(m_maxTubes>>1))
             getByIndex(i).scrollOn( (uint16_t)((m_maxTubes>>1) - 1 - i) * (SCROLL_INTERVAL<<2));
@@ -376,3 +365,20 @@ void NixieDisplay::randomEffect()
 }
 
 
+void NixieDisplay::powerOff()
+{
+    m_powerOn = false;
+    m_tubes[m_tube].anodOff();
+}
+
+
+void NixieDisplay::powerOn ()
+{
+    m_powerOn = true;
+    NixieLibrary::update();
+    for (uint8_t i=0; i<m_maxTubes; i++)
+    {
+        m_tubes[i].update();
+    }
+    m_tubes[m_tube].anodOn();
+}

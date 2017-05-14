@@ -17,8 +17,8 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef _NIXIE_I2C_CLIENT_
-#define _NIXIE_I2C_CLIENT_
+#ifndef _NIXIE_I2C_CLIENT_H_
+#define _NIXIE_I2C_CLIENT_H_
 
 #include "nixie_types.h"
 
@@ -37,7 +37,7 @@ public:
     static void setRegisters(uint8_t *registers, uint8_t count);
     static void setRegisters(uint8_t *registers, uint8_t *accessMap, uint8_t count);
     static uint8_t receive();
-    static void    write(uint8_t data);
+    static void write(uint8_t data);
     static void update();
 private:
     static uint8_t * m_regPtr;
@@ -47,7 +47,5 @@ private:
     static void receiveEvent(uint8_t howMany);
     static void requestEvent();
 };
-
-
 
 #endif

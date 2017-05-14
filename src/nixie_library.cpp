@@ -19,6 +19,6 @@
 
 #include "nixie_library.h"
 
-uint16_t  g_nixieUs = 0;
-uint16_t  g_nixieMs = 0;
+uint32_t  g_nixieUsEx = 0;
+uint32_t  g_nixieMsEx = 0;
 

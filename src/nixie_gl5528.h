@@ -71,6 +71,11 @@ public:
     inline uint8_t brightness() { return m_brightness; };
 
     /**
+     * @returns absolute value from ADC channel
+     */
+    int absoluteValue();
+
+    /**
      * Sets Adc value, which corresponds to room light.
      * @param[in] level - ADC level to set. For arduino it is usually in the range [0..1023]
      */

@@ -1,5 +1,5 @@
 /*
-    Copyright (C) 2016 Alexey Dynda
+    Copyright (C) 2016-2017 Alexey Dynda
 
     This file is part of Nixie Library.
 
@@ -30,13 +30,12 @@ bool NixieLdrGl5528::update(uint16_t ts)
     if (val > m_dayLevel)
         level = NIXIE_MAX_BRIGHTNESS;
     else if (val > m_roomLevel)
-        level = (NIXIE_MAX_BRIGHTNESS - 5*NIXIE_MAX_BRIGHTNESS / 16) +
-                 5*NIXIE_MAX_BRIGHTNESS / 16 *(val - m_roomLevel)/(m_dayLevel - m_roomLevel);
+        level = NIXIE_MAX_BRIGHTNESS / 2 +
+                 NIXIE_MAX_BRIGHTNESS / 2 * (val - m_roomLevel)/(m_dayLevel - m_roomLevel);
     else if (val > m_nightLevel)
-        level = (NIXIE_MAX_BRIGHTNESS / 8) +
-                 9 * NIXIE_MAX_BRIGHTNESS / 16*(val - m_nightLevel)/(m_roomLevel - m_nightLevel);
-    else if (val >= m_nightLevel/2)
-        level = (NIXIE_MAX_BRIGHTNESS / 8);
+        level = NIXIE_MAX_BRIGHTNESS  / 2 * (val - m_nightLevel)/(m_roomLevel - m_nightLevel);
+    else if (val > m_nightLevel/2)
+        level = 0;
     else
         level = NIXIE_MAX_BRIGHTNESS; // some invalid sensor, take maximum brightness
     m_targetBrightness = level;
@@ -51,3 +50,14 @@ bool NixieLdrGl5528::update(uint16_t ts)
     return true;
 }
 
+
+int NixieLdrGl5528::absoluteValue()
+{
+    int val;
+    do
+    {
+        val = nixieAnalogRead(m_pin);
+    }
+    while (val == ADC_IN_PROGRESS);
+    return val;
+}

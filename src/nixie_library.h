@@ -29,10 +29,16 @@
 
 #include "nixie_types.h"
 
+
 /** This variable contains lower 16-bits of microseconds counter. For internal use by Nixie Library only! */
-extern uint16_t  g_nixieUs;
+#define g_nixieUs   ((uint16_t)g_nixieUsEx)
 /** This variable contains lower 16-bits of milliseconds counter. For internal use by Nixie Library only! */
-extern uint16_t  g_nixieMs;
+#define g_nixieMs   ((uint16_t)g_nixieMsEx)
+
+/** This variable contains full  32-bits of microseconds counter. For internal use by Nixie Library only! */
+extern uint32_t  g_nixieUsEx;
+/** This variable contains full  32-bits of milliseconds counter. For internal use by Nixie Library only! */
+extern uint32_t  g_nixieMsEx;
 
 /**
  * NixieLibrary class contains static methods to be called in loop cycle and setup library
@@ -51,8 +57,8 @@ public:
      */
     static inline void update(uint32_t ms, uint32_t us)
     {
-       g_nixieMs = (uint16_t)ms;
-       g_nixieUs = (uint16_t)us;
+       g_nixieMsEx = ms;
+       g_nixieUsEx = us;
     };
 
     /**
@@ -62,8 +68,8 @@ public:
      */
     static inline void update()
     {
-       g_nixieMs = millis();  
-       g_nixieUs = micros();
+       g_nixieMsEx = millis();  
+       g_nixieUsEx = micros();
     };
 
 };

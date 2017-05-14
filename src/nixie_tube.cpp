@@ -1,5 +1,5 @@
 /*
-    Copyright (C) 2016 Alexey Dynda
+    Copyright (C) 2016-2017 Alexey Dynda
 
     This file is part of Nixie Library.
 
@@ -69,6 +69,7 @@ bool NixieTube::update()
         if (m_tempBrightness == 0)
         {
             m_state = TUBE_OFF;
+            m_enabled = false;
         }
         else
         {
@@ -86,14 +87,19 @@ bool NixieTube::update()
             m_state = TUBE_BLINK_OFF;
         }
         m_digit = m_value;
-        updateDimming();
+        updateBlinkDimming();
         break;
     case TUBE_BLINK_OFF:
+        if (m_tempBrightness == 0)
+        {
+            m_enabled = false;
+        }
         if ((g_nixieMs & (BLINK_INTERVAL - 1)) > (BLINK_INTERVAL >> 1))
         {
             m_state = TUBE_BLINK_ON;
+            m_enabled = true;
         }
-        updateDimming();
+        updateBlinkDimming();
         break;
     case TUBE_SCROLL_OFF:
         {
@@ -108,24 +114,28 @@ bool NixieTube::update()
             }
             if (0 != m_delayedScroll)
             {
-                if (delta < m_dimmingTs )
+                if (delta >= SCROLL_INTERVAL)
                 {
-                    m_dimmingTs -= delta;
-                }
-                else
-                {
-                    m_mts = g_nixieMs;
-                    m_dimmingTs = m_mts;
-                    m_delayedScroll = 0;
+                    if (delta < m_dimmingTs )
+                    {
+                        m_dimmingTs -= delta;
+                    }
+                    else
+                    {
+                        m_mts = g_nixieMs;
+                        m_dimmingTs = m_mts;
+                        m_delayedScroll = 0;
+                    }
                 }
             }
             else
             {
                 updateDimming();
-            }
-            if (m_tempBrightness == 0)
-            {
-                m_state = m_next;
+                if (m_tempBrightness == 0)
+                {
+                    m_state = m_next;
+                    m_enabled = false;
+                }
             }
         }
         break;
@@ -174,6 +184,7 @@ bool NixieTube::update()
             else
             {
                 m_dimmingTs = g_nixieMs;
+                m_enabled = true;
                 scrollForward();
             }
         }
@@ -241,9 +252,26 @@ void  NixieTube::updateDimming  ()
     }
 }
 
+void  NixieTube::updateBlinkDimming()
+{
+    if (g_nixieMs - m_dimmingTs >= BLINK_DIM_INTERVAL)
+    {
+        m_dimmingTs += BLINK_DIM_INTERVAL;
+        if (m_state == TUBE_BLINK_ON)
+        {
+            if (m_tempBrightness < m_brightness) setActiveBrightness( m_tempBrightness + 1 );
+        }
+        else
+        {
+            if (m_tempBrightness > 0) setActiveBrightness( m_tempBrightness -1);
+        }
+    }
+}
+
 void  NixieTube::smoothOn()
 {
     m_state = TUBE_NORMAL;
+    m_enabled = true;
     if (g_nixieMs - m_dimmingTs >= (DIMMING_INTERVAL << 1))
     {
         m_dimmingTs = g_nixieMs;
@@ -262,6 +290,30 @@ void  NixieTube::smoothOff()
     }
 }
 
+void  NixieTube::blink()
+{
+    if ((m_state != TUBE_BLINK_ON) && (m_state != TUBE_BLINK_OFF))
+    {
+        m_state = TUBE_BLINK;
+        m_enabled = true;
+        if (g_nixieMs - m_dimmingTs >= (BLINK_DIM_INTERVAL << 1))
+        {
+            m_dimmingTs = g_nixieMs;
+        }
+    }
+}
+
+void  NixieTube::noBlink()
+{
+    m_state = TUBE_NORMAL;
+    m_enabled = true;
+    if (g_nixieMs - m_dimmingTs >= (DIMMING_INTERVAL << 1))
+    {
+        m_dimmingTs = g_nixieMs;
+    }
+};
+
+
 void NixieTube::scrollOn()
 {
     scrollOn(m_value * SCROLL_INTERVAL);
@@ -272,6 +324,7 @@ void NixieTube::scrollOn(uint16_t msDelay)
 {
     if (m_state == TUBE_OFF)
     {
+        setActiveBrightness(0);
         m_dimmingTs = msDelay;
         m_mts = g_nixieMs;
         m_state = TUBE_SCROLL_ON;
@@ -285,6 +338,7 @@ void NixieTube::scrollOn(uint16_t msDelay)
 void  NixieTube::scrollForward(ENixieTubeState next)
 {
     m_state = TUBE_SCROLL_FORWARD;
+    m_enabled = true;
     m_delayedScroll = 10;
     m_next = next;
     m_digit = m_value;
@@ -294,6 +348,7 @@ void  NixieTube::scrollForward(ENixieTubeState next)
 void  NixieTube::scrollBack(ENixieTubeState next)
 {
     m_state = TUBE_SCROLL_BACK;
+    m_enabled = true;
     m_delayedScroll = 10;
     m_next = next;
     m_digit = m_value;
@@ -327,6 +382,7 @@ void NixieTube::operator =(const NixieTube &tube)
     /* Copy displayed value and current state of the tube digit */
     m_value = tube.m_value;
     m_digit = tube.m_digit;
+    m_enabled = tube.m_enabled;
     /* Copy brightness */
     m_brightness = tube.m_brightness;
     m_impulseWidth = tube.m_impulseWidth;
