@@ -23,6 +23,8 @@ The library supports the following devices:
 For more information about this library please visit
 https://github.com/lexus2k/nixielib.
 If you found any problem, please report to Issues section.
+The library depends on NixieOs library:
+https://github.com/lexus2k/NixieOs.
 
 == License ==
 

@@ -1,6 +1,6 @@
 #include <nixie_display.h>
 #include <nixie_k155id1.h>
-#include <nixie_library.h>
+#include <nixieos.h>
 
 /*
  * In this example both Nixie Tubes are controlled through single K155ID1 chip.
@@ -39,6 +39,7 @@ NixieDisplay        g_display(g_driver, anodPins, in14driverMap, 2);
 
 void setup()
 {
+    NixieOs::setup( nullptr );
     Serial.begin(9600);
     g_display.init();
     /* Start with zero-digit. Index corresponds to the tube, we're referring to. */
@@ -48,14 +49,14 @@ void setup()
      * Display object will automatically call anodOn() and anodOff(), while
      * functioning. Refer to NixieDisplay::render() method
      */
-    g_display.turnOn();
+    g_display.powerOn();
 }
 
 void loop()
 {
     static unsigned long timestamp = millis();
     /* The line below must be called in the beginning of each loop cycle */
-    NixieLibrary::update();
+    NixieOs::refresh();
     if (millis() - timestamp > 1000)
     {
         /* enumerate all digits one by one every 1000 mseconds on first tube only */

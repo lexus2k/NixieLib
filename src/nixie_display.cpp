@@ -17,8 +17,8 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "nixie_library.h"
 #include "nixie_display.h"
+#include "nixieos.h"
 
 static const uint32_t s_newInterval = ( (uint32_t)CHANGE_INTERVAL * DISPLAY_BRIGHTNESS_RANGE ) / (uint32_t)NIXIE_MAX_BRIGHTNESS;
 static const uint32_t s_minChangeInterval = (uint32_t)CHANGE_INTERVAL - s_newInterval;
@@ -375,7 +375,7 @@ void NixieDisplay::powerOff()
 void NixieDisplay::powerOn ()
 {
     m_powerOn = true;
-    NixieLibrary::update();
+    NixieOs::refresh();
     for (uint8_t i=0; i<m_maxTubes; i++)
     {
         m_tubes[i].update();

@@ -18,7 +18,7 @@
 */
 
 #include "nixie_gl5528.h"
-#include <nixie_booster.h>
+#include "nixieos.h"
 
 bool NixieLdrGl5528::update(uint16_t ts)
 {

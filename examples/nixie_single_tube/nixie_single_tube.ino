@@ -1,6 +1,6 @@
 #include <nixie_tube.h>
 #include <nixie_k155id1.h>
-#include <nixie_library.h>
+#include <nixieos.h>
 
 /*
  * In this example single Nixie Tubes is controlled through single K155ID1 chip.
@@ -31,6 +31,7 @@ NixieTube           g_tube(&g_driver, in14driverMap);
 
 void setup()
 {
+    NixieOs::setup( nullptr );
     Serial.begin(9600);
     g_tube.init();
     /* Start with zero-digit. Zero means that we start from 0-digit */
@@ -45,7 +46,7 @@ void loop()
 {
     static unsigned long timestamp = millis();
     /* The line below must be called in the beginning of each loop cycle */
-    NixieLibrary::update();
+    NixieOs::refresh();
     if (millis() - timestamp > 1000)
     {
         /* enumerate all digits one by one every 1000 mseconds */

@@ -18,8 +18,7 @@
 */
 
 #include "nixie_rgbled.h"
-#include "nixie_library.h"
-#include "nixie_booster.h"
+#include "nixieos.h"
 
 
 ////////////////////////////////////////////////////////////////////////////////////////

@@ -18,6 +18,6 @@
 */
 
 #include "nixie_driver.h"
-#include "nixie_booster.h"
+#include "nixieos.h"
 
 /* Base class NixieDriver doesn't require any specific implementation */

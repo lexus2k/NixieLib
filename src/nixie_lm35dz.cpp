@@ -18,7 +18,7 @@
 */
 
 #include "nixie_lm35dz.h"
-#include "nixie_booster.h"
+#include "nixieos.h"
 #include "nixie_types.h"
 
 int16_t readLm35dzCelsius(uint8_t pin)

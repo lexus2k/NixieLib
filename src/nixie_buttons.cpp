@@ -17,7 +17,7 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "nixie_library.h"
+#include "nixieos.h"
 #include "nixie_buttons.h"
 
 #define BUTTONS_THRESHOLD         30 /// in sample units 0 - 1024

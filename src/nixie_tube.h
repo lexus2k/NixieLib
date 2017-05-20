@@ -29,6 +29,7 @@
 #define _NIXIE_TUBE_H_
 
 #include "nixie_types.h"
+#include "nixie_fine_tuning.h"
 #include "nixie_driver.h"
 
 /*********************************************************************
@@ -38,50 +39,6 @@
  *     This class doesn't control physical tube directly, but it
  *     describes the possible behavior of the tube.
  *********************************************************************/
-
-/** How much bits to use for display brightness */
-#define NIXIE_BRIGHTNESS_BITS   5
-
-/** How quickly each digit switches to another when numerating digits in milliseconds */
-#define SCROLL_INTERVAL   40
-
-/** The blinking internal of the tube in milliseconds. Must be power of 2. */
-#define BLINK_INTERVAL    1024
-#define BLINK_DIM_INTERVAL  8
-
-/**
- *  Maximum brightness, supported by the NixieTube class.
- *  At present, it is range [0..32]
- */
-#define NIXIE_MAX_BRIGHTNESS  (1<<NIXIE_BRIGHTNESS_BITS)
-
-/** Interval in milliseconds for updating Nixie Tube brightness */
-#define DIMMING_INTERVAL      (20)
-
-/*
- * IN-12/IN-14 Datasheet.
- * Impulse mode: 70us / refresh frequency 1-1.8kHz
- */
-
-/* Burning time for each digit.
- * When 1 digit is ON, other are OFF. This means that during full cycle 
- * bulb is OFF for CHANGE_INTERVAL*5.
- * IMPULSE_WIDTH should be greater than 70us (according to IN-14 spec) and working
- * frequency should be below 1-1.8kHz, otherwise the gas in the the tube will be visible.
- * On other way, Atmega328 supports only 4us accuracy.
- * Nixie Display module uses 32 levels of brightness, thus to have 25% accuracy on low brightness
- * minimum change interval should be 100/25 * 4 * 64 = 512.
- */
-#define CHANGE_INTERVAL   2000 // ~ 83Hz for each tube
-//#define CHANGE_INTERVAL   1600 // ~ 104Hz for each tube
-//#define CHANGE_INTERVAL   800 // ~ 160Hz for each tube
-#define DISPLAY_BRIGHTNESS_RANGE  (uint32_t)( NIXIE_MAX_BRIGHTNESS - 2 )
-
-#define MIN_DESIRED_BRIGHTNESS  ( 3 * NIXIE_MAX_BRIGHTNESS / 32 )
-#define MIN_NIXIE_IMPULSE_SPEC  ( 70 )  // 70us per spec
-#if CHANGE_INTERVAL * MIN_DESIRED_BRIGHTNESS / NIXIE_MAX_BRIGHTNESS < MIN_NIXIE_IMPULSE_SPEC
-   #error "Minimum nixie impulse should be at least 70us. Please increase change interval"
-#endif
 
 #define TUBE_FLAG_RIGHT_DOT 0x01
 #define TUBE_FLAG_LEFT_DOT  0x02

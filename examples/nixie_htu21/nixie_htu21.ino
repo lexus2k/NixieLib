@@ -25,7 +25,7 @@
  * HTU21 sensor is connected to I2C bus, and is powered from 3.3V supply.                
  */
 
-#include <nixie_library.h>
+#include <nixieos.h>
 #include <nixie_htu21.h>
 
 static NixieHTU21 s_htu21;
@@ -40,13 +40,14 @@ void onButtonDown(uint8_t id, uint16_t timeDeltaMs)
 
 void setup()
 {
+    NixieOs::setup( nullptr );
     Serial.begin(9600);
     s_htu21.init();
 }
 
 void loop()
 {
-    NixieLibrary::update();
+    NixieOs::refresh();
     int16_t temp = s_htu21.getTemperature();
     Serial.print("Temperature: ");
     Serial.println(temp/100); /* Print temperature in Celsius */

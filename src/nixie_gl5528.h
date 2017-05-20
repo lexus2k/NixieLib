@@ -20,8 +20,8 @@
 #ifndef _NIXIE_LDR_GL5528_H_
 #define _NIXIE_LDR_GL5528_H_
 
-#include "nixie_booster.h"
 #include "nixie_tube.h"
+#include "nixieos.h"
 /** Update interval in milliseconds. Every 1 second */
 #define LIGHT_SENSOR_UPDATE_INTERVAL   1000
 

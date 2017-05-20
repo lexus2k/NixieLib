@@ -20,8 +20,8 @@
 #ifndef _NIXIE_LM35DZ_H_
 #define _NIXIE_LM35DZ_H_
 
-#include "nixie_booster.h"
 #include "nixie_tube.h"
+#include "nixieos.h"
 
 /** 
  *  Synchronously reads temperature temp in 100-units

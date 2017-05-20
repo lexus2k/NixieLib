@@ -21,7 +21,7 @@
 #define _NIXIE_BUTTONS_H_
 
 #include "nixie_types.h"
-#include "nixie_booster.h"
+#include "nixieos.h"
 
 /**
  * TOnButtonEvent defines format of callback functions used by NixieAnalogButtons class

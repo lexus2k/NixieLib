@@ -26,8 +26,9 @@
  *                 
  */
 
-#include <nixie_library.h>
+#include <nixieos.h>
 #include <nixie_buttons.h>
+#include <nixieos.h>
 
                              //  BTN1   BTN2  BTN3   BTN4
 const int16_t buttons[4]    =  { 752,   542,  362,   188 };
@@ -44,6 +45,7 @@ void onButtonDown(uint8_t id, uint16_t timeDeltaMs)
 
 void setup()
 {
+    NixieOs::setup( nullptr );
     Serial.begin(9600);
     s_buttons.init();
     s_buttons.onButtonDown(&onButtonDown);
@@ -51,7 +53,7 @@ void setup()
 
 void loop()
 {
-    NixieLibrary::update();
+    NixieOs::refresh();
     s_buttons.update();
     if (s_buttons.isShortPress(0))
     {

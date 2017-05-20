@@ -17,9 +17,8 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "nixie_library.h"
 #include "nixie_tube.h"
-#include "nixie_booster.h"
+#include "nixieos.h"
 
 
 void  NixieTube::init()
