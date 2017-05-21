@@ -43,7 +43,7 @@ void NixieAnalogButtons::update()
     {
         return;
     }
-    int value = nixieAnalogRead(m_pin);
+    int value = NixieOs::analogRead(m_pin);
     if (value == ADC_IN_PROGRESS) return;
     if ((value > m_lastReadAdc + ANALOG_BUTTONS_THRESHOLD) || (value < m_lastReadAdc - ANALOG_BUTTONS_THRESHOLD))
     {

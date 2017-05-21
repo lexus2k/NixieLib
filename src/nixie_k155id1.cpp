@@ -31,16 +31,16 @@ void K155ID1::switchPin(uint8_t pin)
         for (uint8_t i=0; i<4; i++)
         {
             if ((pin >> i) & 0x01)
-                nixiePinHigh(m_pins[i]);
+                NixieOs::pinHigh(m_pins[i]);
             else
-                nixiePinLow(m_pins[i]);
+                NixieOs::pinLow(m_pins[i]);
         }
     }
     else
     {
         for (uint8_t i=0; i<4; i++)
         {
-            nixiePinHigh(m_pins[i]);
+            NixieOs::pinHigh(m_pins[i]);
         }
     }
 }
@@ -52,9 +52,9 @@ void  K155ID1::setExtendedPins(uint8_t value)
     for (uint8_t i=0; i< m_count - 4; i++)
     {
         if ((value >> i) & 0x01)
-            nixiePinHigh(m_pins[i+4]);
+            NixieOs::pinHigh(m_pins[i+4]);
         else
-            nixiePinLow(m_pins[i+4]);
+            NixieOs::pinLow(m_pins[i+4]);
     }
 }
 

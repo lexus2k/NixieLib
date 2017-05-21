@@ -84,21 +84,21 @@ void NixieSoftRgbLed::update()
         m_lastMs++;
         if (m_lastMs & 0x001F == 0)
         {
-            nixiePinHigh(m_pins[0]);
-            nixiePinHigh(m_pins[1]);
-            nixiePinHigh(m_pins[2]);
+            NixieOs::pinHigh(m_pins[0]);
+            NixieOs::pinHigh(m_pins[1]);
+            NixieOs::pinHigh(m_pins[2]);
         }
         if (m_lastMs & 0x001F == m_redPwm)
         {
-            nixiePinLow(m_pins[0]);
+            NixieOs::pinLow(m_pins[0]);
         }
         if (m_lastMs & 0x001F == m_greenPwm)
         {
-            nixiePinLow(m_pins[1]);
+            NixieOs::pinLow(m_pins[1]);
         }
         if (m_lastMs & 0x001F == m_bluePwm)
         {
-            nixiePinLow(m_pins[2]);
+            NixieOs::pinLow(m_pins[2]);
         }
     }
 }

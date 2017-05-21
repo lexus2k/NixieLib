@@ -27,7 +27,7 @@ int16_t readLm35dzCelsius(uint8_t pin)
     int  value;
     // wait for ADC interrupt to happen
     do {
-      value = nixieAnalogRead(pin);
+      value = NixieOs::analogRead(pin);
     } while (value == ADC_IN_PROGRESS);
     long temp = value;
     //converts raw data into degrees celsius and prints it out

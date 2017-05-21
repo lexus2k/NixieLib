@@ -222,14 +222,14 @@ void  NixieTube::updatePinState()
         // Turn ON next bulb
         if ( m_pin != 0xFF )
         {
-            nixiePinHigh( m_pin );
+            NixieOs::pinHigh( m_pin );
         }
     }
     else
     {
         if ( m_pin != 0xFF )
         {
-            nixiePinLow( m_pin );
+            NixieOs::pinLow( m_pin );
         }
     }
 }

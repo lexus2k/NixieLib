@@ -23,7 +23,7 @@
 bool NixieLdrGl5528::update(uint16_t ts)
 {
     if (m_ts - ts < LIGHT_SENSOR_UPDATE_INTERVAL) return false;
-    int val = nixieAnalogRead(m_pin);
+    int val = NixieOs::analogRead(m_pin);
     if (val == ADC_IN_PROGRESS) return false;
     m_ts += LIGHT_SENSOR_UPDATE_INTERVAL;
     uint8_t level;
@@ -56,7 +56,7 @@ int NixieLdrGl5528::absoluteValue()
     int val;
     do
     {
-        val = nixieAnalogRead(m_pin);
+        val = NixieOs::analogRead(m_pin);
     }
     while (val == ADC_IN_PROGRESS);
     return val;
