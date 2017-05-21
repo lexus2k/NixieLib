@@ -31,6 +31,9 @@
 #define HTU21_READREG       0xE7
 #define HTU21_RESET         0xFE
 
+/** 
+ *  Class for using HTU21 temperature and humidity sensor
+ */
 class NixieHTU21
 {
 public:

@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Nixie Library
-   &#160;<span id="projectnumber">0.2.0</span>
+   &#160;<span id="projectnumber">0.5.1</span>
    </div>
    <div id="projectbrief">Nixie Library to develop Nixie Clock</div>
   </td>
@@ -76,6 +76,7 @@ $(function() {
 <p>Nixie Library - tubes.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="nixie__types_8h_source.html">nixie_types.h</a>&quot;</code><br />
+<code>#include &quot;nixie_fine_tuning.h&quot;</code><br />
 <code>#include &quot;nixie_driver.h&quot;</code><br />
 </div>
 <p><a href="nixie__tube_8h_source.html">Go to the source code of this file.</a></p>
@@ -87,28 +88,6 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:ad57c4facbcfa537a0b64af07a8c67ce4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="nixie__tube_8h.html#ad57c4facbcfa537a0b64af07a8c67ce4">NIXIE_BRIGHTNESS_BITS</a>&#160;&#160;&#160;5</td></tr>
-<tr class="separator:ad57c4facbcfa537a0b64af07a8c67ce4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a69822c0275d7e7085b2289f9a52efd7a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="nixie__tube_8h.html#a69822c0275d7e7085b2289f9a52efd7a">SCROLL_INTERVAL</a>&#160;&#160;&#160;40</td></tr>
-<tr class="separator:a69822c0275d7e7085b2289f9a52efd7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae2ec6c3e936dcaccf4bc733c26bbc32b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="nixie__tube_8h.html#ae2ec6c3e936dcaccf4bc733c26bbc32b">BLINK_INTERVAL</a>&#160;&#160;&#160;( 1&lt;&lt;10 )</td></tr>
-<tr class="separator:ae2ec6c3e936dcaccf4bc733c26bbc32b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a979c6bff74e3a33dd2136b47908b158d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="nixie__tube_8h.html#a979c6bff74e3a33dd2136b47908b158d">NIXIE_MAX_BRIGHTNESS</a>&#160;&#160;&#160;(1&lt;&lt;<a class="el" href="nixie__tube_8h.html#ad57c4facbcfa537a0b64af07a8c67ce4">NIXIE_BRIGHTNESS_BITS</a>)</td></tr>
-<tr class="separator:a979c6bff74e3a33dd2136b47908b158d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3d5a2ec5cd3701c1f0b853cb80939441"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="nixie__tube_8h.html#a3d5a2ec5cd3701c1f0b853cb80939441">DIMMING_INTERVAL</a>&#160;&#160;&#160;(<a class="el" href="nixie__tube_8h.html#ae2ec6c3e936dcaccf4bc733c26bbc32b">BLINK_INTERVAL</a> &gt;&gt; <a class="el" href="nixie__tube_8h.html#ad57c4facbcfa537a0b64af07a8c67ce4">NIXIE_BRIGHTNESS_BITS</a>)</td></tr>
-<tr class="separator:a3d5a2ec5cd3701c1f0b853cb80939441"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0f4ea42a1148f1acdae74c3f7ab7c335"><td class="memItemLeft" align="right" valign="top"><a id="a0f4ea42a1148f1acdae74c3f7ab7c335"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>CHANGE_INTERVAL</b>&#160;&#160;&#160;2000</td></tr>
-<tr class="separator:a0f4ea42a1148f1acdae74c3f7ab7c335"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4be0918036690168924363e2d4fec96c"><td class="memItemLeft" align="right" valign="top"><a id="a4be0918036690168924363e2d4fec96c"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>DISPLAY_BRIGHTNESS_RANGE</b>&#160;&#160;&#160;(uint32_t)( <a class="el" href="nixie__tube_8h.html#a979c6bff74e3a33dd2136b47908b158d">NIXIE_MAX_BRIGHTNESS</a> - 2 )</td></tr>
-<tr class="separator:a4be0918036690168924363e2d4fec96c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6704e7baf6ca07138ba4fe56414b154a"><td class="memItemLeft" align="right" valign="top"><a id="a6704e7baf6ca07138ba4fe56414b154a"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>MIN_DESIRED_BRIGHTNESS</b>&#160;&#160;&#160;( 3 * <a class="el" href="nixie__tube_8h.html#a979c6bff74e3a33dd2136b47908b158d">NIXIE_MAX_BRIGHTNESS</a> / 32 )</td></tr>
-<tr class="separator:a6704e7baf6ca07138ba4fe56414b154a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a947b79f91ad8bde73bca9dbee37530c3"><td class="memItemLeft" align="right" valign="top"><a id="a947b79f91ad8bde73bca9dbee37530c3"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>MIN_NIXIE_IMPULSE_SPEC</b>&#160;&#160;&#160;( 70 )</td></tr>
-<tr class="separator:a947b79f91ad8bde73bca9dbee37530c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af244f89f4f097a68366de91dc1132fb0"><td class="memItemLeft" align="right" valign="top"><a id="af244f89f4f097a68366de91dc1132fb0"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>TUBE_FLAG_RIGHT_DOT</b>&#160;&#160;&#160;0x01</td></tr>
 <tr class="separator:af244f89f4f097a68366de91dc1132fb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -131,7 +110,8 @@ Enumerations</h2></td></tr>
 <br />
 &#160;&#160;<b>TUBE_BLINK_OFF</b> = 0x0C, 
 <b>TUBE_SCROLL_OFF</b> = 0x0D, 
-<b>TUBE_SCROLL_ON</b> = 0x0E
+<b>TUBE_SCROLL_ON</b> = 0x0E, 
+<b>TUBE_SMOOTH_ON</b> = 0x0F
 <br />
  }</td></tr>
 <tr class="separator:ac68d49bda9c9e288d09e80296d1f3531"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -141,93 +121,7 @@ Enumerations</h2></td></tr>
 <p>This file contains <a class="el" href="class_nixie_tube.html">NixieTube</a> class, which describes logic for single <a class="el" href="class_nixie_tube.html">NixieTube</a>. </p>
 
 <p>Definition in file <a class="el" href="nixie__tube_8h_source.html">nixie_tube.h</a>.</p>
-</div><h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="ae2ec6c3e936dcaccf4bc733c26bbc32b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae2ec6c3e936dcaccf4bc733c26bbc32b">&sect;&nbsp;</a></span>BLINK_INTERVAL</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define BLINK_INTERVAL&#160;&#160;&#160;( 1&lt;&lt;10 )</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>The blinking internal of the tube in milliseconds. Must be power of 2. </p>
-
-<p>Definition at line <a class="el" href="nixie__tube_8h_source.html#l00049">49</a> of file <a class="el" href="nixie__tube_8h_source.html">nixie_tube.h</a>.</p>
-
-</div>
-</div>
-<a id="a3d5a2ec5cd3701c1f0b853cb80939441"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3d5a2ec5cd3701c1f0b853cb80939441">&sect;&nbsp;</a></span>DIMMING_INTERVAL</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define DIMMING_INTERVAL&#160;&#160;&#160;(<a class="el" href="nixie__tube_8h.html#ae2ec6c3e936dcaccf4bc733c26bbc32b">BLINK_INTERVAL</a> &gt;&gt; <a class="el" href="nixie__tube_8h.html#ad57c4facbcfa537a0b64af07a8c67ce4">NIXIE_BRIGHTNESS_BITS</a>)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Interval in milliseconds for updating Nixie Tube brightness </p>
-
-<p>Definition at line <a class="el" href="nixie__tube_8h_source.html#l00058">58</a> of file <a class="el" href="nixie__tube_8h_source.html">nixie_tube.h</a>.</p>
-
-</div>
-</div>
-<a id="ad57c4facbcfa537a0b64af07a8c67ce4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad57c4facbcfa537a0b64af07a8c67ce4">&sect;&nbsp;</a></span>NIXIE_BRIGHTNESS_BITS</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define NIXIE_BRIGHTNESS_BITS&#160;&#160;&#160;5</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>How much bits to use for display brightness </p>
-
-<p>Definition at line <a class="el" href="nixie__tube_8h_source.html#l00043">43</a> of file <a class="el" href="nixie__tube_8h_source.html">nixie_tube.h</a>.</p>
-
-</div>
-</div>
-<a id="a979c6bff74e3a33dd2136b47908b158d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a979c6bff74e3a33dd2136b47908b158d">&sect;&nbsp;</a></span>NIXIE_MAX_BRIGHTNESS</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define NIXIE_MAX_BRIGHTNESS&#160;&#160;&#160;(1&lt;&lt;<a class="el" href="nixie__tube_8h.html#ad57c4facbcfa537a0b64af07a8c67ce4">NIXIE_BRIGHTNESS_BITS</a>)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Maximum brightness, supported by the <a class="el" href="class_nixie_tube.html">NixieTube</a> class. At present, it is range [0..32] </p>
-
-<p>Definition at line <a class="el" href="nixie__tube_8h_source.html#l00055">55</a> of file <a class="el" href="nixie__tube_8h_source.html">nixie_tube.h</a>.</p>
-
-</div>
-</div>
-<a id="a69822c0275d7e7085b2289f9a52efd7a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a69822c0275d7e7085b2289f9a52efd7a">&sect;&nbsp;</a></span>SCROLL_INTERVAL</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define SCROLL_INTERVAL&#160;&#160;&#160;40</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>How quickly each digit switches to another when numerating digits in milliseconds </p>
-
-<p>Definition at line <a class="el" href="nixie__tube_8h_source.html#l00046">46</a> of file <a class="el" href="nixie__tube_8h_source.html">nixie_tube.h</a>.</p>
-
-</div>
-</div>
-</div><!-- contents -->
+</div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

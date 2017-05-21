@@ -8,5 +8,5 @@ var searchData=
   ['nixiepwmrgbled',['NixiePwmRgbLed',['../class_nixie_pwm_rgb_led.html#a82fd95da06622b1119a95098f9d324d7',1,'NixiePwmRgbLed']]],
   ['nixiesoftrgbled',['NixieSoftRgbLed',['../class_nixie_soft_rgb_led.html#a06e30d00878bbab7ff7ec7c46e5ce25f',1,'NixieSoftRgbLed']]],
   ['nixietube',['NixieTube',['../class_nixie_tube.html#ab019b98f66ef7338542581b5b7cd3058',1,'NixieTube::NixieTube(NixieDriver *driver, const uint8_t *mapTable)'],['../class_nixie_tube.html#a2fbb9c10cfaaaeb7bcec3c7b961e8754',1,'NixieTube::NixieTube(uint8_t pin, NixieDriver *driver, const uint8_t *mapTable)']]],
-  ['noblink',['noBlink',['../class_nixie_display.html#a7169c9cd04e0e0b4730ace992f1755dd',1,'NixieDisplay::noBlink()'],['../class_nixie_tube.html#a88451b091f6d616d0f6818c9d897bd96',1,'NixieTube::noBlink()']]]
+  ['noblink',['noBlink',['../class_nixie_display.html#a7169c9cd04e0e0b4730ace992f1755dd',1,'NixieDisplay::noBlink()'],['../class_nixie_tube.html#a7d4737d085ad6e00f96adedb5fbee31b',1,'NixieTube::noBlink()']]]
 ];

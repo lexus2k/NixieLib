@@ -18,8 +18,8 @@ var searchData=
   ['setroomadclevel',['setRoomAdcLevel',['../class_nixie_ldr_gl5528.html#aacae32fe967f1ec437ec1816cfba66d5',1,'NixieLdrGl5528']]],
   ['setsmoothbrightness',['setSmoothBrightness',['../class_nixie_tube.html#aecf6103b0f94f7cead62b6495b9d1245',1,'NixieTube']]],
   ['settime',['setTime',['../class_ds3231.html#a5e004fa5df7e3cef6505724206cdf57e',1,'Ds3231']]],
-  ['smoothoff',['smoothOff',['../class_nixie_tube.html#ac5f8fd737e98a0e83ca0508ebde229ef',1,'NixieTube']]],
-  ['smoothon',['smoothOn',['../class_nixie_display.html#a0f8f4d641fb677ea6bc73d708ae38795',1,'NixieDisplay::smoothOn()'],['../class_nixie_tube.html#a73da9b5a5e5ee565890cd69070fe7889',1,'NixieTube::smoothOn()']]],
+  ['smoothoff',['smoothOff',['../class_nixie_tube.html#aba3e3ece705b97f7ba7e45149d5aaf48',1,'NixieTube']]],
+  ['smoothon',['smoothOn',['../class_nixie_display.html#a0f8f4d641fb677ea6bc73d708ae38795',1,'NixieDisplay::smoothOn()'],['../class_nixie_tube.html#aa75e84d82e5e38a13f2fd9af6dffcbd0',1,'NixieTube::smoothOn()']]],
   ['stopmusic',['stopMusic',['../class_nixie_audio_channel.html#a41d8452589d07ace912328608ae3d0e2',1,'NixieAudioChannel']]],
   ['swapsmooth',['swapSmooth',['../class_nixie_display.html#a50ce0ba783c0e485fbd3f6473d6fda6c',1,'NixieDisplay']]],
   ['switchpin',['switchPin',['../class_nixie_driver.html#a7a9c3b5dd030afdd6f0115430eb61424',1,'NixieDriver::switchPin()'],['../class_k155_i_d1.html#aef2be09ab3e4599d9bc5c5dde8dbf933',1,'K155ID1::switchPin()']]]

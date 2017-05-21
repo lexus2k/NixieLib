@@ -1,7 +1,6 @@
 var searchData=
 [
   ['scroll321',['scroll321',['../class_nixie_display.html#a836c20459d1c7dcb92d928e0d398029d',1,'NixieDisplay']]],
-  ['scroll_5finterval',['SCROLL_INTERVAL',['../nixie__tube_8h.html#a69822c0275d7e7085b2289f9a52efd7a',1,'nixie_tube.h']]],
   ['scrollback',['scrollBack',['../class_nixie_tube.html#a7c92e2ad3ad4e38d4472b3b1e75ecd7f',1,'NixieTube']]],
   ['scrollforward',['scrollForward',['../class_nixie_display.html#a0de8358e02317e3e7aa8707fa697ec76',1,'NixieDisplay::scrollForward()'],['../class_nixie_tube.html#a32e45635e4eb6e60ea18925332d3a9ad',1,'NixieTube::scrollForward()']]],
   ['scrolloff',['scrollOff',['../class_nixie_tube.html#a0b96aba6bf1bcbd64ac75af4ab1c83ba',1,'NixieTube::scrollOff(void)'],['../class_nixie_tube.html#a4698951a5e3cb06724ced1e97f038811',1,'NixieTube::scrollOff(uint16_t msDelay)']]],
@@ -20,8 +19,8 @@ var searchData=
   ['setsmoothbrightness',['setSmoothBrightness',['../class_nixie_tube.html#aecf6103b0f94f7cead62b6495b9d1245',1,'NixieTube']]],
   ['settime',['setTime',['../class_ds3231.html#a5e004fa5df7e3cef6505724206cdf57e',1,'Ds3231']]],
   ['simpleclienti2c',['SimpleClientI2c',['../class_simple_client_i2c.html',1,'']]],
-  ['smoothoff',['smoothOff',['../class_nixie_tube.html#ac5f8fd737e98a0e83ca0508ebde229ef',1,'NixieTube']]],
-  ['smoothon',['smoothOn',['../class_nixie_display.html#a0f8f4d641fb677ea6bc73d708ae38795',1,'NixieDisplay::smoothOn()'],['../class_nixie_tube.html#a73da9b5a5e5ee565890cd69070fe7889',1,'NixieTube::smoothOn()']]],
+  ['smoothoff',['smoothOff',['../class_nixie_tube.html#aba3e3ece705b97f7ba7e45149d5aaf48',1,'NixieTube']]],
+  ['smoothon',['smoothOn',['../class_nixie_display.html#a0f8f4d641fb677ea6bc73d708ae38795',1,'NixieDisplay::smoothOn()'],['../class_nixie_tube.html#aa75e84d82e5e38a13f2fd9af6dffcbd0',1,'NixieTube::smoothOn()']]],
   ['snixiecolor',['SNixieColor',['../struct_s_nixie_color.html',1,'SNixieColor'],['../nixie__types_8h.html#a33fb9d7b4a6e26ae6b4bee1375a85ea7',1,'SNixieColor():&#160;nixie_types.h']]],
   ['snixiesamplingnote',['SNixieSamplingNote',['../struct_s_nixie_sampling_note.html',1,'']]],
   ['snixietemponote',['SNixieTempoNote',['../struct_s_nixie_tempo_note.html',1,'']]],

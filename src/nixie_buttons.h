@@ -38,6 +38,9 @@ typedef void (*TOnButtonEvent)(uint8_t id, uint16_t timeDeltaMs);
     #define ANALOG_BUTTONS_THRESHOLD  30
 #endif
 
+/**
+ * Class to process ADC line, which ADC buttons are connected to.
+ */
 class NixieAnalogButtons
 {
 public:

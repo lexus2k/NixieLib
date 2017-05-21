@@ -95,7 +95,7 @@ int16_t NixieHTU21::getHumidity()
     /* Reading crc */
     Wire.read();
 
-    /* Formula: 125*humidity/65536 - 6
+    /* Formula: 125*humidity/65536 - 6 */
 
     /* in hundreds C */
     return (((int32_t)humidity*125) >> 16 ) - 6;

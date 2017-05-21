@@ -27,6 +27,9 @@
  *     connected to the nixie tubes.
  *********************************************************************/
 
+/**
+ * Base class for all drivers to control Nixie tubes cathodes.
+ */
 class NixieDriver
 {
 public:
