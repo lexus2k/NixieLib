@@ -71,18 +71,14 @@ public:
     void           init(void);
 
     /**
-     * Sets binary code on the K155ID1 inputs, corresponding to specified digit
+     * Sets binary code on the K155ID1 inputs, corresponding to specified digit,
+     * and changes extended control pins. 
      * @param[in] pin - output to enable in the range [0;9]. K155ID1 has 10 outputs.
+     * @param[in] extendedPins - extended pins to enable
+     * @note all other pins are usually become disabled
      */
-    virtual void   switchPin(uint8_t pin);
-
-    /**
-     * Sets extended pins corresponding to specified bitvalues
-     * @param[in] value - bit values for each extended pin
-     */
-    virtual void   setExtendedPins(uint8_t value);
-    
-    
+    virtual void   switchPin(uint8_t pin, uint8_t extendedPins);
+   
 private:
     const uint8_t    *m_pins;
     uint8_t           m_count;

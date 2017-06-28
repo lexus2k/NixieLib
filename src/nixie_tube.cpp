@@ -217,8 +217,7 @@ void  NixieTube::updatePinState()
     // Set digit code for new digit to display.
     if ( (m_pinState & PIN_STATE_PWM_HIGH) && isBurning() )
     {
-        m_driver->switchPin( m_map[m_digit] );
-        m_driver->setExtendedPins( m_flags );
+        m_driver->switchPin( m_map[m_digit], m_flags );
         // Turn ON next bulb
         if ( m_pin != 0xFF )
         {

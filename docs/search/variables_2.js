@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['freq',['freq',['../struct_s_nixie_tempo_note.html#a5afb6a6e7133ac223f10976210760a64',1,'SNixieTempoNote::freq()'],['../struct_s_nixie_sampling_note.html#ab730a8a7a9a0795cafb28f429914ae8e',1,'SNixieSamplingNote::freq()']]]
+  ['entercb',['enterCb',['../struct_s_nixie_state_info.html#a4211be65d4ac3ab3ff79a05106defa50',1,'SNixieStateInfo']]],
+  ['event',['event',['../struct_s_nixie_event.html#a1c8f930bdb6960ed100617af75b15762',1,'SNixieEvent']]],
+  ['eventcb',['eventCb',['../struct_s_nixie_state_info.html#aa80b00828baf35ece20e33daee8919c2',1,'SNixieStateInfo']]]
 ];

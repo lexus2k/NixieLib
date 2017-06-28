@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['moveleft',['moveLeft',['../class_nixie_display.html#a284afde8644f212d0fea28f50d589b39',1,'NixieDisplay']]],
-  ['moveright',['moveRight',['../class_nixie_display.html#a975cda4570e74dda70864253b008a518',1,'NixieDisplay']]]
+  ['loop',['loop',['../namespace_nixie_os.html#aab89d8ec4e2f2aa9f9a4d997e77357fc',1,'NixieOs']]]
 ];

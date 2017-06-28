@@ -22,7 +22,7 @@
 
 //////////////////////////////////////////////////////////////////////////////
 
-void K155ID1::switchPin(uint8_t pin)
+void K155ID1::switchPin(uint8_t pin, uint8_t extendedPins)
 {
     /* We should not set binary code out of bound. */
     /* Otherwise, this can break K155ID1 driver.    */
@@ -43,15 +43,9 @@ void K155ID1::switchPin(uint8_t pin)
             NixieOs::pinHigh(m_pins[i]);
         }
     }
-}
-
-//////////////////////////////////////////////////////////////////////////////
-
-void  K155ID1::setExtendedPins(uint8_t value)
-{
     for (uint8_t i=0; i< m_count - 4; i++)
     {
-        if ((value >> i) & 0x01)
+        if ((extendedPins >> i) & 0x01)
             NixieOs::pinHigh(m_pins[i+4]);
         else
             NixieOs::pinLow(m_pins[i+4]);

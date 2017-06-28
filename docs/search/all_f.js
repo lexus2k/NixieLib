@@ -1,9 +1,11 @@
 var searchData=
 [
-  ['tempo',['tempo',['../struct_s_nixie_tempo_note.html#a55b879050762f3066395f2b456563093',1,'SNixieTempoNote']]],
-  ['timedelta',['timeDelta',['../class_ds3231.html#a2a3e197b0f70ed14f7bdb4ce16c1513c',1,'Ds3231']]],
-  ['todecimal',['toDecimal',['../class_ds3231.html#a124b0f89b94a70289a671e487b8e0bd0',1,'Ds3231']]],
-  ['tointernal',['toInternal',['../class_ds3231.html#a805158d9280a9fb634d6a47005438b7c',1,'Ds3231']]],
-  ['tominutes',['toMinutes',['../class_ds3231.html#a89132684df39ad859ffe10ebc6f725f2',1,'Ds3231']]],
-  ['type',['type',['../struct_nixie_melody.html#a08f705ccafb20882ffee89c4fee77a66',1,'NixieMelody']]]
+  ['r',['r',['../struct_s_nixie_color.html#a6261d21298e531783a86aed23ab1f948',1,'SNixieColor']]],
+  ['refresh',['refresh',['../namespace_nixie_os.html#a3a7e123eb3410e42f9cdc9874e27220c',1,'NixieOs']]],
+  ['render',['render',['../class_nixie_display.html#a94a7b627232da5afc7a1be240478b5ca',1,'NixieDisplay']]],
+  ['repair',['repair',['../class_nixie_display.html#adec0e3a8875e1535c91b464bd13e6ca1',1,'NixieDisplay']]],
+  ['resettimer',['resetTimer',['../namespace_nixie_os.html#a3bbe0e6edc3de6b5dab284ef3f76b5ea',1,'NixieOs']]],
+  ['restarttimer',['restartTimer',['../namespace_nixie_os.html#a4b3f9587c8cfb2c552a9fff9a45575af',1,'NixieOs']]],
+  ['rgb',['rgb',['../class_nixie_pwm_rgb_led.html#a52f3c8bb7105af511f789fd2674c8089',1,'NixiePwmRgbLed::rgb(byte r, byte g, byte b)'],['../class_nixie_pwm_rgb_led.html#a59b1b54bbb7564332d9405aca168e448',1,'NixiePwmRgbLed::rgb(const SNixieColor &amp;color)'],['../class_nixie_soft_rgb_led.html#aa302733cdff9ba01b928ff0e55a975ae',1,'NixieSoftRgbLed::rgb(byte r, byte g, byte b)'],['../class_nixie_soft_rgb_led.html#a327331bb2e976ee1d48dcb5bbf6261b6',1,'NixieSoftRgbLed::rgb(const SNixieColor &amp;color)']]],
+  ['run',['run',['../namespace_nixie_os.html#a3f80fc35f2b09df29e62f153d6d7985b',1,'NixieOs']]]
 ];

@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Nixie Library
-   &#160;<span id="projectnumber">0.5.2</span>
+   &#160;<span id="projectnumber">0.6.0</span>
    </div>
    <div id="projectbrief">Nixie Library to develop Nixie Clock</div>
   </td>
@@ -112,6 +112,19 @@ $(function() {
 </ul>
 
 
+<h3><a id="index_e"></a>- e -</h3><ul>
+<li>enterCb
+: <a class="el" href="struct_s_nixie_state_info.html#a4211be65d4ac3ab3ff79a05106defa50">SNixieStateInfo</a>
+</li>
+<li>event
+: <a class="el" href="struct_s_nixie_event.html#a1c8f930bdb6960ed100617af75b15762">SNixieEvent</a>
+</li>
+<li>eventCb
+: <a class="el" href="struct_s_nixie_state_info.html#aa80b00828baf35ece20e33daee8919c2">SNixieStateInfo</a>
+</li>
+</ul>
+
+
 <h3><a id="index_f"></a>- f -</h3><ul>
 <li>flags()
 : <a class="el" href="class_nixie_tube.html#a1ec3b519ece75e2cbd5925b799012084">NixieTube</a>
@@ -126,6 +139,9 @@ $(function() {
 <h3><a id="index_g"></a>- g -</h3><ul>
 <li>g
 : <a class="el" href="struct_s_nixie_color.html#ab98e1f04249fecccf812ba2b97f29f1e">SNixieColor</a>
+</li>
+<li>get()
+: <a class="el" href="class_nixie_events.html#ac84fcf5a8b14786585f8d32bc9d27a92">NixieEvents</a>
 </li>
 <li>getActiveBrightness()
 : <a class="el" href="class_nixie_tube.html#a17e4ef184454bfb2c925d31487579b23">NixieTube</a>
@@ -156,13 +172,22 @@ $(function() {
 
 
 <h3><a id="index_h"></a>- h -</h3><ul>
+<li>hasEvent()
+: <a class="el" href="class_nixie_events.html#a504187a9b35266af87fb0fdcebd38b63">NixieEvents</a>
+</li>
 <li>holdDuration()
 : <a class="el" href="class_nixie_analog_buttons.html#a00f537cbe025660d381423165a4d9941">NixieAnalogButtons</a>
+</li>
+<li>hours
+: <a class="el" href="struct_nixie_os_time.html#a0bc2b8fb81fc24f7ac659d4ac4e6fdc2">NixieOsTime</a>
 </li>
 </ul>
 
 
 <h3><a id="index_i"></a>- i -</h3><ul>
+<li>id
+: <a class="el" href="struct_s_nixie_state_info.html#a139285a1eb0ea3a0c7674edc6dab0d9a">SNixieStateInfo</a>
+</li>
 <li>init()
 : <a class="el" href="class_ds3231.html#afc9dfccb63849a89f475b08f3ad94829">Ds3231</a>
 , <a class="el" href="class_k155_i_d1.html#a82abfa521d7d467abb7d988d67d39e69">K155ID1</a>
@@ -192,7 +217,7 @@ $(function() {
 : <a class="el" href="class_nixie_analog_buttons.html#a8e34dede66f09a8c1785d78b8695d96a">NixieAnalogButtons</a>
 </li>
 <li>isLongPress()
-: <a class="el" href="class_nixie_analog_buttons.html#a11e31cf79bd4214a73f7701114285364">NixieAnalogButtons</a>
+: <a class="el" href="class_nixie_analog_buttons.html#a1c7a0982fb72a6b2e5f87669bcf90fab">NixieAnalogButtons</a>
 </li>
 <li>isNoAction()
 : <a class="el" href="class_nixie_analog_buttons.html#a2644c79b049e321299ccba7e2518230e">NixieAnalogButtons</a>
@@ -217,6 +242,9 @@ $(function() {
 <li>m_seconds
 : <a class="el" href="class_ds3231.html#a3de0301da243aff77e9b4b8ea5d8386f">Ds3231</a>
 </li>
+<li>minutes
+: <a class="el" href="struct_nixie_os_time.html#a8199dc48947f51527256ad5f52297e48">NixieOsTime</a>
+</li>
 <li>moveLeft()
 : <a class="el" href="class_nixie_display.html#a284afde8644f212d0fea28f50d589b39">NixieDisplay</a>
 </li>
@@ -236,6 +264,9 @@ $(function() {
 <li>NixieDisplay()
 : <a class="el" href="class_nixie_display.html#ab7479da38e68098c50101c3532189cee">NixieDisplay</a>
 </li>
+<li>NixieEvents()
+: <a class="el" href="class_nixie_events.html#a8b7f8a516e95559ab9dba69f58f47641">NixieEvents</a>
+</li>
 <li>NixieLdrGl5528()
 : <a class="el" href="class_nixie_ldr_gl5528.html#a3af4bdf8bc0e33a5168e518c74ad88dd">NixieLdrGl5528</a>
 </li>
@@ -249,7 +280,7 @@ $(function() {
 : <a class="el" href="class_nixie_soft_rgb_led.html#a06e30d00878bbab7ff7ec7c46e5ce25f">NixieSoftRgbLed</a>
 </li>
 <li>NixieTube()
-: <a class="el" href="class_nixie_tube.html#a2fbb9c10cfaaaeb7bcec3c7b961e8754">NixieTube</a>
+: <a class="el" href="class_nixie_tube.html#ab019b98f66ef7338542581b5b7cd3058">NixieTube</a>
 </li>
 <li>noBlink()
 : <a class="el" href="class_nixie_display.html#a7169c9cd04e0e0b4730ace992f1755dd">NixieDisplay</a>
@@ -314,6 +345,9 @@ $(function() {
 
 
 <h3><a id="index_p"></a>- p -</h3><ul>
+<li>param
+: <a class="el" href="struct_s_nixie_event.html#a9076f44edae23fecd20a7fe8eceb2dd0">SNixieEvent</a>
+</li>
 <li>pause
 : <a class="el" href="struct_nixie_melody.html#a07bbe32d0aacbcdc7b933e98e8a5ab99">NixieMelody</a>
 </li>
@@ -321,13 +355,16 @@ $(function() {
 : <a class="el" href="class_nixie_audio_channel.html#a249219529b7b80055c56aa25bc0dc5b7">NixieAudioChannel</a>
 </li>
 <li>playNote()
-: <a class="el" href="class_nixie_audio_channel.html#a15bac6a7d1b67e648a56e821f0ee1678">NixieAudioChannel</a>
+: <a class="el" href="class_nixie_audio_channel.html#a32e2e8f24ce1ab9468feb4de4c2b8bfe">NixieAudioChannel</a>
 </li>
 <li>powerOff()
 : <a class="el" href="class_nixie_display.html#a4408d8bcbea7af955167ed202a4fd4ab">NixieDisplay</a>
 </li>
 <li>powerOn()
 : <a class="el" href="class_nixie_display.html#ab55396f284de1da0904174eed253f62c">NixieDisplay</a>
+</li>
+<li>put()
+: <a class="el" href="class_nixie_events.html#aa1fe1ca80a141fc81845c72fb33fe2fb">NixieEvents</a>
 </li>
 </ul>
 
@@ -343,7 +380,7 @@ $(function() {
 : <a class="el" href="class_nixie_display.html#adec0e3a8875e1535c91b464bd13e6ca1">NixieDisplay</a>
 </li>
 <li>rgb()
-: <a class="el" href="class_nixie_pwm_rgb_led.html#a59b1b54bbb7564332d9405aca168e448">NixiePwmRgbLed</a>
+: <a class="el" href="class_nixie_pwm_rgb_led.html#a52f3c8bb7105af511f789fd2674c8089">NixiePwmRgbLed</a>
 , <a class="el" href="class_nixie_soft_rgb_led.html#aa302733cdff9ba01b928ff0e55a975ae">NixieSoftRgbLed</a>
 </li>
 </ul>
@@ -364,7 +401,10 @@ $(function() {
 : <a class="el" href="class_nixie_tube.html#a0b96aba6bf1bcbd64ac75af4ab1c83ba">NixieTube</a>
 </li>
 <li>scrollOn()
-: <a class="el" href="class_nixie_tube.html#ad955f1d89536b8eae0333f02ca640973">NixieTube</a>
+: <a class="el" href="class_nixie_tube.html#a2dde4bb92dbb78e6757caeab9fabe1e5">NixieTube</a>
+</li>
+<li>seconds
+: <a class="el" href="struct_nixie_os_time.html#aba95f6a8daca16f27d6976c0290f2b4a">NixieOsTime</a>
 </li>
 <li>setAnodPin()
 : <a class="el" href="class_nixie_tube.html#a693a7963277c07e0beb56eeef415b36d">NixieTube</a>
@@ -384,10 +424,6 @@ $(function() {
 </li>
 <li>setDriver()
 : <a class="el" href="class_nixie_tube.html#a9843a8c2056cc05ccc8880054bfad2cb">NixieTube</a>
-</li>
-<li>setExtendedPins()
-: <a class="el" href="class_k155_i_d1.html#a3c71e6cbfe693ba36d3dee81a285f582">K155ID1</a>
-, <a class="el" href="class_nixie_driver.html#a9693203997f37468a5f2c3232b05f764">NixieDriver</a>
 </li>
 <li>setFlags()
 : <a class="el" href="class_nixie_tube.html#af9da67bb4d8b6a8abde7fc6c500c310b">NixieTube</a>
@@ -414,6 +450,9 @@ $(function() {
 : <a class="el" href="class_nixie_display.html#a0f8f4d641fb677ea6bc73d708ae38795">NixieDisplay</a>
 , <a class="el" href="class_nixie_tube.html#aa75e84d82e5e38a13f2fd9af6dffcbd0">NixieTube</a>
 </li>
+<li>stateCb
+: <a class="el" href="struct_s_nixie_state_info.html#a870e7c1b21e6f7b6ba4a54228b1e9b37">SNixieStateInfo</a>
+</li>
 <li>stopMusic()
 : <a class="el" href="class_nixie_audio_channel.html#a41d8452589d07ace912328608ae3d0e2">NixieAudioChannel</a>
 </li>
@@ -421,8 +460,8 @@ $(function() {
 : <a class="el" href="class_nixie_display.html#a50ce0ba783c0e485fbd3f6473d6fda6c">NixieDisplay</a>
 </li>
 <li>switchPin()
-: <a class="el" href="class_k155_i_d1.html#aef2be09ab3e4599d9bc5c5dde8dbf933">K155ID1</a>
-, <a class="el" href="class_nixie_driver.html#a7a9c3b5dd030afdd6f0115430eb61424">NixieDriver</a>
+: <a class="el" href="class_k155_i_d1.html#a6447c73ad3329187511769715d358667">K155ID1</a>
+, <a class="el" href="class_nixie_driver.html#a1a1de17599d107c14d4536188531e7c6">NixieDriver</a>
 </li>
 </ul>
 

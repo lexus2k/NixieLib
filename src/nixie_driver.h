@@ -39,17 +39,13 @@ public:
     virtual void init() = 0;
 
     /**
-     * Enables specified output pin on Nixie driver
-     * @param[in] pin - pin to enable
+     * Enables specified output pin on Nixie driver and Changes extended control pins. 
+     * Actual implementation depends on specific driver.
+     * @param[in] pin          - pin to enable
+     * @param[in] extendedPins - pin to enable
      * @note all other pins are usually become disabled
      */
-    virtual void switchPin(uint8_t pin) = 0;
-
-    /**
-     * Changes extended control pins. 
-     * Actual implementation depends on specific driver.
-     */
-    virtual void setExtendedPins(uint8_t value) = 0;
+    virtual void switchPin(uint8_t pin, uint8_t extendedPins) = 0;
 };
 
 #endif

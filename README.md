@@ -1,16 +1,14 @@
 = Nixie Library for Arduino =
 
-**The library depends on NixieOs library**: https://github.com/lexus2k/NixieOs.
-Please download and install NixieOs also.
-
 With this library you can easy develop software for Nixie Clock and create
 interesting sound and visual effects. The library contains all required
 modules to communicate with different peripherals hardware (RTC, sensors,
 tube drivers). The library was tested on Attiny85, Attiny45, Atmega168
 and Atmega328p controllers. Nixie Library includes faster digitalWrite,
 analogRead functions implementations (nixiePinLow, nixiePinHigh,
-nixieAnalogRead) for Atmega328p controllers. If you have questions, please
-contact via email.
+nixieAnalogRead) for Atmega328p controllers. The library uses millis() and micros()
+functions. So, if you change TIMER0 settings, this will affect NixieLib behavior.
+If you have questions, please contact via email.
 
 The library supports the following devices:
  * DS3231, DS3232 RTC chips
@@ -22,6 +20,15 @@ The library supports the following devices:
  * Mono-LEDs
  * RGB-LEDs (both PWM controlled and Software controlled)
  * LM35DZ temperature sensor
+
+The library supports the following features:
+
+ * Switching between states (state-machine tasks)
+ * Sending and processes events
+ ** System events: timers
+ ** User defined events
+ * Fast analog read functions (optimized for Atmega328p)
+ * Fast digital write functions (optimized for Atmega328p)
 
 For more information about this library please visit
 https://github.com/lexus2k/nixielib.

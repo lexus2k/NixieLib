@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['pause',['pause',['../struct_nixie_melody.html#a07bbe32d0aacbcdc7b933e98e8a5ab99',1,'NixieMelody']]]
+  ['id',['id',['../struct_s_nixie_state_info.html#a139285a1eb0ea3a0c7674edc6dab0d9a',1,'SNixieStateInfo']]]
 ];

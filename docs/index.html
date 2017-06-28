@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Nixie Library
-   &#160;<span id="projectnumber">0.5.2</span>
+   &#160;<span id="projectnumber">0.6.0</span>
    </div>
    <div id="projectbrief">Nixie Library to develop Nixie Clock</div>
   </td>
@@ -67,8 +67,9 @@ $(function() {
 <div class="textblock"><p>This is Nixie Library implementation for Arduino.</p>
 <h1>Nixie Library</h1>
 <h2>Introduction</h2>
-<p>With this library you can easy develop software for Nixie Clock and create interesting sound and visual effects. The library contains all required modules to communicate with different peripherals hardware (RTC, sensors, tube drivers). The library was tested on Attiny85, Attiny45, Atmega168 and Atmega328p controllers. Nixie Library includes faster digitalWrite, analogRead functions implementations (nixiePinLow, nixiePinHigh, nixieAnalogRead) for Atmega328p controllers. If you have questions, please contact via email.</p>
-<p>The library supports the following devices: DS3231, DS3232 RTC chips Piezo buzzer audio output Analog buttons I2C client implementation for slave devices Nixie Tubes (any: IN-14, IN-12, etc. ) GL 5528 lightsensor (most popular light sensor on Arduino platforms) <a class="el" href="class_k155_i_d1.html" title="Transforms digit to binary code to control K155ID1 driver. ">K155ID1</a> nixie drivers Mono-LEDs RGB-LEDs (PWM controlled) LM35DZ, HTU21 temperature sensor DS3232 temperature values. </p>
+<p>With this library you can easy develop software for Nixie Clock and create interesting sound and visual effects. The library contains all required modules to communicate with different peripherals hardware (RTC, sensors, tube drivers). The library was tested on Attiny85, Attiny45, Atmega168 and Atmega328p controllers. The library uses millis() and micros() functions. So, if you change TIMER0 settings, this will affect Nixie Library behavior. Nixie Library includes faster digitalWrite, analogRead functions implementations (nixiePinLow, nixiePinHigh, nixieAnalogRead) for Atmega328p controllers. If you have questions, please contact via email.</p>
+<p>The library supports the following devices: DS3231, DS3232 RTC chips Piezo buzzer audio output Analog buttons I2C client implementation for slave devices Nixie Tubes (any: IN-14, IN-12, etc. ) GL 5528 lightsensor (most popular light sensor on Arduino platforms) <a class="el" href="class_k155_i_d1.html" title="Transforms digit to binary code to control K155ID1 driver. ">K155ID1</a> nixie drivers Mono-LEDs RGB-LEDs (PWM controlled) LM35DZ, HTU21 temperature sensor DS3232 temperature values.</p>
+<p>The library supports the following features: Switching between states (state-machine tasks) Sending and processes events System events: timers User defined events Fast analog read functions (optimized for Atmega328p) Fast digital write functions (optimized for Atmega328p) </p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

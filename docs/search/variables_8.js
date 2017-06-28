@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['tempo',['tempo',['../struct_s_nixie_tempo_note.html#a55b879050762f3066395f2b456563093',1,'SNixieTempoNote']]],
-  ['type',['type',['../struct_nixie_melody.html#a08f705ccafb20882ffee89c4fee77a66',1,'NixieMelody']]]
+  ['notes',['notes',['../struct_nixie_melody.html#a0c5a5ff2ae8d152f9dd3d9fa56b9b4b1',1,'NixieMelody']]]
 ];

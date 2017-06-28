@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Nixie Library
-   &#160;<span id="projectnumber">0.5.2</span>
+   &#160;<span id="projectnumber">0.6.0</span>
    </div>
    <div id="projectbrief">Nixie Library to develop Nixie Clock</div>
   </td>
@@ -90,10 +90,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a9352116847583dc85fca1cbaf6d7dc8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a82abfa521d7d467abb7d988d67d39e69"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k155_i_d1.html#a82abfa521d7d467abb7d988d67d39e69">init</a> (void)</td></tr>
 <tr class="separator:a82abfa521d7d467abb7d988d67d39e69"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aef2be09ab3e4599d9bc5c5dde8dbf933"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k155_i_d1.html#aef2be09ab3e4599d9bc5c5dde8dbf933">switchPin</a> (uint8_t pin)</td></tr>
-<tr class="separator:aef2be09ab3e4599d9bc5c5dde8dbf933"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3c71e6cbfe693ba36d3dee81a285f582"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k155_i_d1.html#a3c71e6cbfe693ba36d3dee81a285f582">setExtendedPins</a> (uint8_t value)</td></tr>
-<tr class="separator:a3c71e6cbfe693ba36d3dee81a285f582"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6447c73ad3329187511769715d358667"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k155_i_d1.html#a6447c73ad3329187511769715d358667">switchPin</a> (uint8_t pin, uint8_t extendedPins)</td></tr>
+<tr class="separator:a6447c73ad3329187511769715d358667"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Transforms digit to binary code to control <a class="el" href="class_k155_i_d1.html" title="Transforms digit to binary code to control K155ID1 driver. ">K155ID1</a> driver. </p>
@@ -175,9 +173,9 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_k155_i_d1.html#a3c71e6cbfe693ba36d3dee81a285f582">setExtendedPins</a> </dd>
+<dl class="section see"><dt>See also</dt><dd>setExtendedPins </dd>
 <dd>
-<a class="el" href="class_k155_i_d1.html#aef2be09ab3e4599d9bc5c5dde8dbf933">switchPin</a> </dd></dl>
+<a class="el" href="class_k155_i_d1.html#a6447c73ad3329187511769715d358667">switchPin</a> </dd></dl>
 
 <p>Definition at line <a class="el" href="nixie__k155id1_8h_source.html#l00062">62</a> of file <a class="el" href="nixie__k155id1_8h_source.html">nixie_k155id1.h</a>.</p>
 
@@ -211,48 +209,12 @@ Public Member Functions</h2></td></tr>
 
 <p>Implements <a class="el" href="class_nixie_driver.html#afa2e84211696fe1d0c944ee1566fefa2">NixieDriver</a>.</p>
 
-<p>Definition at line <a class="el" href="nixie__k155id1_8cpp_source.html#l00063">63</a> of file <a class="el" href="nixie__k155id1_8cpp_source.html">nixie_k155id1.cpp</a>.</p>
+<p>Definition at line <a class="el" href="nixie__k155id1_8cpp_source.html#l00057">57</a> of file <a class="el" href="nixie__k155id1_8cpp_source.html">nixie_k155id1.cpp</a>.</p>
 
 </div>
 </div>
-<a id="a3c71e6cbfe693ba36d3dee81a285f582"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3c71e6cbfe693ba36d3dee81a285f582">&sect;&nbsp;</a></span>setExtendedPins()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void K155ID1::setExtendedPins </td>
-          <td>(</td>
-          <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>value</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Sets extended pins corresponding to specified bitvalues </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>- bit values for each extended pin </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Implements <a class="el" href="class_nixie_driver.html#a9693203997f37468a5f2c3232b05f764">NixieDriver</a>.</p>
-
-<p>Definition at line <a class="el" href="nixie__k155id1_8cpp_source.html#l00050">50</a> of file <a class="el" href="nixie__k155id1_8cpp_source.html">nixie_k155id1.cpp</a>.</p>
-
-</div>
-</div>
-<a id="aef2be09ab3e4599d9bc5c5dde8dbf933"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aef2be09ab3e4599d9bc5c5dde8dbf933">&sect;&nbsp;</a></span>switchPin()</h2>
+<a id="a6447c73ad3329187511769715d358667"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6447c73ad3329187511769715d358667">&sect;&nbsp;</a></span>switchPin()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -264,8 +226,18 @@ Public Member Functions</h2></td></tr>
           <td class="memname">void K155ID1::switchPin </td>
           <td>(</td>
           <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>pin</em></td><td>)</td>
+          <td class="paramname"><em>pin</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>extendedPins</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -274,14 +246,16 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Sets binary code on the <a class="el" href="class_k155_i_d1.html" title="Transforms digit to binary code to control K155ID1 driver. ">K155ID1</a> inputs, corresponding to specified digit </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Sets binary code on the <a class="el" href="class_k155_i_d1.html" title="Transforms digit to binary code to control K155ID1 driver. ">K155ID1</a> inputs, corresponding to specified digit, and changes extended control pins. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">pin</td><td>- output to enable in the range [0;9]. <a class="el" href="class_k155_i_d1.html" title="Transforms digit to binary code to control K155ID1 driver. ">K155ID1</a> has 10 outputs. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">extendedPins</td><td>- extended pins to enable </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section note"><dt>Note</dt><dd>all other pins are usually become disabled </dd></dl>
 
-<p>Implements <a class="el" href="class_nixie_driver.html#a7a9c3b5dd030afdd6f0115430eb61424">NixieDriver</a>.</p>
+<p>Implements <a class="el" href="class_nixie_driver.html#a1a1de17599d107c14d4536188531e7c6">NixieDriver</a>.</p>
 
 <p>Definition at line <a class="el" href="nixie__k155id1_8cpp_source.html#l00025">25</a> of file <a class="el" href="nixie__k155id1_8cpp_source.html">nixie_k155id1.cpp</a>.</p>
 
