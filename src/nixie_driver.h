@@ -46,6 +46,11 @@ public:
      * @note all other pins are usually become disabled
      */
     virtual void switchPin(uint8_t pin, uint8_t extendedPins) = 0;
+
+    /**
+     * Disables all output pins. That is, noone pin is selected.
+     */       
+    virtual void off() = 0;
 };
 
 #endif

@@ -78,6 +78,14 @@ public:
      * @note all other pins are usually become disabled
      */
     virtual void   switchPin(uint8_t pin, uint8_t extendedPins);
+
+    /**
+     * Disables all output pins. That is, noone pin is selected.
+     * Be careful, because for K155ID1 chip it is done by setting
+     * incorrect binary code on input (1,1,1,1). This can cause
+     * some K155ID1 chips to become broken.
+     */       
+    virtual void off();
    
 private:
     const uint8_t    *m_pins;

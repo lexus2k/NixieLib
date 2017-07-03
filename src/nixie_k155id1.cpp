@@ -63,3 +63,7 @@ void K155ID1::init(void)
     }
 }
 
+void K155ID1::off()
+{
+    K155ID1::switchPin( 0x0F, 0x00 );
+}

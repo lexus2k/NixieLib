@@ -226,6 +226,7 @@ void  NixieTube::updatePinState()
     }
     else
     {
+        m_driver->off();
         if ( m_pin != 0xFF )
         {
             NixieOs::pinLow( m_pin );
