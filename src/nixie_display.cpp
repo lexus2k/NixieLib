@@ -87,7 +87,7 @@ void NixieDisplay::render()
         for (uint8_t i=0; i<m_maxTubes; i++)
             m_tubes[i].update();
         if (++m_tube >= m_maxTubes) m_tube = 0;
-        if ( m_powerOn && m_tubes[m_tube].isBurning() )
+        if ( m_powerOn )
         {
             m_tubes[m_tube].anodOn();
         }

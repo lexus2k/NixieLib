@@ -243,8 +243,8 @@ void run()
             {
                 if (g_nixieMsEx - s_timers[id].startMs > s_timers[id].timeoutMs)
                 {
-                    NixieOs::sendEvent(NIXIEOS_EVENT_TIMEOUT, id);
                     s_timers[id].aimed = false;
+                    NixieOs::sendEvent(NIXIEOS_EVENT_TIMEOUT, id);
                 }
             }
         }
