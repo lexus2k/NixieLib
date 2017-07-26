@@ -24,7 +24,7 @@
 #define NIXIE_BRIGHTNESS_BITS   5
 
 /** How quickly each digit switches to another when numerating digits in milliseconds */
-#define SCROLL_INTERVAL         40
+#define SCROLL_INTERVAL         50
 
 /** The blinking internal of the tube in milliseconds. Must be power of 2. */
 #define BLINK_INTERVAL          1024
@@ -58,7 +58,6 @@
 #define CHANGE_INTERVAL   1600 // ~ 104Hz for each tube
 //#define CHANGE_INTERVAL   1200 // ~ 138Hz for each tube
 //#define CHANGE_INTERVAL   800 // ~ 160Hz for each tube
-#define DISPLAY_BRIGHTNESS_RANGE  (uint32_t)( NIXIE_MAX_BRIGHTNESS - 2 )
 
 #define MIN_DESIRED_BRIGHTNESS  ( 3 * NIXIE_MAX_BRIGHTNESS / 32 )
 #define MIN_NIXIE_IMPULSE_SPEC  ( 70 )  // 70us per spec

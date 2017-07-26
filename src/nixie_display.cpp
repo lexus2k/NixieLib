@@ -20,10 +20,6 @@
 #include "nixie_display.h"
 #include "nixieos.h"
 
-static const uint32_t s_newInterval = ( (uint32_t)CHANGE_INTERVAL * DISPLAY_BRIGHTNESS_RANGE ) / (uint32_t)NIXIE_MAX_BRIGHTNESS;
-static const uint32_t s_minChangeInterval = (uint32_t)CHANGE_INTERVAL - s_newInterval;
-
-
 NixieDisplay::NixieDisplay(NixieDriver   & driver,
                            const uint8_t   tubePins[],
                            const uint8_t * mapTable,
@@ -57,7 +53,6 @@ void NixieDisplay::render()
      * is passed. */
     if (m_tubes[m_tube].update())
     {
-        m_tubes[m_tube].anodOff();
         nextTube = true;
     }
     switch (m_state)
@@ -83,10 +78,13 @@ void NixieDisplay::render()
     }
     if ( nextTube )
     {
-        // Select next tube
+        /* Synchronize all tubes */
         for (uint8_t i=0; i<m_maxTubes; i++)
+        {
             m_tubes[i].update();
-        if (++m_tube >= m_maxTubes) m_tube = 0;
+        }
+        /* Select next tube */
+        m_tube++; if (m_tube >= m_maxTubes) m_tube = 0;
         if ( m_powerOn )
         {
             m_tubes[m_tube].anodOn();
@@ -312,7 +310,10 @@ void NixieDisplay::moveRight(int8_t positions)
 
 void NixieDisplay::scrollForward(ENixieTubeState tubeState)
 {
-    for (byte i=0; i<m_maxTubes; i++) getByIndex(i).scrollForward(tubeState);
+    for (uint8_t i=0; i<m_maxTubes; i++)
+    {
+        getByIndex(i).scrollForward(tubeState);
+    }
 }
 
 void NixieDisplay::scroll321( )

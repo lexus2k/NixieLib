@@ -20,7 +20,6 @@
 #include "nixie_tube.h"
 #include "nixieos.h"
 
-
 void  NixieTube::init()
 {
     if (m_pin != 0xFF)
@@ -39,23 +38,14 @@ void  NixieTube::init()
 bool NixieTube::update()
 {
     /* To reduce load of uC, during active period perform calculations only during
-       updating pwm state
-    */
-    if (g_nixieUs - m_uts < CHANGE_INTERVAL)
+       updating pwm state */
+    uint16_t deltaUs = (uint16_t)(g_nixieUs - m_uts);
+    if (deltaUs >= m_impulseWidth )
     {
-        if (g_nixieUs - m_uts < m_impulseWidth )
-        {
-            if ( (m_pinState & PIN_STATE_POWERED) && !(m_pinState & PIN_STATE_PWM_HIGH ) )
-            {
-                m_pinState |= PIN_STATE_PWM_HIGH;
-                updatePinState();
-            }
-        }
-        else if (m_pinState & PIN_STATE_PWM_HIGH)
-        {
-            m_pinState &= ~(PIN_STATE_PWM_HIGH);
-            updatePinState();
-        }
+        anodOff();
+    }
+    if (deltaUs < CHANGE_INTERVAL)
+    {
         return false;
     }
     m_uts = g_nixieUs;
@@ -199,23 +189,29 @@ bool NixieTube::update()
 
 void  NixieTube::anodOff()
 {
-    m_pinState &= ~(PIN_STATE_POWERED | PIN_STATE_PWM_HIGH); 
-    updatePinState();
+    if ( m_pinState & PIN_STATE_PWM_HIGH )
+    {
+        m_pinState &= ~(PIN_STATE_PWM_HIGH);
+        updateAnodPinState();
+    }
 }
 
 
 void  NixieTube::anodOn()
 {
-    m_pinState |= (PIN_STATE_POWERED | PIN_STATE_PWM_HIGH);
-    m_uts     = g_nixieUs;
-    updatePinState();
+    m_uts = g_nixieUs;
+    if ( !(m_pinState & PIN_STATE_PWM_HIGH) && isBurning() )
+    {
+        m_pinState |= PIN_STATE_PWM_HIGH;
+        updateAnodPinState();
+    }
 }
 
 
-void  NixieTube::updatePinState()
+void  NixieTube::updateAnodPinState()
 {
     // Set digit code for new digit to display.
-    if ( (m_pinState & PIN_STATE_PWM_HIGH) && isBurning() )
+    if ( m_pinState & PIN_STATE_PWM_HIGH )
     {
         m_driver->switchPin( m_map[m_digit], m_flags );
         // Turn ON next bulb
@@ -226,11 +222,11 @@ void  NixieTube::updatePinState()
     }
     else
     {
-        m_driver->off();
         if ( m_pin != 0xFF )
         {
             NixieOs::pinLow( m_pin );
         }
+        m_driver->off();
     }
 }
 
@@ -338,6 +334,7 @@ void  NixieTube::scrollForward(ENixieTubeState next)
 {
     m_state = TUBE_SCROLL_FORWARD;
     m_enabled = true;
+    m_dimmingTs = g_nixieMs;
     m_delayedScroll = 10;
     m_next = next;
     m_digit = m_value;
@@ -348,6 +345,7 @@ void  NixieTube::scrollBack(ENixieTubeState next)
 {
     m_state = TUBE_SCROLL_BACK;
     m_enabled = true;
+    m_dimmingTs = g_nixieMs;
     m_delayedScroll = 10;
     m_next = next;
     m_digit = m_value;
@@ -399,13 +397,10 @@ void NixieTube::operator =(const NixieTube &tube)
      * Otherwise, it breaks tube effects. */
 }
 
-
-static const uint32_t s_newInterval = ( (uint32_t)CHANGE_INTERVAL * DISPLAY_BRIGHTNESS_RANGE ) / (uint32_t)NIXIE_MAX_BRIGHTNESS;
-static const uint32_t s_minChangeInterval = (uint32_t)CHANGE_INTERVAL - s_newInterval;
-
 void  NixieTube::setActiveBrightness( uint8_t brightness )
 {
     m_tempBrightness = brightness;
-    m_impulseWidth = (uint16_t)(( s_minChangeInterval + s_newInterval * (uint32_t)brightness) >> NIXIE_BRIGHTNESS_BITS );
+    m_impulseWidth = (uint16_t)(( CHANGE_INTERVAL * (uint32_t)brightness ) >> NIXIE_BRIGHTNESS_BITS );
+    m_impulseWidth = min(m_impulseWidth, CHANGE_INTERVAL);
 }
 

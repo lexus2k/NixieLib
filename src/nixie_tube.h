@@ -80,7 +80,6 @@ class NixieTube
 private:
     enum
     {
-        PIN_STATE_POWERED  = 0x01,
         PIN_STATE_PWM_HIGH = 0x02,
     } EPinState;
 public:
@@ -100,7 +99,7 @@ public:
         m_map = mapTable;
         m_driver = driver;
         m_pin = 0xFF;       // no-pin to control bulb Anod
-        m_pinState = PIN_STATE_POWERED | PIN_STATE_PWM_HIGH;
+        m_pinState = PIN_STATE_PWM_HIGH;
     };
 
     /**
@@ -119,7 +118,7 @@ public:
         m_map = mapTable;
         m_driver = driver;
         m_pin = pin;        // pin controlling Anod power
-        m_pinState = PIN_STATE_POWERED | PIN_STATE_PWM_HIGH;
+        m_pinState = PIN_STATE_PWM_HIGH;
     };
 
 
@@ -354,7 +353,7 @@ private:
     /** Sets active brightness */
     void               setActiveBrightness( uint8_t brightness );
 
-    void               updatePinState();
+    void               updateAnodPinState();
 };
 
 
