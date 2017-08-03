@@ -22,6 +22,12 @@
 
 #include <nixie_types.h>
 
+typedef enum
+{
+    DS3231_REFRESH_FORCED,
+    DS3231_REFRESH_REDUCED,
+} ERefreshType;
+
 /**
  * @brief Provides access to DS3231 register values
  *
@@ -73,6 +79,14 @@ public:
      * Writes only time to the chip. The date state is preserved.
      */
     void    setTime();
+
+    /**
+     * Reads time from RTC chip.
+     * Depending on selected mode can reduce number i2c reads using
+     * arduino millis() function.
+     * @param type - DS3231_REFRESH_FORCED or DS3231_REFRESH_REDUCED
+     */
+    void    refreshTime(ERefreshType type);
     
     /** 
      * Returns temp in celsius times four.
@@ -113,9 +127,11 @@ public:
      * If timestamps are 22*60 and 60, the function will return 180.
      */
     static int16_t timeDelta(int16_t min1, int16_t min2);
+    
 private:
     static const int I2C_ADDR_AT24C32 = 0x57;
     static const int I2C_ADDR_DS3231  = 0x68;
+    uint16_t m_lastRefreshTs;
     bool m_no_device;
 };
 

@@ -18,6 +18,7 @@
 */
 
 #include "nixie_ds3232.h"
+#include "nixieos.h"
 
 #if !defined(__AVR_ATtiny25__) && \
     !defined(__AVR_ATtiny45__) && \
@@ -30,8 +31,8 @@ bool Ds3231::init()
     /* Init DS3232/DS3231 */
     Wire.beginTransmission(I2C_ADDR_DS3231);
     Wire.write(0x0E); // Write to control register
-    Wire.write(0b00011100);
-    Wire.write(0b00110000);
+    Wire.write(B00011100);
+    Wire.write(B00110000);
     if ( Wire.endTransmission() != 0)
     {
         m_no_device = true;
@@ -85,6 +86,7 @@ void Ds3231::getDateTime()
         m_day         = Wire.read();
         m_month       = Wire.read() & 0x1F;
         m_year        = Wire.read();
+        m_lastRefreshTs = g_nixieMs;
     }
 }
 
@@ -104,6 +106,7 @@ void Ds3231::setDateTime()
     Wire.write(m_month);
     Wire.write(m_year);
     Wire.endTransmission();
+    m_lastRefreshTs = g_nixieMs;
 }
 
 void    Ds3231::setDate()
@@ -133,6 +136,7 @@ void    Ds3231::setTime()
     Wire.write(m_minutes);
     Wire.write(m_hours);
     Wire.endTransmission();
+    m_lastRefreshTs = g_nixieMs;
 }
 
 int16_t Ds3231::getTemp()
@@ -194,6 +198,36 @@ int16_t Ds3231::timeDelta(int16_t min1, int16_t min2)
     }
     return delta1 < delta2 ? delta1: delta2;
 }
+
+
+void Ds3231::refreshTime(ERefreshType type)
+{
+    if ( DS3231_REFRESH_FORCED == type )
+    {
+        getDateTime();
+        return;
+    }
+    /* Updating RTC to reduce requests to RTC chip */
+    if ((uint16_t)(g_nixieMs - m_lastRefreshTs) > 1000)
+    {
+        if ((uint16_t)(g_nixieMs - m_lastRefreshTs) > 3000)
+        {
+            getDateTime();
+        }
+        else
+        {
+            uint8_t seconds = Ds3231::toDecimal(m_seconds) + 1;
+            if (seconds > 59)
+            {
+                getDateTime();
+            }
+            else
+                m_seconds = Ds3231::toInternal(seconds);
+            m_lastRefreshTs += 1000;
+        }
+    }
+}
+
 
 #endif
 

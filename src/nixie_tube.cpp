@@ -92,7 +92,7 @@ bool NixieTube::update()
         break;
     case TUBE_SCROLL_OFF:
         {
-            uint16_t delta = g_nixieMs - m_mts;
+            uint16_t delta = (uint16_t)(g_nixieMs - m_mts);
             if (delta >= SCROLL_INTERVAL)
             {
                 m_mts += SCROLL_INTERVAL;
@@ -130,7 +130,7 @@ bool NixieTube::update()
         break;
     case TUBE_SCROLL_WRAP:
     case TUBE_SCROLL_FORWARD:
-        if (g_nixieMs - m_mts >= SCROLL_INTERVAL)
+        if ((uint16_t)(g_nixieMs - m_mts) >= SCROLL_INTERVAL)
         {
             m_mts += SCROLL_INTERVAL;
             if (m_delayedScroll > 0) m_delayedScroll--;
