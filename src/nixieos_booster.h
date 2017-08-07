@@ -132,7 +132,7 @@ static inline void pinHigh(uint8_t pin)
  */
 static inline void digitalWrite(uint8_t pin, uint8_t level)
 {
-    if (level) nixiePinHigh(pin); else nixiePinLow(pin);
+    if (level) pinHigh(pin); else pinLow(pin);
 }
 
 

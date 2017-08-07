@@ -82,16 +82,31 @@ public:
     void setRoomAdcLevel (int16_t level) { m_roomLevel = level; };
 
     /**
+     * Returns sensor level set for the room
+     */
+    int16_t getRoomAdcLevel  () { return m_roomLevel; };
+
+    /**
      * Sets Adc value, which corresponds to night (complete darkness).
      * @param[in] level - ADC level to set. For arduino it is usually in the range [0..1023]
      */
     void setNightAdcLevel(int16_t level) { m_nightLevel = level; };
 
     /**
+     * Returns sensor level set for the night
+     */
+    int16_t getNightAdcLevel  () { return m_nightLevel; };
+
+    /**
      * Sets Adc value, which corresponds to day light (most brightness level, which can be registered).
      * @param[in] level - ADC level to set. For arduino it is usually in the range [0..1023]
      */
     void setDayAdcLevel  (int16_t level) { m_dayLevel = level; };
+
+    /**
+     * Returns sensor level set for the day
+     */
+    int16_t getDayAdcLevel  () { return m_dayLevel; };
 private:
     int16_t     m_nightLevel  = LIGHT_LEVEL_NIGHT;
     int16_t     m_roomLevel   = LIGHT_LEVEL_ROOM;

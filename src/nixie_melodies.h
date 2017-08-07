@@ -57,5 +57,7 @@ extern const NixieMelody soundOk;
 
 extern const NixieMelody soundClock;
 
+extern const NixieMelody doorBell;
+
 #endif /* _NIXIE_MELODIES_H_ */
 

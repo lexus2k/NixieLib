@@ -1511,10 +1511,21 @@ const NixieMelody soundOk = {
 
 
 const PROGMEM SNixieTempoNote timeChange1[] = {
-  { 1000, 16 }, { NOTE_SILENT, 16 }, {1000, 16},
-  { NOTE_SILENT, 2},
-  { 1000, 16 }, { NOTE_SILENT, 16 }, {1000, 16},
-  { NOTE_STOP, 0 },
+    { 1000, 16 }, { NOTE_SILENT, 16 }, {1000, 16},
+    { NOTE_SILENT, 2},
+    { 1000, 16 }, { NOTE_SILENT, 16 }, {1000, 16},
+    { NOTE_STOP, 0 },
+};
+
+const PROGMEM SNixieSamplingNote doorBellNotes[] = {
+    { 660, 700 }, { 550, 700 }, { 440, 700 },
+    { NOTE_STOP, 0 },
+};
+
+const NixieMelody doorBell = {
+     .notes = (const uint8_t *)doorBellNotes,
+     .type = MELODY_TYPE_PROGMEM_SAMPLING,
+     .pause = 5,
 };
 
 const NixieMelody soundClock = {
