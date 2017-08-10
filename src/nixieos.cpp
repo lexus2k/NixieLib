@@ -48,15 +48,6 @@ void getTime(NixieOsTime *timeRec)
     *timeRec = __currentTime;
 } */
 
-/**
- * the function is intended for internal use only
- */
-void updateTime() __attribute__((weak));
-void updateTime()
-{
-    
-}
-
 
 }
 
@@ -231,11 +222,11 @@ void refresh()
 
 void run()
 {
-    uint8_t   lms = (uint8_t)g_nixieMs;
+    uint8_t   lms = (uint8_t)g_nixieMsEx;
     g_nixieMsEx = millis();  
     g_nixieUsEx = micros();
     /* Recalculate timers only when milliseconds counter changes */
-    if (lms != (uint8_t)g_nixieMs)
+    if (lms != (uint8_t)g_nixieMsEx)
     {
         for(uint8_t id=0; id<NIXIEOS_MAX_TIMERS; id++)
         {
@@ -247,10 +238,6 @@ void run()
                     NixieOs::sendEvent(NIXIEOS_EVENT_TIMEOUT, id);
                 }
             }
-        }
-        if (lms ^ (uint8_t)g_nixieMs & 0x80)
-        {
-            updateTime();
         }
     }
     if (s_events[0].event != 0)

@@ -24,7 +24,7 @@
 #define NIXIE_BRIGHTNESS_BITS   5
 
 /** How quickly each digit switches to another when numerating digits in milliseconds */
-#define SCROLL_INTERVAL         50
+#define SCROLL_INTERVAL         38
 
 /** The blinking internal of the tube in milliseconds. Must be power of 2. */
 #define BLINK_INTERVAL          1024
