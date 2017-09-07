@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Nixie Library
-   &#160;<span id="projectnumber">0.6.0</span>
+   &#160;<span id="projectnumber">1.0.0</span>
    </div>
    <div id="projectbrief">Nixie Library to develop Nixie Clock</div>
   </td>
@@ -92,6 +92,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a82abfa521d7d467abb7d988d67d39e69"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6447c73ad3329187511769715d358667"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k155_i_d1.html#a6447c73ad3329187511769715d358667">switchPin</a> (uint8_t pin, uint8_t extendedPins)</td></tr>
 <tr class="separator:a6447c73ad3329187511769715d358667"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a355b5b81d4155260dd5aeb96828d6464"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k155_i_d1.html#a355b5b81d4155260dd5aeb96828d6464">off</a> ()</td></tr>
+<tr class="separator:a355b5b81d4155260dd5aeb96828d6464"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Transforms digit to binary code to control <a class="el" href="class_k155_i_d1.html" title="Transforms digit to binary code to control K155ID1 driver. ">K155ID1</a> driver. </p>
@@ -210,6 +212,36 @@ Public Member Functions</h2></td></tr>
 <p>Implements <a class="el" href="class_nixie_driver.html#afa2e84211696fe1d0c944ee1566fefa2">NixieDriver</a>.</p>
 
 <p>Definition at line <a class="el" href="nixie__k155id1_8cpp_source.html#l00057">57</a> of file <a class="el" href="nixie__k155id1_8cpp_source.html">nixie_k155id1.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a355b5b81d4155260dd5aeb96828d6464"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a355b5b81d4155260dd5aeb96828d6464">&sect;&nbsp;</a></span>off()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void K155ID1::off </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Disables all output pins. That is, noone pin is selected. Be careful, because for <a class="el" href="class_k155_i_d1.html" title="Transforms digit to binary code to control K155ID1 driver. ">K155ID1</a> chip it is done by setting incorrect binary code on input (1,1,1,1). This can cause some <a class="el" href="class_k155_i_d1.html" title="Transforms digit to binary code to control K155ID1 driver. ">K155ID1</a> chips to become broken. </p>
+
+<p>Implements <a class="el" href="class_nixie_driver.html#ae4d0dc0e05900a156023680e2d19f9f9">NixieDriver</a>.</p>
+
+<p>Definition at line <a class="el" href="nixie__k155id1_8cpp_source.html#l00066">66</a> of file <a class="el" href="nixie__k155id1_8cpp_source.html">nixie_k155id1.cpp</a>.</p>
 
 </div>
 </div>

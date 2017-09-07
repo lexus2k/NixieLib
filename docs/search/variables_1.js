@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['duration',['duration',['../struct_s_nixie_sampling_note.html#ae9c77c14c683aabd6f2177cf8d5f08be',1,'SNixieSamplingNote']]]
+  ['b',['b',['../struct_s_nixie_color.html#a38874c0aef9a65e0806c1e3c178c5557',1,'SNixieColor']]]
 ];

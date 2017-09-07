@@ -10,6 +10,11 @@ nixieAnalogRead) for Atmega328p controllers. The library uses millis() and micro
 functions. So, if you change TIMER0 settings, this will affect NixieLib behavior.
 If you have questions, please contact via email.
 
+Now the library contains full-cycle example of Nixie clock with schematics, layout, full source code.
+Refer to https://github.com/lexus2k/NixieLib/tree/master/examples/nixie_clock_in14_v1
+![Image of Nixie Clock](https://github.com/lexus2k/NixieLib/blob/master/examples/nixie_clock_in14_v1/pictures/IMG_5123.JPG)
+
+
 The library supports the following devices:
  * DS3231, DS3232 RTC chips
  * Piezo buzzer audio output

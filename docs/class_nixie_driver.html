@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Nixie Library
-   &#160;<span id="projectnumber">0.6.0</span>
+   &#160;<span id="projectnumber">1.0.0</span>
    </div>
    <div id="projectbrief">Nixie Library to develop Nixie Clock</div>
   </td>
@@ -85,6 +85,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:afa2e84211696fe1d0c944ee1566fefa2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1a1de17599d107c14d4536188531e7c6"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_nixie_driver.html#a1a1de17599d107c14d4536188531e7c6">switchPin</a> (uint8_t pin, uint8_t extendedPins)=0</td></tr>
 <tr class="separator:a1a1de17599d107c14d4536188531e7c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae4d0dc0e05900a156023680e2d19f9f9"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_nixie_driver.html#ae4d0dc0e05900a156023680e2d19f9f9">off</a> ()=0</td></tr>
+<tr class="separator:ae4d0dc0e05900a156023680e2d19f9f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Base class for all drivers to control Nixie tubes cathodes. </p>
@@ -116,6 +118,34 @@ Public Member Functions</h2></td></tr>
 <p>Initializes Nixie Driver </p>
 
 <p>Implemented in <a class="el" href="class_k155_i_d1.html#a82abfa521d7d467abb7d988d67d39e69">K155ID1</a>.</p>
+
+</div>
+</div>
+<a id="ae4d0dc0e05900a156023680e2d19f9f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae4d0dc0e05900a156023680e2d19f9f9">&sect;&nbsp;</a></span>off()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void NixieDriver::off </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Disables all output pins. That is, noone pin is selected. </p>
+
+<p>Implemented in <a class="el" href="class_k155_i_d1.html#a355b5b81d4155260dd5aeb96828d6464">K155ID1</a>.</p>
 
 </div>
 </div>

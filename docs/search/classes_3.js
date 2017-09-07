@@ -5,5 +5,6 @@ var searchData=
   ['snixieevent',['SNixieEvent',['../struct_s_nixie_event.html',1,'']]],
   ['snixiesamplingnote',['SNixieSamplingNote',['../struct_s_nixie_sampling_note.html',1,'']]],
   ['snixiestateinfo',['SNixieStateInfo',['../struct_s_nixie_state_info.html',1,'']]],
-  ['snixietemponote',['SNixieTempoNote',['../struct_s_nixie_tempo_note.html',1,'']]]
+  ['snixietemponote',['SNixieTempoNote',['../struct_s_nixie_tempo_note.html',1,'']]],
+  ['stimerinfo',['STimerInfo',['../struct_s_timer_info.html',1,'']]]
 ];

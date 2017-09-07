@@ -7,7 +7,10 @@ var searchData=
   ['getbrightness',['getBrightness',['../class_nixie_display.html#a7522c80942939c47cc1ad4d4584c7f0b',1,'NixieDisplay::getBrightness()'],['../class_nixie_tube.html#a3d697c90b1e1671dd7f7ad133da36c58',1,'NixieTube::getBrightness()']]],
   ['getbyindex',['getByIndex',['../class_nixie_display.html#a6f2df766f73dc8dfcc4662b3d645e545',1,'NixieDisplay']]],
   ['getdatetime',['getDateTime',['../class_ds3231.html#a84ea4ab922820b54e32a6922874c0ca5',1,'Ds3231']]],
+  ['getdayadclevel',['getDayAdcLevel',['../class_nixie_ldr_gl5528.html#a15c10d230335f7ae377002c3f2df39be',1,'NixieLdrGl5528']]],
   ['gethumidity',['getHumidity',['../class_nixie_h_t_u21.html#a083a8a8ed55c4c2c3f8daec135cc9069',1,'NixieHTU21']]],
+  ['getnightadclevel',['getNightAdcLevel',['../class_nixie_ldr_gl5528.html#a24362a746a8273a67590871da1005c70',1,'NixieLdrGl5528']]],
+  ['getroomadclevel',['getRoomAdcLevel',['../class_nixie_ldr_gl5528.html#a1149fc2f4c6588abd65645427a79287e',1,'NixieLdrGl5528']]],
   ['gettemp',['getTemp',['../class_ds3231.html#a0c350c45a10e2e8d1032ee694bd7da92',1,'Ds3231']]],
   ['gettemperature',['getTemperature',['../class_nixie_h_t_u21.html#a871ca8c8c86e1c82bd7d52e2f3fb8037',1,'NixieHTU21']]]
 ];

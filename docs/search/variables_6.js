@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['id',['id',['../struct_s_nixie_state_info.html#a139285a1eb0ea3a0c7674edc6dab0d9a',1,'SNixieStateInfo']]]
+  ['hours',['hours',['../struct_nixie_os_time.html#a0bc2b8fb81fc24f7ac659d4ac4e6fdc2',1,'NixieOsTime']]]
 ];

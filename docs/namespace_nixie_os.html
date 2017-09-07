@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Nixie Library
-   &#160;<span id="projectnumber">0.6.0</span>
+   &#160;<span id="projectnumber">1.0.0</span>
    </div>
    <div id="projectbrief">Nixie Library to develop Nixie Clock</div>
   </td>
@@ -77,18 +77,9 @@ Enumerations</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ae4cadcfde0bd4b5592644c306309e41b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_nixie_os.html#ae4cadcfde0bd4b5592644c306309e41b">setup</a> (const <a class="el" href="struct_s_nixie_state_info.html">SNixieStateInfo</a> tasks[])</td></tr>
-<tr class="memdesc:ae4cadcfde0bd4b5592644c306309e41b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes state machine states information.  <a href="#ae4cadcfde0bd4b5592644c306309e41b">More...</a><br /></td></tr>
-<tr class="separator:ae4cadcfde0bd4b5592644c306309e41b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aab89d8ec4e2f2aa9f9a4d997e77357fc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_nixie_os.html#aab89d8ec4e2f2aa9f9a4d997e77357fc">loop</a> ()</td></tr>
-<tr class="memdesc:aab89d8ec4e2f2aa9f9a4d997e77357fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts infinite loop.  <a href="#aab89d8ec4e2f2aa9f9a4d997e77357fc">More...</a><br /></td></tr>
-<tr class="separator:aab89d8ec4e2f2aa9f9a4d997e77357fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3f80fc35f2b09df29e62f153d6d7985b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_nixie_os.html#a3f80fc35f2b09df29e62f153d6d7985b">run</a> ()</td></tr>
-<tr class="memdesc:a3f80fc35f2b09df29e62f153d6d7985b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runs single iteration of state machine.  <a href="#a3f80fc35f2b09df29e62f153d6d7985b">More...</a><br /></td></tr>
-<tr class="separator:a3f80fc35f2b09df29e62f153d6d7985b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3a7e123eb3410e42f9cdc9874e27220c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_nixie_os.html#a3a7e123eb3410e42f9cdc9874e27220c">refresh</a> ()</td></tr>
-<tr class="memdesc:a3a7e123eb3410e42f9cdc9874e27220c"><td class="mdescLeft">&#160;</td><td class="mdescRight">refreshes internal variables of <a class="el" href="namespace_nixie_os.html">NixieOs</a>.  <a href="#a3a7e123eb3410e42f9cdc9874e27220c">More...</a><br /></td></tr>
-<tr class="separator:a3a7e123eb3410e42f9cdc9874e27220c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a54a3a8eb431b3634ac9b38a66f892670"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_nixie_os.html#a54a3a8eb431b3634ac9b38a66f892670">sendEvent</a> (uint8_t id, uint8_t param)</td></tr>
+<tr class="memdesc:a54a3a8eb431b3634ac9b38a66f892670"><td class="mdescLeft">&#160;</td><td class="mdescRight">puts new event to internal <a class="el" href="namespace_nixie_os.html">NixieOs</a> queue.  <a href="#a54a3a8eb431b3634ac9b38a66f892670">More...</a><br /></td></tr>
+<tr class="separator:a54a3a8eb431b3634ac9b38a66f892670"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4f7e31dbad018804e8c98b8eaf5e4325"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_nixie_os.html#a4f7e31dbad018804e8c98b8eaf5e4325">pushTask</a> (uint8_t id)</td></tr>
 <tr class="memdesc:a4f7e31dbad018804e8c98b8eaf5e4325"><td class="mdescLeft">&#160;</td><td class="mdescRight">remembers current state and switches to new state.  <a href="#a4f7e31dbad018804e8c98b8eaf5e4325">More...</a><br /></td></tr>
 <tr class="separator:a4f7e31dbad018804e8c98b8eaf5e4325"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -98,9 +89,6 @@ Functions</h2></td></tr>
 <tr class="memitem:a57abe178628f683c3d1ffefe32c342fa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_nixie_os.html#a57abe178628f683c3d1ffefe32c342fa">switchTask</a> (uint8_t id)</td></tr>
 <tr class="memdesc:a57abe178628f683c3d1ffefe32c342fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">switches to new state.  <a href="#a57abe178628f683c3d1ffefe32c342fa">More...</a><br /></td></tr>
 <tr class="separator:a57abe178628f683c3d1ffefe32c342fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a54a3a8eb431b3634ac9b38a66f892670"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_nixie_os.html#a54a3a8eb431b3634ac9b38a66f892670">sendEvent</a> (uint8_t id, uint8_t param)</td></tr>
-<tr class="memdesc:a54a3a8eb431b3634ac9b38a66f892670"><td class="mdescLeft">&#160;</td><td class="mdescRight">puts new event to internal <a class="el" href="namespace_nixie_os.html">NixieOs</a> queue.  <a href="#a54a3a8eb431b3634ac9b38a66f892670">More...</a><br /></td></tr>
-<tr class="separator:a54a3a8eb431b3634ac9b38a66f892670"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3bbe0e6edc3de6b5dab284ef3f76b5ea"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_nixie_os.html#a3bbe0e6edc3de6b5dab284ef3f76b5ea">resetTimer</a> (uint8_t id)</td></tr>
 <tr class="memdesc:a3bbe0e6edc3de6b5dab284ef3f76b5ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">resets timer, and it starts to count again  <a href="#a3bbe0e6edc3de6b5dab284ef3f76b5ea">More...</a><br /></td></tr>
 <tr class="separator:a3bbe0e6edc3de6b5dab284ef3f76b5ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -113,6 +101,18 @@ Functions</h2></td></tr>
 <tr class="memitem:a4b3f9587c8cfb2c552a9fff9a45575af"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_nixie_os.html#a4b3f9587c8cfb2c552a9fff9a45575af">restartTimer</a> (uint8_t id)</td></tr>
 <tr class="memdesc:a4b3f9587c8cfb2c552a9fff9a45575af"><td class="mdescLeft">&#160;</td><td class="mdescRight">restarts disabled timer.  <a href="#a4b3f9587c8cfb2c552a9fff9a45575af">More...</a><br /></td></tr>
 <tr class="separator:a4b3f9587c8cfb2c552a9fff9a45575af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae4cadcfde0bd4b5592644c306309e41b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_nixie_os.html#ae4cadcfde0bd4b5592644c306309e41b">setup</a> (const <a class="el" href="struct_s_nixie_state_info.html">SNixieStateInfo</a> tasks[])</td></tr>
+<tr class="memdesc:ae4cadcfde0bd4b5592644c306309e41b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes state machine states information.  <a href="#ae4cadcfde0bd4b5592644c306309e41b">More...</a><br /></td></tr>
+<tr class="separator:ae4cadcfde0bd4b5592644c306309e41b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab89d8ec4e2f2aa9f9a4d997e77357fc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_nixie_os.html#aab89d8ec4e2f2aa9f9a4d997e77357fc">loop</a> ()</td></tr>
+<tr class="memdesc:aab89d8ec4e2f2aa9f9a4d997e77357fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts infinite loop.  <a href="#aab89d8ec4e2f2aa9f9a4d997e77357fc">More...</a><br /></td></tr>
+<tr class="separator:aab89d8ec4e2f2aa9f9a4d997e77357fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a7e123eb3410e42f9cdc9874e27220c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_nixie_os.html#a3a7e123eb3410e42f9cdc9874e27220c">refresh</a> ()</td></tr>
+<tr class="memdesc:a3a7e123eb3410e42f9cdc9874e27220c"><td class="mdescLeft">&#160;</td><td class="mdescRight">refreshes internal variables of <a class="el" href="namespace_nixie_os.html">NixieOs</a>.  <a href="#a3a7e123eb3410e42f9cdc9874e27220c">More...</a><br /></td></tr>
+<tr class="separator:a3a7e123eb3410e42f9cdc9874e27220c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f80fc35f2b09df29e62f153d6d7985b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_nixie_os.html#a3f80fc35f2b09df29e62f153d6d7985b">run</a> ()</td></tr>
+<tr class="memdesc:a3f80fc35f2b09df29e62f153d6d7985b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runs single iteration of state machine.  <a href="#a3f80fc35f2b09df29e62f153d6d7985b">More...</a><br /></td></tr>
+<tr class="separator:a3f80fc35f2b09df29e62f153d6d7985b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="namespace_nixie_os.html">NixieOs</a> service functions </p>
@@ -135,6 +135,8 @@ Functions</h2></td></tr>
 <p>Starts infinite loop. </p>
 <p>Enters infinite loop and runs state machine. If you want to do anything else outside state machine functions, please, do not use this function. Refer to <a class="el" href="namespace_nixie_os.html#a3f80fc35f2b09df29e62f153d6d7985b" title="Runs single iteration of state machine. ">run()</a> function instead. </p>
 
+<p>Definition at line <a class="el" href="nixieos_8cpp_source.html#l00207">207</a> of file <a class="el" href="nixieos_8cpp_source.html">nixieos.cpp</a>.</p>
+
 </div>
 </div>
 <a id="ab6e931faf515331c6b9e232a65b94231"></a>
@@ -155,6 +157,8 @@ Functions</h2></td></tr>
 <p>switches back to remembered state. </p>
 <p>Switches to remembered state. This function calls SSSEnterFunction(), where SSS is state name.</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="namespace_nixie_os.html#a4f7e31dbad018804e8c98b8eaf5e4325" title="remembers current state and switches to new state. ">pushTask</a> </dd></dl>
+
+<p>Definition at line <a class="el" href="nixieos_8cpp_source.html#l00107">107</a> of file <a class="el" href="nixieos_8cpp_source.html">nixieos.cpp</a>.</p>
 
 </div>
 </div>
@@ -184,6 +188,8 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="namespace_nixie_os.html#ab6e931faf515331c6b9e232a65b94231" title="switches back to remembered state. ">popTask</a> </dd></dl>
 
+<p>Definition at line <a class="el" href="nixieos_8cpp_source.html#l00101">101</a> of file <a class="el" href="nixieos_8cpp_source.html">nixieos.cpp</a>.</p>
+
 </div>
 </div>
 <a id="a3a7e123eb3410e42f9cdc9874e27220c"></a>
@@ -203,6 +209,8 @@ Functions</h2></td></tr>
 
 <p>refreshes internal variables of <a class="el" href="namespace_nixie_os.html">NixieOs</a>. </p>
 <p>Refreshes internal variables of <a class="el" href="namespace_nixie_os.html">NixieOs</a>. If you don't call <a class="el" href="namespace_nixie_os.html#a3f80fc35f2b09df29e62f153d6d7985b" title="Runs single iteration of state machine. ">run()</a> for a long time, or you implement infinite/ long loop in state machine function, just call <a class="el" href="namespace_nixie_os.html#a3a7e123eb3410e42f9cdc9874e27220c" title="refreshes internal variables of NixieOs. ">refresh()</a> function in the loop to keep all <a class="el" href="namespace_nixie_os.html">NixieOs</a> service function working. </p>
+
+<p>Definition at line <a class="el" href="nixieos_8cpp_source.html#l00216">216</a> of file <a class="el" href="nixieos_8cpp_source.html">nixieos.cpp</a>.</p>
 
 </div>
 </div>
@@ -232,6 +240,8 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section note"><dt>Note</dt><dd><a class="el" href="namespace_nixie_os.html">NixieOs</a> supports 2 timers: 0 and 1. </dd></dl>
 
+<p>Definition at line <a class="el" href="nixieos_8cpp_source.html#l00164">164</a> of file <a class="el" href="nixieos_8cpp_source.html">nixieos.cpp</a>.</p>
+
 </div>
 </div>
 <a id="a4b3f9587c8cfb2c552a9fff9a45575af"></a>
@@ -260,6 +270,8 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section note"><dt>Note</dt><dd><a class="el" href="namespace_nixie_os.html">NixieOs</a> supports 2 timers: 0 and 1. </dd></dl>
 
+<p>Definition at line <a class="el" href="nixieos_8cpp_source.html#l00183">183</a> of file <a class="el" href="nixieos_8cpp_source.html">nixieos.cpp</a>.</p>
+
 </div>
 </div>
 <a id="a3f80fc35f2b09df29e62f153d6d7985b"></a>
@@ -279,6 +291,8 @@ Functions</h2></td></tr>
 
 <p>Runs single iteration of state machine. </p>
 <p>Runs single iteration of state machine and exists. </p>
+
+<p>Definition at line <a class="el" href="nixieos_8cpp_source.html#l00223">223</a> of file <a class="el" href="nixieos_8cpp_source.html">nixieos.cpp</a>.</p>
 
 </div>
 </div>
@@ -319,6 +333,8 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true if event is put to queue false if there is no space in internal event queue. </dd></dl>
 
+<p>Definition at line <a class="el" href="nixieos_8cpp_source.html#l00063">63</a> of file <a class="el" href="nixieos_8cpp_source.html">nixieos.cpp</a>.</p>
+
 </div>
 </div>
 <a id="ae4cadcfde0bd4b5592644c306309e41b"></a>
@@ -346,6 +362,8 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+<p>Definition at line <a class="el" href="nixieos_8cpp_source.html#l00199">199</a> of file <a class="el" href="nixieos_8cpp_source.html">nixieos.cpp</a>.</p>
 
 </div>
 </div>
@@ -386,6 +404,8 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section note"><dt>Note</dt><dd><a class="el" href="namespace_nixie_os.html">NixieOs</a> supports 2 timers: 0 and 1. </dd></dl>
 
+<p>Definition at line <a class="el" href="nixieos_8cpp_source.html#l00176">176</a> of file <a class="el" href="nixieos_8cpp_source.html">nixieos.cpp</a>.</p>
+
 </div>
 </div>
 <a id="acddc9a85333665196b3f253c70ba270c"></a>
@@ -414,6 +434,8 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section note"><dt>Note</dt><dd><a class="el" href="namespace_nixie_os.html">NixieOs</a> supports 2 timers: 0 and 1. </dd></dl>
 
+<p>Definition at line <a class="el" href="nixieos_8cpp_source.html#l00170">170</a> of file <a class="el" href="nixieos_8cpp_source.html">nixieos.cpp</a>.</p>
+
 </div>
 </div>
 <a id="a57abe178628f683c3d1ffefe32c342fa"></a>
@@ -440,6 +462,8 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+<p>Definition at line <a class="el" href="nixieos_8cpp_source.html#l00112">112</a> of file <a class="el" href="nixieos_8cpp_source.html">nixieos.cpp</a>.</p>
 
 </div>
 </div>
