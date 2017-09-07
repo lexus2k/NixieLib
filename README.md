@@ -12,7 +12,7 @@ If you have questions, please contact via email.
 
 Now the library contains full-cycle example of Nixie clock with schematics, layout, full source code.
 Refer to https://github.com/lexus2k/NixieLib/tree/master/examples/nixie_clock_in14_v1
-![Image of Nixie Clock](https://github.com/lexus2k/NixieLib/blob/master/examples/nixie_clock_in14_v1/pictures/IMG_5123.JPG)
+![Image of Nixie Clock](https://github.com/lexus2k/NixieLib/blob/master/examples/nixie_clock_in14_v1/pictures/IMG_5123_preview.JPG)
 
 
 The library supports the following devices:
