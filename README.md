@@ -30,8 +30,8 @@ The library supports the following features:
 
  * Switching between states (state-machine tasks)
  * Sending and processes events
- ** System events: timers
- ** User defined events
+ * * System events: timers
+ * * User defined events
  * Fast analog read functions (optimized for Atmega328p)
  * Fast digital write functions (optimized for Atmega328p)
 
