@@ -23,9 +23,9 @@
  * 2. Atmega328P     - heart of the system
  * 3. Attiny85       - sound processor, connected over I2C, with 2 piezo-buzzers
  * 4. DS3232N        - precise real time clock, connected over I2C
- * 5. LM35DZ         - temperature sensor with low self-heating
+ * 5. HTU21          - temperature sensor with low self-heating
  * 6. GL5516         - photo-resistor (light sensor)
- * 7. HH-500CRGBC503 - RGB Light diode
+ * 7. RBG 5050       - RGB Light diode
  * 8. 4 Buttons
  * 
  * .---------------------------------------------------------------------------------------------------------------.
@@ -53,7 +53,7 @@
  *     4. The clock turns off the screen from 11pm till 6am, if no buttons activity.
  *     5. The screen is automatically turned on in high light conditions.
 
-// ATMEL ATMEGA8 & 168 & 328 / ARDUINO
+// ATMEL 328p / ARDUINO
 //
 //                  +-\/-+
 //    10kOm   PC6  1|    |28  PC5 (AI 5) SCL
