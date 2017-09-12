@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['randomeffect',['randomEffect',['../class_nixie_display.html#a51dd85072606eae343a48502165a3ab9',1,'NixieDisplay']]],
   ['refresh',['refresh',['../namespace_nixie_os.html#a3a7e123eb3410e42f9cdc9874e27220c',1,'NixieOs']]],
   ['refreshtime',['refreshTime',['../class_ds3231.html#a5d13330fef3852881eaf5a5b87a12fb1',1,'Ds3231']]],
   ['render',['render',['../class_nixie_display.html#a94a7b627232da5afc7a1be240478b5ca',1,'NixieDisplay']]],

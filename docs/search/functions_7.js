@@ -9,5 +9,6 @@ var searchData=
   ['islongpress',['isLongPress',['../class_nixie_analog_buttons.html#a11e31cf79bd4214a73f7701114285364',1,'NixieAnalogButtons::isLongPress(uint8_t n)'],['../class_nixie_analog_buttons.html#a1c7a0982fb72a6b2e5f87669bcf90fab',1,'NixieAnalogButtons::isLongPress(uint8_t n, uint16_t duration)']]],
   ['isnoaction',['isNoAction',['../class_nixie_analog_buttons.html#a2644c79b049e321299ccba7e2518230e',1,'NixieAnalogButtons']]],
   ['isplaying',['isPlaying',['../class_nixie_audio_channel.html#af0453db2ac59ba4163ccf2fda990710d',1,'NixieAudioChannel']]],
-  ['isshortpress',['isShortPress',['../class_nixie_analog_buttons.html#a8c3fa33ccd6bba44753eeb41a5d3ffc9',1,'NixieAnalogButtons::isShortPress(uint8_t n)'],['../class_nixie_analog_buttons.html#a471fa668e6d26008829ba1755ccc3589',1,'NixieAnalogButtons::isShortPress()'],['../class_nixie_analog_buttons.html#af068026b45f0adcd134410d21cbbeb48',1,'NixieAnalogButtons::isShortPress(uint8_t n, uint16_t duration)']]]
+  ['isshortpress',['isShortPress',['../class_nixie_analog_buttons.html#a8c3fa33ccd6bba44753eeb41a5d3ffc9',1,'NixieAnalogButtons::isShortPress(uint8_t n)'],['../class_nixie_analog_buttons.html#a471fa668e6d26008829ba1755ccc3589',1,'NixieAnalogButtons::isShortPress()'],['../class_nixie_analog_buttons.html#af068026b45f0adcd134410d21cbbeb48',1,'NixieAnalogButtons::isShortPress(uint8_t n, uint16_t duration)']]],
+  ['isweekend',['isWeekEnd',['../class_ds3231.html#aff3e1ae4ba94b6428fbdcd2035b5501d',1,'Ds3231']]]
 ];

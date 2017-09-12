@@ -111,7 +111,7 @@ public:
      */
     void off();
 
-   
+    /** Smoothly turns off nixie tubes */
     void smoothOff();
     
     /**
@@ -124,10 +124,13 @@ public:
      */
     void moveRight(int8_t positions = 12);
 
+    /** Scrolls all digits to target values, starting with zero-brightness */
     void scrollOn();
     
+    /** Scrolls all digits, reducing brightness to zero-values */
     void scrollOff();
 
+    /** Generates random effect, when changing digits */
     void randomEffect();
     
     /**

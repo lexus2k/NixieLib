@@ -45,11 +45,17 @@ public:
      * 00101001 means 29 seconds (or minutes)
      */
     uint8_t          m_seconds;
+    /** @copydoc Ds3231::m_seconds */
     uint8_t          m_minutes;
+    /** @copydoc Ds3231::m_seconds */
     uint8_t          m_hours;
+    /** @copydoc Ds3231::m_seconds */
     uint8_t          m_day_of_week;
+    /** @copydoc Ds3231::m_seconds */
     uint8_t          m_day;
+    /** @copydoc Ds3231::m_seconds */
     uint8_t          m_month;
+    /** @copydoc Ds3231::m_seconds */
     uint8_t          m_year;
 
     /**
@@ -127,13 +133,27 @@ public:
      * If timestamps are 22*60 and 60, the function will return 180.
      */
     static int16_t timeDelta(int16_t min1, int16_t min2);
-    
+
+    /**
+     * Returns true if it is Sunday or Saturday.
+     */
+    bool isWeekEnd() { return (m_day_of_week == 1) || (m_day_of_week == 7); };
+
 private:
     static const int I2C_ADDR_AT24C32 = 0x57;
     static const int I2C_ADDR_DS3231  = 0x68;
     uint16_t m_lastRefreshTs;
     bool m_no_device;
 };
+
+/**
+ * Returns day of week (0 - sunday, 1 - monday, etc. )
+ * @param year - Full year (4-digit)
+ * @param month - month number (1-based)
+ * @param day - day number (1-based)
+ * @return day of week
+ */
+uint8_t getDayOfWeek(uint16_t year, uint8_t month, uint8_t day);
 
 #endif /* _NIXIE_RTC_H_ */
 

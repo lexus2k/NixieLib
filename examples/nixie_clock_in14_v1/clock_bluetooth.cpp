@@ -22,6 +22,8 @@
 #include "clock_lightsensor.h"
 #include "clock_nightmode.h"
 
+#include "nixie_ds3232.h"
+
 #include <SoftwareSerial.h>
 
 static SoftwareSerial  g_btSerial(14,16);  // 14 RX, 16 TX
@@ -76,6 +78,11 @@ void bluetoothCheck()
         {
             case 'i':
                 g_audioClient.inDoorLight((buf[1] - '0')*25);
+                break;
+            case 'c':
+                g_savedSettings.nightHighlightBrightness = (buf[1] - '0');
+                saveToEeprom();
+                g_btSerial.write( "OK" );
                 break;
             case 'o':
                 g_audioClient.outDoorLight((buf[1] - '0')*25);
@@ -152,18 +159,22 @@ void bluetoothCheck()
                     g_rtc.m_month = Ds3231::toInternal( toInt(buf, i, index) );
                     i++;
                     g_rtc.m_day = Ds3231::toInternal( toInt(buf, i, index) );
+                    g_rtc.m_day_of_week = getDayOfWeek(Ds3231::toDecimal(g_rtc.m_year) + 2000,
+                                                       Ds3231::toDecimal(g_rtc.m_month),
+                                                       Ds3231::toDecimal(g_rtc.m_day)) + 1;
                     g_rtc.setDate();
                 }
                 break;
             case 'h':
             default:
                 g_btSerial.write("use 1 char command with args\n");
-                g_btSerial.write("io - diorama light\n");
-                g_btSerial.write("lb - test light sensor\n");
+                g_btSerial.write("i|o - diorama light\n");
+                g_btSerial.write("l|b - test light sensor\n");
                 g_btSerial.write("son,soff - scroll test\n");
-                g_btSerial.write("drn - get/set light sensor settings\n");
+                g_btSerial.write("d|r|n - get/set light sensor settings\n");
                 g_btSerial.write("tHH:MM:SS - set time\n");
                 g_btSerial.write("tdYYYY/MM/DD - set date\n");
+                g_btSerial.write("c - set night highlight 0-9\n");
                 break;
         }
         if (!isNightSleeping())

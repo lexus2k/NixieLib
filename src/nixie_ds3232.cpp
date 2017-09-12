@@ -36,13 +36,13 @@ bool Ds3231::init()
     if ( Wire.endTransmission() != 0)
     {
         m_no_device = true;
-        m_seconds     = 0;
-        m_minutes     = 0;
-        m_hours       = 0;
-        m_day_of_week = 1;
-        m_day         = 1;
-        m_month       = 1;
-        m_year        = 16;
+        m_seconds     = 0x00;
+        m_minutes     = 0x00;
+        m_hours       = 0x00;
+        m_day         = 0x01;
+        m_month       = 0x01;
+        m_year        = 0x17;
+        m_day_of_week = getDayOfWeek(toDecimal(m_year) + 2000, toDecimal(m_month), toDecimal(m_day)) + 1;
     }
     else
     {
@@ -228,8 +228,16 @@ void Ds3231::refreshTime(ERefreshType type)
     }
 }
 
-
 #endif
+
+uint8_t getDayOfWeek(uint16_t year, uint8_t month, uint8_t day)
+{
+    uint8_t a = (14 - month) / 12;
+    uint16_t y = year - a;
+    uint8_t m = month + 12 * a - 2;
+    uint8_t dayOfWeek = (7000 + day + y + y / 4 - y / 100 + y / 400 + (31 * (uint16_t)m) / 12) % 7;
+}
+
 
 
 

@@ -39,16 +39,13 @@ static uint32_t     s_nightModeTs;
 
 static bool isAlarmSoon()
 {
-//    if (g_savedSettings.alarmEnable)
-//    {
-        int16_t mins1 = Ds3231::toMinutes(g_savedSettings.alarmHours, g_savedSettings.alarmMinutes, false);
-        int16_t mins2 = Ds3231::toMinutes(g_rtc.m_hours, g_rtc.m_minutes, false);
-        /* Somebody is going to get up soon ? */
-        if ( Ds3231::timeDelta(mins1, mins2) < ALARM_WAKE_UP_CLOCK_BEFORE_M )
-        {
-            return true;
-        }
-//    }
+    int16_t mins1 = Ds3231::toMinutes(g_savedSettings.alarmHours, g_savedSettings.alarmMinutes, false);
+    int16_t mins2 = Ds3231::toMinutes(g_rtc.m_hours, g_rtc.m_minutes, false);
+    /* Somebody is going to get up soon ? */
+    if ( Ds3231::timeDelta(mins1, mins2) < ALARM_WAKE_UP_CLOCK_BEFORE_M )
+    {
+        return true;
+    }
     return false;
 }
 
@@ -56,6 +53,12 @@ static bool isAlarmSoon()
 inline bool isNobodyAtHome()
 {
     /* Nobody at home ? */
+    /* On Sunday and Saturday home is full of guests */
+    if (g_rtc.isWeekEnd( ))
+    {
+        return false;
+    }
+    /* On work days everybody is at work */
     if ((g_rtc.m_hours>=0x11) && (g_rtc.m_hours<0x17))
     {
         return true;

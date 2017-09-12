@@ -58,8 +58,18 @@ void updateHighlight(bool useLightSensor, uint8_t sensorBrightness)
     }
     if (isNightSleeping())
     {
-        if ( sensorBrightness < 5 ) sensorBrightness = 5;
-        g_highlight.brightness( sensorBrightness );
+        if ( g_savedSettings.nightHighlightBrightness == 0 )
+        {
+            g_highlight.off();
+        }
+        else
+        {
+            if ( sensorBrightness < g_savedSettings.nightHighlightBrightness )
+            {
+                sensorBrightness = g_savedSettings.nightHighlightBrightness;
+            }
+            g_highlight.brightness( sensorBrightness );
+        }
     }
     else if (useLightSensor)
     {

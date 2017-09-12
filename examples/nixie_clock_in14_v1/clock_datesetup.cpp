@@ -69,6 +69,9 @@ static void dateSetupAccept()
     g_rtc.m_day    = s_day;
     g_rtc.m_month  = s_month;
     g_rtc.m_year   = s_year;
+    g_rtc.m_day_of_week = getDayOfWeek( Ds3231::toDecimal(s_year) + 2000,
+                                        Ds3231::toDecimal(s_month),
+                                        Ds3231::toDecimal(s_day)) + 1;
     g_rtc.setDate();
     acceptSound();
 }

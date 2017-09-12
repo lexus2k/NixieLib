@@ -48,6 +48,7 @@ void SNixieSettings::read(int base)
     colorProfile        = EEPROM.read(base + 0x15);
     displayBrightness   = EEPROM.read(base + 0x16);
     nightMode           = EEPROM.read(base + 0x17);
+    nightHighlightBrightness = EEPROM.read(base + 0x18);
     /* No highlight on default settings */
     if (nightMode == 0xFF)
     {
@@ -64,6 +65,10 @@ void SNixieSettings::read(int base)
     if (displayBrightness == 0xFF)
     {
         displayBrightness = 0xFF;
+    }
+    if (nightHighlightBrightness == 0xFF)
+    {
+        nightHighlightBrightness = 5;
     }
   
     alarmMelody         = EEPROM.read(base + 0x20);
@@ -107,6 +112,7 @@ void SNixieSettings::write(int base)
     EEPROM.update(base + 0x15, colorProfile);
     EEPROM.update(base + 0x16, displayBrightness);
     EEPROM.update(base + 0x17, nightMode);
+    EEPROM.update(base + 0x18, nightHighlightBrightness);
   
     EEPROM.update(base + 0x20, alarmMelody);
     EEPROM.update(base + 0x21, alarmEnable);

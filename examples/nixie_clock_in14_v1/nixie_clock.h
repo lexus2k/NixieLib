@@ -44,6 +44,7 @@ typedef struct SNixieSettings
     bool        highlightOn;
     uint8_t     highlightBrightness;
     uint8_t     displayBrightness;
+    uint8_t     nightHighlightBrightness;
 
     uint8_t     alarmMelody;
     bool        alarmEnable;
