@@ -22,6 +22,7 @@
 
 #include "nixieos.h"
 
+bool isRainbowMode();
 void updateHighlight(bool useLightSensor, uint8_t sensorBrightness);
 void colorSetupEnterFunction();
 void colorSetupStateFunction();

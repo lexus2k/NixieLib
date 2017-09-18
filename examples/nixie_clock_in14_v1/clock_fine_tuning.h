@@ -60,7 +60,7 @@
 /** Maximum brightness of Outdoor lights (0-32) */
 #define OUTDOOR_LIGHT_MAX_BRIGHTNESS   32
 
-#define OUTDOOR_LIGHT_THRESHOLD_LOW    (8)
+#define OUTDOOR_LIGHT_THRESHOLD_LOW    (6)
 #define OUTDOOR_LIGHT_THRESHOLD_HIGH   (13)
 #define INDOOR_LIGHT_THRESHOLD_LOW     (6)
 #define INDOOR_LIGHT_THRESHOLD_HIGH    (16)

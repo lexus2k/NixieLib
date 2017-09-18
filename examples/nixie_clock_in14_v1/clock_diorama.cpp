@@ -55,16 +55,16 @@ static inline bool notInDoorLightsTime()
 
 static inline bool outDoorLightsTime()
 {
-    return g_sensor.brightness() <= OUTDOOR_LIGHT_THRESHOLD_LOW
-           && g_sensor.brightness() > 2
+    return g_sensor.brightness() > OUTDOOR_LIGHT_THRESHOLD_LOW
+           && g_sensor.brightness() < OUTDOOR_LIGHT_THRESHOLD_HIGH
            && outdoorLightEnable;
 }
 
 static inline bool notOutDoorLightsTime()
 {
-    return g_sensor.brightness() >= OUTDOOR_LIGHT_THRESHOLD_HIGH
+    return g_sensor.brightness() > (OUTDOOR_LIGHT_THRESHOLD_HIGH + 1)
            || !outdoorLightEnable
-           || g_sensor.brightness() < 2;
+           || g_sensor.brightness() < (OUTDOOR_LIGHT_THRESHOLD_LOW -1);
 }
 
 static uint8_t calcOutdoorBrightness()

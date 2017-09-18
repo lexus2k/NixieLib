@@ -57,6 +57,7 @@ void SNixieSettings::read(int base)
     if (highlightBrightness == 0xFF)
     {
         highlightOn = true;
+//        colorProfile = 7;
         highlightBrightness = NIXIE_MAX_BRIGHTNESS;
         highlightColor.r    = 64;
         highlightColor.g    = 168;
@@ -144,6 +145,10 @@ void NixieClock::dimLight()
             lastBrightness = g_sensor.brightness();
             NixieOs::sendEvent(CLOCK_EVENT_BRIGHTNESS_CHANGED, lastBrightness);
             updateTubesBrightness( lastBrightness );
+            updateHighlight(true, lastBrightness);
+        }
+        else if (isRainbowMode())
+        {
             updateHighlight(true, lastBrightness);
         }
     }

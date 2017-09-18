@@ -38,6 +38,18 @@ static const SNixieColor colorProfiles[] =
     {128,  0,100},  // Light purple
 };
 
+static const SNixieColor s_rainbow[] =
+{
+    {252,  0,  0},
+    {252,252,  0},
+    {  0,252,  0},
+    {  0,252,252},
+    {  0,  0,252},
+    {252,  0,252},
+};
+
+static SNixieColor    s_rainbowColor = {252,0,0};
+static uint8_t        s_rainbowIndex = 0;
 
 static uint8_t        s_colorProfile;
 static SNixieColor    s_color;
@@ -61,6 +73,7 @@ void updateHighlight(bool useLightSensor, uint8_t sensorBrightness)
         if ( g_savedSettings.nightHighlightBrightness == 0 )
         {
             g_highlight.off();
+            return;
         }
         else
         {
@@ -86,11 +99,39 @@ void updateHighlight(bool useLightSensor, uint8_t sensorBrightness)
     }
     else
     {
-        g_highlight.rgb(colorProfiles[g_savedSettings.colorProfile]);
+        if ( isRainbowMode() )
+        {
+            if ( (s_rainbowColor.r == s_rainbow[s_rainbowIndex].r) &&
+                 (s_rainbowColor.g == s_rainbow[s_rainbowIndex].g) &&
+                 (s_rainbowColor.b == s_rainbow[s_rainbowIndex].b)
+               )
+            {
+                s_rainbowIndex++;
+                if ( s_rainbowIndex == sizeof(s_rainbow)/sizeof(SNixieColor) )
+                {
+                    s_rainbowIndex = 0;
+                }
+            }
+            if (s_rainbowColor.r < s_rainbow[s_rainbowIndex].r) s_rainbowColor.r += 4;
+            else if (s_rainbowColor.r > s_rainbow[s_rainbowIndex].r) s_rainbowColor.r -= 4;
+            if (s_rainbowColor.g < s_rainbow[s_rainbowIndex].g) s_rainbowColor.g += 4;
+            else if (s_rainbowColor.g > s_rainbow[s_rainbowIndex].g) s_rainbowColor.g -= 4;
+            if (s_rainbowColor.b < s_rainbow[s_rainbowIndex].b) s_rainbowColor.b += 4;
+            else if (s_rainbowColor.b > s_rainbow[s_rainbowIndex].b) s_rainbowColor.b -= 4;
+            g_highlight.rgb(s_rainbowColor);
+        }
+        else
+        {
+            g_highlight.rgb(colorProfiles[g_savedSettings.colorProfile]);
+        }
     }
 }
 
-
+bool isRainbowMode()
+{
+    return g_savedSettings.colorProfile == sizeof( colorProfiles )/sizeof(SNixieColor);
+}
+ 
 void colorSetupEnterFunction()
 {
     NixieOs::startTimer(0,SETUP_INACTIVITY_TIMEOUT_MS);
@@ -161,9 +202,20 @@ static void updateColor()
     {
         g_highlight.brightness(s_brightness);
         if (s_colorProfile == 0xFF)
+        {
             g_highlight.rgb(s_color);
+        }
         else
-            g_highlight.rgb(colorProfiles[s_colorProfile]);
+        {
+            if ( s_colorProfile == sizeof(colorProfiles)/sizeof(SNixieColor) )
+            {
+                g_highlight.rgb(s_rainbowColor);
+            }
+            else
+            {
+                g_highlight.rgb(colorProfiles[s_colorProfile]);
+            }
+        }
     }
     else
     {
@@ -243,7 +295,7 @@ void colorSetupEventFunction(SNixieEvent &event)
             else
             {
                 s_colorProfile++;
-                if (s_colorProfile >= sizeof(colorProfiles)/sizeof(SNixieColor))
+                if (s_colorProfile > sizeof(colorProfiles)/sizeof(SNixieColor))
                 {
                     s_colorProfile = 0xFF;
                 }

@@ -190,12 +190,8 @@ int16_t Ds3231::timeDelta(int16_t min1, int16_t min2)
     if (delta1 < 0)
     {
         delta1 = - delta1;
-        delta2 = 24*60 + min2 - min1;
     }
-    else
-    {
-        delta2 = 24*60 + min1 - min2;
-    }
+    delta2 = 24*60 - delta1;
     return delta1 < delta2 ? delta1: delta2;
 }
 
