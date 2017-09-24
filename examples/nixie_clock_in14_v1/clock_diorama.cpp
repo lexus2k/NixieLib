@@ -40,16 +40,14 @@ void enableDioramaLights(bool enable)
 
 static inline bool inDoorLightsTime()
 {
-    return g_sensor.brightness() >= INDOOR_LIGHT_THRESHOLD_LOW
-           && g_sensor.brightness() <= INDOOR_LIGHT_THRESHOLD_HIGH
+    return (g_sensor.brightness() >= INDOOR_LIGHT_THRESHOLD_LOW)
+           && ((g_sensor.brightness() <= INDOOR_LIGHT_THRESHOLD_HIGH) || (g_rtc.m_hours>=0x21))
            && indoorLightEnable;
 }
 
 static inline bool notInDoorLightsTime()
 {
-    return g_sensor.brightness() < INDOOR_LIGHT_THRESHOLD_LOW
-           || g_sensor.brightness() > INDOOR_LIGHT_THRESHOLD_HIGH
-           || !indoorLightEnable;
+    return !inDoorLightsTime();
 }
 
 

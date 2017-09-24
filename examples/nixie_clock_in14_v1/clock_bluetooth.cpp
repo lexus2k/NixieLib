@@ -173,7 +173,7 @@ void bluetoothCheck()
                 g_btSerial.write("son,soff - scroll test\n");
                 g_btSerial.write("d|r|n - get/set light sensor settings\n");
                 g_btSerial.write("tHH:MM:SS - set time\n");
-                g_btSerial.write("tdYYYY/MM/DD - set date\n");
+                g_btSerial.write("tdYY/MM/DD - set date\n");
                 g_btSerial.write("c - set night highlight 0-9\n");
                 break;
         }

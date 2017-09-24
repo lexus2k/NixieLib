@@ -56,9 +56,9 @@
 /** Number of period before diorama lights power off */
 #define DIORAMA_LIGHTS_OFF_TIMEOUT_PERIODS 10
 /** Minimum brightness of Outdoor lights (0-32) */
-#define OUTDOOR_LIGHT_MIN_BRIGHTNESS   12
+#define OUTDOOR_LIGHT_MIN_BRIGHTNESS   16
 /** Maximum brightness of Outdoor lights (0-32) */
-#define OUTDOOR_LIGHT_MAX_BRIGHTNESS   32
+#define OUTDOOR_LIGHT_MAX_BRIGHTNESS   28
 
 #define OUTDOOR_LIGHT_THRESHOLD_LOW    (6)
 #define OUTDOOR_LIGHT_THRESHOLD_HIGH   (13)
