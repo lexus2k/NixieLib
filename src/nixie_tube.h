@@ -133,20 +133,20 @@ public:
      * Initializes NixieTube state.
      */
     void               init();
-    
-    /** 
+
+    /**
      *  Returns actual pin number to activate to displayed specific symbol on Nixie bulb.
      *  @warning Make sure that isBurning() method returns true!! Otherwise, the program will crash
      */
     inline uint8_t     getActivePin   ()                                   { return m_map[m_digit]; };
-    
+
     /** Returns true if bulb digit should be visible. Doesn't correlate with PWM state */
     inline bool        isBurning      ()                                   { return (m_digit != 0xFF) && m_enabled; };
-    
+
     /** Returns true if the bulb is not switched off */
     inline bool        isEnabled      (void)                               { return m_enabled; };
-    
-    /** 
+
+    /**
      *  Returns value, programmed to the bulb to display
      *  This value differs from the displayed digit, because displayed digit depends on
      *  the bulb state
@@ -172,7 +172,7 @@ public:
     /** Resets current brightness to set brightness and value to 0. */
     inline void        clear          ()                                   { m_value = 0; m_flags = 0;
                                                                              setActiveBrightness(m_brightness); };
-    
+
     /**
      * Turns off the nixie tube. Turning off means that isBurning() and isEnabled() returns false.
      */
@@ -183,14 +183,14 @@ public:
      * Turns on the bulb with wrap effect
      */
     inline void        wrapOn         (void)                               { scrollForward(); };
-    
+
     /**
      * Turns on the nixie tube. Switches the tube to the TUBE_NORMAL state.
      */
     inline void        on             (void)                               { m_state = TUBE_NORMAL;
                                                                              m_enabled = true;
                                                                              setActiveBrightness( m_brightness ); };
-    
+
     /** Turns on the tube by smoothly increasing tube brightness to the set brightness value */
     void               smoothOn       ();
 
@@ -282,10 +282,10 @@ public:
 
     /** Works only for the tubes with specified Anod pin-control */
     void               anodOn();
-    
+
 private:
     /**
-     * Creates object related to one Nixie Tube. Warning!!! 
+     * Creates object related to one Nixie Tube. Warning!!!
      * mapping table must be set via setMap() method before working with this object
      */
     inline NixieTube()
@@ -296,15 +296,15 @@ private:
         m_pinState = 0x00;
     }
 
-    
+
     const uint8_t    * m_map;
     NixieDriver *      m_driver;
 
     /** Defines uC pin, which controls Anod power */
-    const uint8_t    * m_pin;      
+    const uint8_t    * m_pin;
 
     /** Defines whever Power can be applied to Anod */
-    uint8_t            m_pinState    = 0; 
+    uint8_t            m_pinState    = 0;
 
     /** Current digit set */
     uint8_t            m_value      = 0;
